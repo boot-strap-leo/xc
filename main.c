@@ -50,7 +50,7 @@ int main(void)
     TRISB=0X00;
     TRISA=0XFF;
     TRISD = 0x00;
-    TRISC = 0b00000000;
+    TRISC = 0b00011000;
     PORTB=0X00;
     
     T0CON = 0b10001000;
@@ -59,38 +59,23 @@ int main(void)
     
     __delay_ms(70);
     initLCD();
-    unsigned char str[15] = "HELLO WORLD";
-    lcdWriteString(str);
+    unsigned char str[15] = "PROGRAM BEGIN";
     __delay_ms(500);
-    clearDisplay();
-    initLCD();
-    lcdWriteInt(123);
-    __delay_ms(500);
-    //*/
-    unsigned char xpos;
     
+    unsigned char pos;
     _addr = 0x20;
     
     //*
     while(1){
         clearDisplay();
         initLCD();
-        I2CStart();
-        if (positionAvailable()){
-            xpos = readZ();
-            if (xpos != ZX_ERROR){
-                lcdWriteString("X POS: ");
-                lcdWriteInt(xpos);
-            }
-            else{
-                lcdWriteString("ZX_ERROR");
-            }
-        }
-        //else{
-        //    lcdWriteString("not available");
-        //}
-        I2CStop();
-        __delay_ms(300);
+        pos = readZ();
+        lcdWriteString("Z: ");
+        lcdWriteInt(pos);
+        pos = readX();
+        lcdWriteString(" X: ");
+        lcdWriteInt(pos);
+        __delay_ms(500);
     }
     //*/
     return 0;

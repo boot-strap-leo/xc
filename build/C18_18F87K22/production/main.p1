@@ -42,12 +42,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _clearDisplay `(v ~T0 @X0 0 ef ]
 "18
 [v _lcdWriteInt `(v ~T0 @X0 0 ef1`uc ]
-"86 I2C.h
-[v _I2CStart `(v ~T0 @X0 0 ef ]
-"95
-[v _positionAvailable `(uc ~T0 @X0 0 ef ]
-"94
+"78 main.c
+[v _I2CInit `(i ~T0 @X0 0 ef ]
+"94 I2C.h
 [v _readZ `(uc ~T0 @X0 0 ef ]
+"90
+[v _readX `(uc ~T0 @X0 0 ef ]
 "85
 [v _I2CStop `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -2761,8 +2761,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.h: 88: void sendByte(unsigned char c);
 [; ;I2C.h: 89: unsigned char receiveByte();
 [; ;I2C.h: 90: unsigned char readX();
-[; ;I2C.h: 91: void writeDataByte(unsigned char reg, unsigned char val);
-[; ;I2C.h: 92: unsigned char readDataByte(unsigned char reg);
+[; ;I2C.h: 91: void writeDataByte(unsigned char addr, unsigned char reg);
+[; ;I2C.h: 92: unsigned char readDataByte(unsigned char addr, unsigned char reg);
 [; ;I2C.h: 93: unsigned char readX();
 [; ;I2C.h: 94: unsigned char readZ();
 [; ;I2C.h: 95: bool positionAvailable();
@@ -2797,9 +2797,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 52: TRISD = 0x00;
 "52
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;main.c: 53: TRISC = 0b00000000;
+[; ;main.c: 53: TRISC = 0b00011000;
 "53
-[e = _TRISC -> -> 0 `i `uc ]
+[e = _TRISC -> -> 24 `i `uc ]
 [; ;main.c: 54: PORTB=0X00;
 "54
 [e = _PORTB -> -> 0 `i `uc ]
@@ -2815,8 +2815,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 61: initLCD();
 "61
 [e ( _initLCD ..  ]
-[v F2901 `uc ~T0 @X0 -> 15 `i s ]
-[i F2901
+[v F2902 `uc ~T0 @X0 -> 15 `i s ]
+[i F2902
 :U ..
 -> 72 `c
 -> 69 `c
@@ -2835,7 +2835,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "62
 [v _str `uc ~T0 @X0 -> 15 `i a ]
 [; ;main.c: 62: unsigned char str[15] = "HELLO WORLD";
-[e = _str F2901 ]
+[e = _str F2902 ]
 [; ;main.c: 63: lcdWriteString(str);
 "63
 [e ( _lcdWriteString (1 &U _str ]
@@ -2870,65 +2870,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 77: initLCD();
 "77
 [e ( _initLCD ..  ]
-[; ;main.c: 78: I2CStart();
+[; ;main.c: 78: I2CInit();
 "78
-[e ( _I2CStart ..  ]
-[; ;main.c: 79: if (positionAvailable()){
-"79
-[e $ ! != -> ( _positionAvailable ..  `i -> -> -> 0 `i `uc `i 269  ]
-{
+[e ( _I2CInit ..  ]
 [; ;main.c: 80: xpos = readZ();
 "80
 [e = _xpos ( _readZ ..  ]
-[; ;main.c: 81: if (xpos != 0xFF){
+[; ;main.c: 81: lcdWriteString("Z: ");
 "81
-[e $ ! != -> _xpos `i -> 255 `i 270  ]
-{
-[; ;main.c: 82: lcdWriteString("X POS: ");
-"82
 [e ( _lcdWriteString (1 -> :s 1C `*uc ]
-[; ;main.c: 83: lcdWriteInt(xpos);
-"83
+[; ;main.c: 82: lcdWriteInt(xpos);
+"82
 [e ( _lcdWriteInt (1 _xpos ]
+[; ;main.c: 83: xpos = readX();
+"83
+[e = _xpos ( _readX ..  ]
+[; ;main.c: 84: lcdWriteString(" X: ");
 "84
-}
-[; ;main.c: 84: }
-[e $U 271  ]
-"85
-[e :U 270 ]
-[; ;main.c: 85: else{
-{
-[; ;main.c: 86: lcdWriteString("ZX_ERROR");
-"86
 [e ( _lcdWriteString (1 -> :s 2C `*uc ]
-"87
-}
-[e :U 271 ]
-"88
-}
-[e :U 269 ]
-[; ;main.c: 87: }
-[; ;main.c: 88: }
-[; ;main.c: 92: I2CStop();
-"92
+[; ;main.c: 85: lcdWriteInt(xpos);
+"85
+[e ( _lcdWriteInt (1 _xpos ]
+[; ;main.c: 95: I2CStop();
+"95
 [e ( _I2CStop ..  ]
-[; ;main.c: 93: _delay((unsigned long)((300)*(8000000/4000.0)));
-"93
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"94
+[; ;main.c: 96: _delay((unsigned long)((500)*(8000000/4000.0)));
+"96
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"97
 }
 [e :U 266 ]
 "75
 [e $U 267  ]
 [e :U 268 ]
-[; ;main.c: 94: }
-[; ;main.c: 96: return 0;
-"96
+[; ;main.c: 97: }
+[; ;main.c: 99: return 0;
+"99
 [e ) -> 0 `i ]
 [e $UE 265  ]
-[; ;main.c: 97: }
-"97
+[; ;main.c: 100: }
+"100
 [e :UE 265 ]
 }
-[a 2C 90 88 95 69 82 82 79 82 0 ]
-[a 1C 88 32 80 79 83 58 32 0 ]
+[a 1C 90 58 32 0 ]
+[a 2C 32 88 58 32 0 ]

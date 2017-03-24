@@ -3708,8 +3708,8 @@ void I2CShowError();
 void sendByte(unsigned char c);
 unsigned char receiveByte();
 unsigned char readX();
-void writeDataByte(unsigned char reg, unsigned char val);
-unsigned char readDataByte(unsigned char reg);
+void writeDataByte(unsigned char addr, unsigned char reg);
+unsigned char readDataByte(unsigned char addr, unsigned char reg);
 unsigned char readX();
 unsigned char readZ();
 bool positionAvailable();
@@ -3737,7 +3737,7 @@ InitApp();
 TRISB=0X00;
 TRISA=0XFF;
 TRISD = 0x00;
-TRISC = 0b00000000;
+TRISC = 0b00011000;
 PORTB=0X00;
 
 T0CON = 0b10001000;
@@ -3762,22 +3762,18 @@ _addr = 0x20;
 while(1){
 clearDisplay();
 initLCD();
-I2CStart();
-if (positionAvailable()){
+I2CInit();
+
 xpos = readZ();
-if (xpos != 0xFF){
-lcdWriteString("X POS: ");
+lcdWriteString("Z: ");
 lcdWriteInt(xpos);
-}
-else{
-lcdWriteString("ZX_ERROR");
-}
-}
+xpos = readX();
+lcdWriteString(" X: ");
+lcdWriteInt(xpos);
 
-
-
+# 95
 I2CStop();
-_delay((unsigned long)((300)*(8000000/4000.0)));
+_delay((unsigned long)((500)*(8000000/4000.0)));
 }
 
 return 0;

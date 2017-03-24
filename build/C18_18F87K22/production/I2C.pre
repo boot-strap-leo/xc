@@ -3682,8 +3682,8 @@ void I2CShowError();
 void sendByte(unsigned char c);
 unsigned char receiveByte();
 unsigned char readX();
-void writeDataByte(unsigned char reg, unsigned char val);
-unsigned char readDataByte(unsigned char reg);
+void writeDataByte(unsigned char addr, unsigned char reg);
+unsigned char readDataByte(unsigned char addr, unsigned char reg);
 unsigned char readX();
 unsigned char readZ();
 bool positionAvailable();
@@ -3717,15 +3717,18 @@ void ledOff_2();
 void ledOff_3();
 
 # 19 "I2C.c"
+void I2CInit(){
+SSPCON1bits.SSPM0 = 0;
+SSPCON1bits.SSPM1 = 0;
+SSPCON1bits.SSPM2 = 0;
+SSPCON1bits.SSPM3 = 1;
+
+SSPCON1bits.SSPEN = 1;
+}
+
 void I2CStop()
 {
-
-LATC4=0;
-_delay((unsigned long)((2)*(8000000/4000.0)));
-LATC3=1;
-_delay((unsigned long)((5)*(8000000/4000.0)));
-LATC4=1;
-_delay((unsigned long)((5)*(8000000/4000.0)));
+SSPCON2bits.PEN = 1;
 }
 
 void I2CSendError ()
@@ -3755,127 +3758,67 @@ _delay((unsigned long)((60)*(8000000/4000.0)));
 
 void I2CStart()
 {
-LATC4=1;
-_delay((unsigned long)((3)*(8000000/4000.0)));
-LATC3=1;
-_delay((unsigned long)((5)*(8000000/4000.0)));
-LATC4=0;
-_delay((unsigned long)((5)*(8000000/4000.0)));
-LATC3=0;
-_delay((unsigned long)((3)*(8000000/4000.0)));
+SSPCON2bits.SEN = 1;;
+while(SSPCON2bits.SEN == 1);
+}
+
+void I2CRestart(){
+SSPCON2bits.RSEN = 1;;
+while(SSPCON2bits.RSEN == 1);
 }
 
 void sendByte(unsigned char c){
-
-
-_delay((unsigned long)((5)*(8000000/4000.0)));
-unsigned char bit_count;
-for (bit_count = 0; bit_count < 8; bit_count++)
-{
-if (c & (0x80 >> bit_count)){
-LATC4 = 1;
-}
-else {
-LATC4 = 0;
-}
-_delay((unsigned long)((5)*(8000000/4000.0)));
-LATC3 = 1;
-_delay((unsigned long)((5)*(8000000/4000.0)));
-LATC3 = 0;
-_delay((unsigned long)((6)*(8000000/4000.0)));
-}
-_delay((unsigned long)((3)*(8000000/4000.0)));
-LATC4 = 1;
-_delay((unsigned long)((3)*(8000000/4000.0)));
-LATC3 = 1;
-_delay((unsigned long)((5)*(8000000/4000.0)));
-if (LATC4 == 1){
-ack = 0;
-I2CSendError();
-}
-else
-ack = 1;
-_delay((unsigned long)((2)*(8000000/4000.0)));
-LATC3 = 0;
-_delay((unsigned long)((3)*(8000000/4000.0)));
-LATC4 = 1;
-_delay((unsigned long)((3)*(8000000/4000.0)));
+PIR1bits.SSPIF = 0;
+SSPBUF = c;
+while(PIR1bits.SSPIF == 0);
 }
 
 unsigned char receiveByte(){
-unsigned char retc, bit_count;
-retc = 0;
-LATC4 = 1;
-_delay((unsigned long)((5)*(8000000/4000.0)));
-for (bit_count = 0; bit_count < 8; bit_count++)
-{
-_delay((unsigned long)((1)*(8000000/4000.0)));
-LATC3 = 0;
-_delay((unsigned long)((5)*(8000000/4000.0)));
-LATC3 = 1;
-_delay((unsigned long)((2)*(8000000/4000.0)));
-retc = retc << 1;
-if (LATC4 == 1)
-retc = retc + 1;
-_delay((unsigned long)((2)*(8000000/4000.0)));
-}
-LATC3 = 0;
-_delay((unsigned long)((2)*(8000000/4000.0)));
-
-# 131
+SSPCON2bits.RCEN = 1;
+PIR1bits.SSPIF = 0;
+while(PIR1bits.SSPIF == 0);
+unsigned char retc = SSPBUF;
 return retc;
 }
 
 
 
-void writeDataByte(unsigned char reg, unsigned char val){
-_addr &= 0b11111110;
-sendByte(_addr);
+void writeDataByte(unsigned char addr, unsigned char reg){
+I2CInit();
+I2CStart();
+sendByte(addr);
 sendByte(reg);
-sendByte(val);
 }
 
-unsigned char readDataByte(unsigned char reg){
-sendByte(reg);
-_addr |= 0b00000001;
-sendByte(_addr);
-
-# 162
-unsigned char c;
-c = receiveByte();
-return c;
+unsigned char readDataByte(unsigned char addr, unsigned char reg){
+writeDataByte(addr, reg);
+I2CRestart();
+sendByte(addr | 0x01);
+unsigned char retc = receiveByte();
+return retc;
 }
 
 
 unsigned char readX(){
 unsigned char x_pos;
-x_pos = readDataByte(0x08);
+x_pos = readDataByte(_addr, 0x08);
 
-if (ack == 0 || x_pos > 240){
-I2CReceiveError();
-return 0xFF;
-}
-else{
 return x_pos;
-}
+
+# 115
 }
 
 unsigned char readZ(){
 unsigned char z_pos;
-z_pos = readDataByte(0x0A);
-
-if (ack == 0 || z_pos > 240){
-I2CReceiveError();
-return 0xFF;
-}
-else{
+z_pos = readDataByte(_addr, 0x0A);
 return z_pos;
-}
+
+# 130
 }
 
 bool positionAvailable(){
 unsigned char status;
-status = readDataByte(0x00);
+status = readDataByte(_addr, 0x00);
 if(ack == 0 || (status & 0b00000001) == 0){
 return 0;
 }
@@ -3886,7 +3829,7 @@ return 1;
 
 bool gestureAvailable(){
 unsigned char status;
-status = readDataByte(0x00);
+status = readDataByte(_addr, 0x00);
 if(ack == 0 || (status & 0b00011100) == 0){
 return 0;
 }
@@ -3897,7 +3840,7 @@ return 1;
 
 GestureType readGesture(){
 unsigned char gesture;
-gesture = readDataByte(0x04);
+gesture = readDataByte(_addr, 0x04);
 if (ack == 0){
 return NO_GESTURE;
 }
@@ -3915,7 +3858,7 @@ return NO_GESTURE;
 
 unsigned char readGestureSpeed(){
 unsigned char speed;
-speed = readDataByte(0x05);
+speed = readDataByte(_addr, 0x05);
 if (ack == 0){
 return 0xFF;
 }
