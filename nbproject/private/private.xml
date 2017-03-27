@@ -3,15 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/I2C.c</file>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/user.c</file>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/I2C.h</file>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/system.h</file>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/interrupts.c</file>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/user.h</file>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/main.c</file>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/configuration_bits.c</file>
-            <file>file:/C:/Users/cap/MPLABXProjects/pic18_c_test.X/system.c</file>
+            <file>file:/home/cap/Documents/xc/pwm.c</file>
+            <file>file:/home/cap/Documents/xc/user.h</file>
+            <file>file:/home/cap/Documents/xc/user.c</file>
+            <file>file:/home/cap/Documents/xc/pwm.h</file>
+            <file>file:/home/cap/Documents/xc/nbproject/Makefile-C18_18F87K22.mk</file>
+            <file>file:/home/cap/Documents/xc/nbproject/Makefile-impl.mk</file>
+            <file>file:/home/cap/Documents/xc/I2C.h</file>
+            <file>file:/home/cap/Documents/xc/lpque.c</file>
+            <file>file:/home/cap/Documents/xc/lpque.h</file>
+            <file>file:/home/cap/Documents/xc/main.c</file>
+            <file>file:/home/cap/Documents/xc/interrupts.c</file>
+            <file>file:/home/cap/Documents/xc/system.h</file>
+            <file>file:/home/cap/Documents/xc/I2C.c</file>
         </group>
     </open-files>
 </project-private>

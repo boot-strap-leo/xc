@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"361 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18lf4620.h
+"361 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S16 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
 "371
@@ -20,10 +20,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "400
 [v _PORTCbits `VS15 ~T0 @X0 0 e@3970 ]
 [v F2802 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18.h
+"161 /opt/microchip/xc8/v1.41/include/pic18.h
 [v __delay `JF2802 ~T0 @X0 0 e ]
 [p i __delay ]
-"529 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18lf4620.h
+"529 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
 "983
 [v _LATB `Vuc ~T0 @X0 0 e@3978 ]
@@ -31,7 +31,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18lf4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18lf4620.h
+"51 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [; ;pic18lf4620.h: 51: asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
 [; ;pic18lf4620.h: 54: typedef union {
@@ -2702,7 +2702,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.h: 13: void InitApp(void);
 [; ;user.h: 15: void initLCD(void);
 [; ;user.h: 16: void lcdEnable(void);
-[; ;user.h: 18: void lcdWriteInt(unsigned char num);
+[; ;user.h: 18: void lcdWriteInt(int num);
 [; ;user.h: 19: void lcdWriteUI(unsigned int num);
 [; ;user.h: 20: void lcdWriteChar(unsigned char leter);
 [; ;user.h: 21: void lcdWriteString(unsigned char str[]);
@@ -2949,22 +2949,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 274 ]
 }
 "114
-[v _lcdWriteInt `(v ~T0 @X0 1 ef1`uc ]
+[v _lcdWriteInt `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;user.c: 114: void lcdWriteInt(unsigned char num){
+[; ;user.c: 114: void lcdWriteInt(int num){
 [e :U _lcdWriteInt ]
-[v _num `uc ~T0 @X0 1 r1 ]
+[v _num `i ~T0 @X0 1 r1 ]
 [f ]
 [; ;user.c: 115: if(num < 0){
 "115
-[e $ ! < -> _num `i -> 0 `i 282  ]
+[e $ ! < _num -> 0 `i 282  ]
 {
 [; ;user.c: 116: lcdWriteChar('-');
 "116
 [e ( _lcdWriteChar (1 -> -> 45 `ui `uc ]
 [; ;user.c: 117: num = -num;
 "117
-[e = _num -> -U -> _num `i `uc ]
+[e = _num -U _num ]
 "118
 }
 [e :U 282 ]

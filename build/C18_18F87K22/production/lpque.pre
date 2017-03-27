@@ -1,0 +1,32 @@
+
+# 1 "lpque.c"
+
+# 19 "system.h"
+void ConfigureOscillator(void);
+
+# 17 "lpque.h"
+int my_stack[10], iter;
+
+void initQueue();
+void myQueuePush(int x);
+int myQueueCheck();
+
+# 3 "lpque.c"
+void initQueue(){
+for (int i = 0; i < 10; i++)
+my_stack[i] = 101;
+}
+
+void myQueuePush(int x){
+iter = (iter + 1) % 10;
+my_stack[iter] = x;
+}
+int myQueueCheck(){
+for (int i = 10; i > 7; i--){
+
+
+if (my_stack[(iter + i) % 10] > 20)
+return 0;
+}
+return 1;
+}

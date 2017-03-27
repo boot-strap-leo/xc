@@ -15,7 +15,7 @@ void InitApp(void);                                 /* I/O and Peripheral Initia
 void initLCD(void);                                 /* LCD 16214 Initialization */
 void lcdEnable(void);       
 
-void lcdWriteInt(unsigned char num);                          /* Display int number on LCD */
+void lcdWriteInt(int num);                          /* Display int number on LCD */
 void lcdWriteUI(unsigned int num);                  /* Display unsigned int number on LCD */
 void lcdWriteChar(unsigned char leter);             /* Display character on LCD */
 void lcdWriteString(unsigned char str[]);           /* Display string on LCD */

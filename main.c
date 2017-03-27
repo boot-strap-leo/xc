@@ -21,6 +21,8 @@
 #include "user.h"          /* User funct/params, such as InitApp */
 
 #include "I2C.h"
+#include "pwm.h"
+#include "lpque.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -66,16 +68,71 @@ int main(void)
     _addr = 0x20;
     
     //*
+    initPWM();
+        ledOn_1();
+        __delay_ms(80);
+        ledOff_1();
+        __delay_ms(80);
+    initQueue();
+        ledOn_1();
+        __delay_ms(80);
+        ledOff_1();
+        __delay_ms(80);
+        
+        
     while(1){
-        clearDisplay();
-        initLCD();
+        //clearDisplay();
+        //initLCD();
+        //*
         pos = readZ();
-        lcdWriteString("Z: ");
+        lcdWriteString(" ");
         lcdWriteInt(pos);
-        pos = readX();
-        lcdWriteString(" X: ");
-        lcdWriteInt(pos);
-        __delay_ms(500);
+        myQueuePush((int)pos);
+        //pos = readX();
+        
+        if (myQueueCheck() == 1){
+            lightSwitch();
+            lcdWriteString("LIGHT_SWITCH");
+            __delay_ms(500);
+        }
+        
+        //lcdWriteString(" X: ");
+        //lcdWriteInt(pos);
+        //* /
+        GestureType ges = readGesture();
+        switch (ges){
+            case RIGHT_SWIPE:
+                //lcdWriteString("RIGHT_SWIPE");
+                moreLight();
+                break;
+            case LEFT_SWIPE:
+                //lcdWriteString("LEFT_SWIPE");
+                lessLight();
+                break;
+            case UP_SWIPE:
+                //lcdWriteString("UP_SWIPE");
+                //lightSwitch();
+                break;
+            default:
+                //lcdWriteString("NO_GESTURE");
+                break;
+        }
+        __delay_ms(10);
+    }
+    /*
+    initPWM();
+    while(1){
+        for (int i = 10; i <= 55; i+=3 ){
+            //initPWM();
+            setDutyCycle(i);
+            //moreLight();
+            ledOn_1();
+            //for (int j = 1; j <= 5; j++)
+            __delay_ms(100);
+            ledOff_1();
+            __delay_ms(500);
+            
+        }
     }
     //*/
     return 0;

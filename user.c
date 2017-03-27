@@ -111,7 +111,7 @@ void lcdWriteUI(unsigned int num){
     }
 }
 
-void lcdWriteInt(unsigned char num){
+void lcdWriteInt(int num){
     if(num < 0){
         lcdWriteChar('-');
         num = -num;

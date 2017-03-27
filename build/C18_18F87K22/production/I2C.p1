@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"4677 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18lf4620.h
+"4677 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [s S185 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S185 . SSPM CKP SSPEN SSPOV WCOL ]
 "4684
@@ -21,7 +21,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "35 user.h
 [v _ledOn_0 `(v ~T0 @X0 0 ef ]
 [v F2802 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18.h
+"161 /opt/microchip/xc8/v1.41/include/pic18.h
 [v __delay `JF2802 ~T0 @X0 0 e ]
 [p i __delay ]
 "40 user.h
@@ -30,7 +30,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ledOn_1 `(v ~T0 @X0 0 ef ]
 "41
 [v _ledOff_1 `(v ~T0 @X0 0 ef ]
-"2560 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18lf4620.h
+"2560 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [s S89 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S89 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
 "2570
@@ -50,7 +50,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18lf4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18lf4620.h
+"51 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [; ;pic18lf4620.h: 51: asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
 [; ;pic18lf4620.h: 54: typedef union {
@@ -2754,7 +2754,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.h: 13: void InitApp(void);
 [; ;user.h: 15: void initLCD(void);
 [; ;user.h: 16: void lcdEnable(void);
-[; ;user.h: 18: void lcdWriteInt(unsigned char num);
+[; ;user.h: 18: void lcdWriteInt(int num);
 [; ;user.h: 19: void lcdWriteUI(unsigned int num);
 [; ;user.h: 20: void lcdWriteChar(unsigned char leter);
 [; ;user.h: 21: void lcdWriteString(unsigned char str[]);
@@ -3181,103 +3181,91 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.c: 156: gesture = readDataByte(_addr, 0x04);
 "156
 [e = _gesture ( _readDataByte (2 , __addr -> -> 4 `i `uc ]
-[; ;I2C.c: 157: if (ack == 0){
-"157
-[e $ ! == -> _ack `i -> 0 `i 302  ]
-{
-[; ;I2C.c: 158: return NO_GESTURE;
-"158
-[e ) . `E2841 3 ]
-[e $UE 301  ]
-"159
-}
-[e :U 302 ]
-[; ;I2C.c: 159: }
-[; ;I2C.c: 160: switch (gesture){
-"160
-[e $U 304  ]
-{
-[; ;I2C.c: 161: case RIGHT_SWIPE:
-"161
-[e :U 305 ]
-[; ;I2C.c: 162: return RIGHT_SWIPE;
+[; ;I2C.c: 162: switch (gesture){
 "162
+[e $U 303  ]
+{
+[; ;I2C.c: 163: case RIGHT_SWIPE:
+"163
+[e :U 304 ]
+[; ;I2C.c: 164: return RIGHT_SWIPE;
+"164
 [e ) . `E2841 0 ]
 [e $UE 301  ]
-[; ;I2C.c: 163: case LEFT_SWIPE:
-"163
-[e :U 306 ]
-[; ;I2C.c: 164: return LEFT_SWIPE;
-"164
+[; ;I2C.c: 165: case LEFT_SWIPE:
+"165
+[e :U 305 ]
+[; ;I2C.c: 166: return LEFT_SWIPE;
+"166
 [e ) . `E2841 1 ]
 [e $UE 301  ]
-[; ;I2C.c: 165: case UP_SWIPE:
-"165
-[e :U 307 ]
-[; ;I2C.c: 166: return UP_SWIPE;
-"166
+[; ;I2C.c: 167: case UP_SWIPE:
+"167
+[e :U 306 ]
+[; ;I2C.c: 168: return UP_SWIPE;
+"168
 [e ) . `E2841 2 ]
 [e $UE 301  ]
-[; ;I2C.c: 167: default:
-"167
-[e :U 308 ]
-[; ;I2C.c: 168: return NO_GESTURE;
-"168
+[; ;I2C.c: 169: default:
+"169
+[e :U 307 ]
+[; ;I2C.c: 170: return NO_GESTURE;
+"170
 [e ) . `E2841 3 ]
 [e $UE 301  ]
-"169
+"171
 }
-[; ;I2C.c: 169: }
-[e $U 303  ]
-"160
-[e :U 304 ]
-[e [\ _gesture , $ -> . `E2841 0 `uc 305
- , $ -> . `E2841 1 `uc 306
- , $ -> . `E2841 2 `uc 307
- 308 ]
-"169
+[; ;I2C.c: 171: }
+[e $U 302  ]
+"162
 [e :U 303 ]
-[; ;I2C.c: 170: }
-"170
+[e [\ _gesture , $ -> . `E2841 0 `uc 304
+ , $ -> . `E2841 1 `uc 305
+ , $ -> . `E2841 2 `uc 306
+ 307 ]
+"171
+[e :U 302 ]
+[; ;I2C.c: 172: }
+"172
 [e :UE 301 ]
 }
-"172
+"174
 [v _readGestureSpeed `(uc ~T0 @X0 1 ef ]
 {
-[; ;I2C.c: 172: unsigned char readGestureSpeed(){
+[; ;I2C.c: 174: unsigned char readGestureSpeed(){
 [e :U _readGestureSpeed ]
 [f ]
-"173
-[v _speed `uc ~T0 @X0 1 a ]
-[; ;I2C.c: 173: unsigned char speed;
-[; ;I2C.c: 174: speed = readDataByte(_addr, 0x05);
-"174
-[e = _speed ( _readDataByte (2 , __addr -> -> 5 `i `uc ]
-[; ;I2C.c: 175: if (ack == 0){
 "175
-[e $ ! == -> _ack `i -> 0 `i 310  ]
-{
-[; ;I2C.c: 176: return 0xFF;
+[v _speed `uc ~T0 @X0 1 a ]
+[; ;I2C.c: 175: unsigned char speed;
+[; ;I2C.c: 176: speed = readDataByte(_addr, 0x05);
 "176
-[e ) -> -> 255 `i `uc ]
-[e $UE 309  ]
+[e = _speed ( _readDataByte (2 , __addr -> -> 5 `i `uc ]
+[; ;I2C.c: 177: if (ack == 0){
 "177
-}
-[; ;I2C.c: 177: }
-[e $U 311  ]
-"178
-[e :U 310 ]
-[; ;I2C.c: 178: else{
+[e $ ! == -> _ack `i -> 0 `i 309  ]
 {
-[; ;I2C.c: 179: return speed;
+[; ;I2C.c: 178: return 0xFF;
+"178
+[e ) -> -> 255 `i `uc ]
+[e $UE 308  ]
 "179
-[e ) _speed ]
-[e $UE 309  ]
-"180
 }
-[e :U 311 ]
-[; ;I2C.c: 180: }
-[; ;I2C.c: 181: }
+[; ;I2C.c: 179: }
+[e $U 310  ]
+"180
+[e :U 309 ]
+[; ;I2C.c: 180: else{
+{
+[; ;I2C.c: 181: return speed;
 "181
-[e :UE 309 ]
+[e ) _speed ]
+[e $UE 308  ]
+"182
+}
+[e :U 310 ]
+[; ;I2C.c: 182: }
+[; ;I2C.c: 183: }
+"183
+[e :UE 308 ]
 }

@@ -1,0 +1,539 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18LF4620 ]
+[d frameptr 4065 ]
+"102 /home/cap/Documents/xc/main.c
+[e E2865 GestureType `uc
+RIGHT_SWIPE 1
+LEFT_SWIPE 2
+UP_SWIPE 3
+NO_GESTURE 255
+]
+"154 /home/cap/Documents/xc/I2C.c
+[e E2841 GestureType `uc
+RIGHT_SWIPE 1
+LEFT_SWIPE 2
+UP_SWIPE 3
+NO_GESTURE 255
+]
+"8 /opt/microchip/xc8/v1.41/sources/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"62 /opt/microchip/xc8/v1.41/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 /opt/microchip/xc8/v1.41/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 /opt/microchip/xc8/v1.41/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 /opt/microchip/xc8/v1.41/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 /opt/microchip/xc8/v1.41/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.41/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 /opt/microchip/xc8/v1.41/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 /opt/microchip/xc8/v1.41/sources/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 /opt/microchip/xc8/v1.41/sources/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.41/sources/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.41/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"19 /home/cap/Documents/xc/I2C.c
+[v _I2CInit I2CInit `(v  1 e 1 0 ]
+"58
+[v _I2CStart I2CStart `(v  1 e 1 0 ]
+"64
+[v _I2CRestart I2CRestart `(v  1 e 1 0 ]
+"69
+[v _sendByte sendByte `(v  1 e 1 0 ]
+"75
+[v _receiveByte receiveByte `(uc  1 e 1 0 ]
+"85
+[v _writeDataByte writeDataByte `(v  1 e 1 0 ]
+"92
+[v _readDataByte readDataByte `(uc  1 e 1 0 ]
+"117
+[v _readZ readZ `(uc  1 e 1 0 ]
+"154
+[v _readGesture readGesture `(E2865  1 e 1 0 ]
+"30 /home/cap/Documents/xc/interrupts.c
+[v _high_isr high_isr `II(v  1 e 1 0 ]
+"75
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+"3 /home/cap/Documents/xc/lpque.c
+[v _initQueue initQueue `(v  1 e 1 0 ]
+"8
+[v _myQueuePush myQueuePush `(v  1 e 1 0 ]
+"12
+[v _myQueueCheck myQueueCheck `(i  1 e 2 0 ]
+"44 /home/cap/Documents/xc/main.c
+[v _main main `(i  1 e 2 0 ]
+"8 /home/cap/Documents/xc/pwm.c
+[v _initPWM initPWM `(v  1 e 1 0 ]
+"16
+[v _setDutyCycle setDutyCycle `(v  1 e 1 0 ]
+"23
+[v _dutyCycleUp dutyCycleUp `(v  1 e 1 0 ]
+"29
+[v _dutyCycleDown dutyCycleDown `(v  1 e 1 0 ]
+"35
+[v _dutyCycleSet dutyCycleSet `(v  1 e 1 0 ]
+"39
+[v _dutyCycleClear dutyCycleClear `(v  1 e 1 0 ]
+"44
+[v _moreLight moreLight `(v  1 e 1 0 ]
+"50
+[v _lessLight lessLight `(v  1 e 1 0 ]
+"56
+[v _lightSwitch lightSwitch `(v  1 e 1 0 ]
+"24 /home/cap/Documents/xc/system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+"28 /home/cap/Documents/xc/user.c
+[v _InitApp InitApp `(v  1 e 1 0 ]
+"41
+[v _lcdEnable lcdEnable `(v  1 e 1 0 ]
+"47
+[v _initLCD initLCD `(v  1 e 1 0 ]
+"80
+[v _lcdWriteChar lcdWriteChar `(v  1 e 1 0 ]
+"95
+[v _lcdWriteString lcdWriteString `(v  1 e 1 0 ]
+"101
+[v _lcdWriteUI lcdWriteUI `(v  1 e 1 0 ]
+"114
+[v _lcdWriteInt lcdWriteInt `(v  1 e 1 0 ]
+"135
+[v _ledOn_0 ledOn_0 `(v  1 e 1 0 ]
+"138
+[v _ledOn_1 ledOn_1 `(v  1 e 1 0 ]
+"148
+[v _ledOff_0 ledOff_0 `(v  1 e 1 0 ]
+"151
+[v _ledOff_1 ledOff_1 `(v  1 e 1 0 ]
+"185 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S210 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"400
+[s S219 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S228 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S237 . 1 `uc 1 T1CKI 1 0 :1:0 
+]
+[s S239 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[u S243 . 1 `S210 1 . 1 0 `S219 1 . 1 0 `S228 1 . 1 0 `S237 1 . 1 0 `S239 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES243  1 e 1 @3970 ]
+"529
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"983
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"1367
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1588
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"1809
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S477 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1841
+[u S495 . 1 `S477 1 . 1 0 `S210 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES495  1 e 1 @3988 ]
+"2030
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S374 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"2576
+[s S383 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[u S387 . 1 `S374 1 . 1 0 `S383 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES387  1 e 1 @3998 ]
+"4110
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
+"4194
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
+[s S347 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"4627
+[u S356 . 1 `S347 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES356  1 e 1 @4037 ]
+[s S321 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4691
+[s S327 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S332 . 1 `S321 1 . 1 0 `S327 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES332  1 e 1 @4038 ]
+"4966
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+"4972
+[v _T2CON T2CON `VEuc  1 e 1 @4042 ]
+[s S526 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 TOUTPS 1 0 :4:3 
+]
+"4993
+[s S530 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S538 . 1 `S526 1 . 1 0 `S530 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES538  1 e 1 @4042 ]
+"5042
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
+"5781
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+[s S21 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6298
+[s S30 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S39 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S43 . 1 `S21 1 . 1 0 `S30 1 . 1 0 `S39 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES43  1 e 1 @4082 ]
+"18 /home/cap/Documents/xc/I2C.h
+[v _ack ack `uc  1 e 1 0 ]
+"100
+[v __addr _addr `uc  1 e 1 0 ]
+"27 /home/cap/Documents/xc/interrupts.c
+[v _valuePort valuePort `uc  1 e 1 0 ]
+"17 /home/cap/Documents/xc/lpque.h
+[v _my_stack my_stack `[10]i  1 e 20 0 ]
+[v _iter iter `i  1 e 2 0 ]
+"30 /home/cap/Documents/xc/pwm.h
+[v _rate rate `uc  1 e 1 0 ]
+"31
+[v _lightStatus lightStatus `uc  1 e 1 0 ]
+"44 /home/cap/Documents/xc/main.c
+[v _main main `(i  1 e 2 0 ]
+{
+"102
+[v main@ges ges `E2865  1 a 1 17 ]
+"64
+[v main@str str `[15]uc  1 a 15 2 ]
+"67
+[v main@pos pos `uc  1 a 1 18 ]
+"63
+[v main@F2922 F2922 `[15]uc  1 s 15 F2922 ]
+"139
+} 0
+"117 /home/cap/Documents/xc/I2C.c
+[v _readZ readZ `(uc  1 e 1 0 ]
+{
+"118
+[v readZ@z_pos z_pos `uc  1 a 1 39 ]
+"130
+} 0
+"154
+[v _readGesture readGesture `(E2865  1 e 1 0 ]
+{
+"155
+[v readGesture@gesture gesture `uc  1 a 1 39 ]
+"172
+} 0
+"92
+[v _readDataByte readDataByte `(uc  1 e 1 0 ]
+{
+[v readDataByte@addr addr `uc  1 a 1 wreg ]
+"96
+[v readDataByte@retc retc `uc  1 a 1 37 ]
+"92
+[v readDataByte@addr addr `uc  1 a 1 wreg ]
+[v readDataByte@reg reg `uc  1 p 1 36 ]
+[v readDataByte@addr addr `uc  1 a 1 38 ]
+"98
+} 0
+"85
+[v _writeDataByte writeDataByte `(v  1 e 1 0 ]
+{
+[v writeDataByte@addr addr `uc  1 a 1 wreg ]
+[v writeDataByte@addr addr `uc  1 a 1 wreg ]
+[v writeDataByte@reg reg `uc  1 p 1 34 ]
+[v writeDataByte@addr addr `uc  1 a 1 35 ]
+"90
+} 0
+"69
+[v _sendByte sendByte `(v  1 e 1 0 ]
+{
+[v sendByte@c c `uc  1 a 1 wreg ]
+[v sendByte@c c `uc  1 a 1 wreg ]
+[v sendByte@c c `uc  1 a 1 33 ]
+"73
+} 0
+"58
+[v _I2CStart I2CStart `(v  1 e 1 0 ]
+{
+"62
+} 0
+"19
+[v _I2CInit I2CInit `(v  1 e 1 0 ]
+{
+"26
+} 0
+"75
+[v _receiveByte receiveByte `(uc  1 e 1 0 ]
+{
+"79
+[v receiveByte@retc retc `uc  1 a 1 33 ]
+"81
+} 0
+"64
+[v _I2CRestart I2CRestart `(v  1 e 1 0 ]
+{
+"67
+} 0
+"8 /home/cap/Documents/xc/lpque.c
+[v _myQueuePush myQueuePush `(v  1 e 1 0 ]
+{
+[v myQueuePush@x x `i  1 p 2 39 ]
+"11
+} 0
+"12
+[v _myQueueCheck myQueueCheck `(i  1 e 2 0 ]
+{
+"13
+[v myQueueCheck@i i `i  1 a 2 43 ]
+"20
+} 0
+"8 /opt/microchip/xc8/v1.41/sources/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 38 ]
+[v ___awmod@counter counter `uc  1 a 1 37 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 33 ]
+[v ___awmod@divisor divisor `i  1 p 2 35 ]
+"35
+} 0
+"44 /home/cap/Documents/xc/pwm.c
+[v _moreLight moreLight `(v  1 e 1 0 ]
+{
+"48
+} 0
+"23
+[v _dutyCycleUp dutyCycleUp `(v  1 e 1 0 ]
+{
+"27
+} 0
+"56
+[v _lightSwitch lightSwitch `(v  1 e 1 0 ]
+{
+"66
+} 0
+"3 /home/cap/Documents/xc/lpque.c
+[v _initQueue initQueue `(v  1 e 1 0 ]
+{
+"4
+[v initQueue@i i `i  1 a 2 33 ]
+"6
+} 0
+"35 /home/cap/Documents/xc/pwm.c
+[v _dutyCycleSet dutyCycleSet `(v  1 e 1 0 ]
+{
+"37
+} 0
+"39
+[v _dutyCycleClear dutyCycleClear `(v  1 e 1 0 ]
+{
+"42
+} 0
+"50
+[v _lessLight lessLight `(v  1 e 1 0 ]
+{
+"54
+} 0
+"29
+[v _dutyCycleDown dutyCycleDown `(v  1 e 1 0 ]
+{
+"33
+} 0
+"138 /home/cap/Documents/xc/user.c
+[v _ledOn_1 ledOn_1 `(v  1 e 1 0 ]
+{
+"140
+} 0
+"151
+[v _ledOff_1 ledOff_1 `(v  1 e 1 0 ]
+{
+"153
+} 0
+"95
+[v _lcdWriteString lcdWriteString `(v  1 e 1 0 ]
+{
+"96
+[v lcdWriteString@i i `i  1 a 2 39 ]
+"95
+[v lcdWriteString@str str `*.25uc  1 p 2 35 ]
+"99
+} 0
+"114
+[v _lcdWriteInt lcdWriteInt `(v  1 e 1 0 ]
+{
+[v lcdWriteInt@num num `i  1 p 2 64 ]
+"120
+} 0
+"101
+[v _lcdWriteUI lcdWriteUI `(v  1 e 1 0 ]
+{
+"102
+[v lcdWriteUI@stack stack `[20]uc  1 a 20 42 ]
+"103
+[v lcdWriteUI@i i `i  1 a 2 62 ]
+"101
+[v lcdWriteUI@num num `ui  1 p 2 40 ]
+"112
+} 0
+"80
+[v _lcdWriteChar lcdWriteChar `(v  1 e 1 0 ]
+{
+[v lcdWriteChar@leter leter `uc  1 a 1 wreg ]
+[v lcdWriteChar@leter leter `uc  1 a 1 wreg ]
+[v lcdWriteChar@leter leter `uc  1 a 1 34 ]
+"93
+} 0
+"8 /opt/microchip/xc8/v1.41/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 37 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 33 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 35 ]
+"26
+} 0
+"8 /opt/microchip/xc8/v1.41/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 38 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 37 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 33 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 35 ]
+"31
+} 0
+"8 /home/cap/Documents/xc/pwm.c
+[v _initPWM initPWM `(v  1 e 1 0 ]
+{
+"15
+} 0
+"16
+[v _setDutyCycle setDutyCycle `(v  1 e 1 0 ]
+{
+[v setDutyCycle@x x `uc  1 a 1 wreg ]
+[v setDutyCycle@x x `uc  1 a 1 wreg ]
+[v setDutyCycle@x x `uc  1 a 1 33 ]
+"21
+} 0
+"47 /home/cap/Documents/xc/user.c
+[v _initLCD initLCD `(v  1 e 1 0 ]
+{
+"78
+} 0
+"41
+[v _lcdEnable lcdEnable `(v  1 e 1 0 ]
+{
+"45
+} 0
+"28
+[v _InitApp InitApp `(v  1 e 1 0 ]
+{
+"39
+} 0
+"24 /home/cap/Documents/xc/system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+{
+"31
+} 0
+"75 /home/cap/Documents/xc/interrupts.c
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+{
+"110
+} 0
+"30
+[v _high_isr high_isr `II(v  1 e 1 0 ]
+{
+"71
+} 0

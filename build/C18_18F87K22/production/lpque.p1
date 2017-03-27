@@ -1,0 +1,93 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[; ;system.h: 19: void ConfigureOscillator(void);
+"17 lpque.h
+[v _my_stack `i ~T0 @X0 -> 10 `i e ]
+[v _iter `i ~T0 @X0 1 e ]
+[; ;lpque.h: 17: int my_stack[10], iter;
+[; ;lpque.h: 19: void initQueue();
+[; ;lpque.h: 20: void myQueuePush(int x);
+[; ;lpque.h: 21: int myQueueCheck();
+"3 lpque.c
+[v _initQueue `(v ~T0 @X0 1 ef ]
+{
+[; ;lpque.c: 3: void initQueue(){
+[e :U _initQueue ]
+[f ]
+[; ;lpque.c: 4: for (int i = 0; i < 10; i++)
+"4
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 10 `i 2  ]
+[e $U 3  ]
+"5
+[e :U 2 ]
+[; ;lpque.c: 5: my_stack[i] = 101;
+[e = *U + &U _my_stack * -> -> _i `ui `ux -> -> # *U &U _my_stack `ui `ux -> 101 `i ]
+"4
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 10 `i 2  ]
+[e :U 3 ]
+"5
+}
+[; ;lpque.c: 6: }
+"6
+[e :UE 1 ]
+}
+"8
+[v _myQueuePush `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;lpque.c: 8: void myQueuePush(int x){
+[e :U _myQueuePush ]
+[v _x `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;lpque.c: 9: iter = (iter + 1) % 10;
+"9
+[e = _iter % + _iter -> 1 `i -> 10 `i ]
+[; ;lpque.c: 10: my_stack[iter] = x;
+"10
+[e = *U + &U _my_stack * -> -> _iter `ui `ux -> -> # *U &U _my_stack `ui `ux _x ]
+[; ;lpque.c: 11: }
+"11
+[e :UE 5 ]
+}
+"12
+[v _myQueueCheck `(i ~T0 @X0 1 ef ]
+{
+[; ;lpque.c: 12: int myQueueCheck(){
+[e :U _myQueueCheck ]
+[f ]
+[; ;lpque.c: 13: for (int i = 10; i > 7; i--){
+"13
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 10 `i ]
+[e $ > _i -> 7 `i 7  ]
+[e $U 8  ]
+[e :U 7 ]
+{
+[; ;lpque.c: 16: if (my_stack[(iter + i) % 10] > 20)
+"16
+[e $ ! > *U + &U _my_stack * -> -> % + _iter _i -> 10 `i `ui `ux -> -> # *U &U _my_stack `ui `ux -> 20 `i 10  ]
+[; ;lpque.c: 17: return 0;
+"17
+[e ) -> 0 `i ]
+[e $UE 6  ]
+[e :U 10 ]
+"18
+}
+"13
+[e -- _i -> 1 `i ]
+[e $ > _i -> 7 `i 7  ]
+[e :U 8 ]
+"18
+}
+[; ;lpque.c: 18: }
+[; ;lpque.c: 19: return 1;
+"19
+[e ) -> 1 `i ]
+[e $UE 6  ]
+[; ;lpque.c: 20: }
+"20
+[e :UE 6 ]
+}

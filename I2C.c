@@ -154,9 +154,11 @@ bool gestureAvailable(){
 GestureType readGesture(){
     unsigned char gesture;
     gesture = readDataByte(_addr, ZX_GESTURE);
-    if (ack == 0){
+    /*
+    f (ack == 0){
         return NO_GESTURE;
     }
+    */
     switch (gesture){
         case RIGHT_SWIPE:
             return RIGHT_SWIPE;
