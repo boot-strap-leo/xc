@@ -3722,7 +3722,7 @@ unsigned char _addr;
 # 19 "system.h"
 void ConfigureOscillator(void);
 
-# 19 "pwm.h"
+# 21 "pwm.h"
 void initPWM();
 void setDutyCycle(unsigned char x);
 void dutyCycleUp();
@@ -3772,25 +3772,19 @@ T0CON = 0b10001000;
 INTCONbits.TMR0IE = 1;
 
 
+
 _delay((unsigned long)((70)*(8000000/4000.0)));
 initLCD();
 unsigned char str[15] = "PROGRAM BEGIN";
+lcdWriteString(str);
 _delay((unsigned long)((500)*(8000000/4000.0)));
+
+
 
 unsigned char pos;
 _addr = 0x20;
-
-
 initPWM();
-ledOn_1();
-_delay((unsigned long)((80)*(8000000/4000.0)));
-ledOff_1();
-_delay((unsigned long)((80)*(8000000/4000.0)));
 initQueue();
-ledOn_1();
-_delay((unsigned long)((80)*(8000000/4000.0)));
-ledOff_1();
-_delay((unsigned long)((80)*(8000000/4000.0)));
 
 
 while(1){
@@ -3833,7 +3827,7 @@ break;
 _delay((unsigned long)((10)*(8000000/4000.0)));
 }
 
-# 138
+# 133
 return 0;
 }
 

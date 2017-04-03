@@ -59,25 +59,19 @@ int main(void)
     INTCONbits.TMR0IE = 1;
     //ei();
     
+    
     __delay_ms(70);
     initLCD();
     unsigned char str[15] = "PROGRAM BEGIN";
+    lcdWriteString(str);
     __delay_ms(500);
     
-    unsigned char pos;
-    _addr = 0x20;
     
     //*
+    unsigned char pos;
+    _addr = 0x20;
     initPWM();
-        ledOn_1();
-        __delay_ms(80);
-        ledOff_1();
-        __delay_ms(80);
     initQueue();
-        ledOn_1();
-        __delay_ms(80);
-        ledOff_1();
-        __delay_ms(80);
         
         
     while(1){
@@ -119,22 +113,23 @@ int main(void)
         }
         __delay_ms(10);
     }
-    /*
+    /*/
     initPWM();
     while(1){
-        for (int i = 10; i <= 55; i+=3 ){
-            //initPWM();
-            setDutyCycle(i);
-            //moreLight();
-            ledOn_1();
-            //for (int j = 1; j <= 5; j++)
-            __delay_ms(100);
-            ledOff_1();
-            __delay_ms(500);
-            
-        }
-    }
-    //*/
+        for (int i = 10; i <= 55; i+=5 ){
+                   initPWM();
+                   setDutyCycle(i);
+                   //moreLight();
+                   ledOn_1();
+                   //PORTCbits.RC1 = 1;
+                   //for (int j = 1; j <= 5; j++)
+                   __delay_ms(100);
+                   //PORTCbits.RC1 = 0;
+                   ledOff_1();
+                   __delay_ms(500);
+                 }
+            }
+        //*/
     return 0;
 }
 

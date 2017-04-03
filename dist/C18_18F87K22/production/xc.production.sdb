@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18LF4620 ]
 [d frameptr 4065 ]
-"102 /home/cap/Documents/xc/main.c
+"96 /home/cap/Documents/xc/main.c
 [e E2865 GestureType `uc
 RIGHT_SWIPE 1
 LEFT_SWIPE 2
@@ -73,23 +73,23 @@ NO_GESTURE 255
 [v _myQueueCheck myQueueCheck `(i  1 e 2 0 ]
 "44 /home/cap/Documents/xc/main.c
 [v _main main `(i  1 e 2 0 ]
-"8 /home/cap/Documents/xc/pwm.c
+"26 /home/cap/Documents/xc/pwm.c
 [v _initPWM initPWM `(v  1 e 1 0 ]
-"16
+"34
 [v _setDutyCycle setDutyCycle `(v  1 e 1 0 ]
-"23
+"41
 [v _dutyCycleUp dutyCycleUp `(v  1 e 1 0 ]
-"29
+"49
 [v _dutyCycleDown dutyCycleDown `(v  1 e 1 0 ]
-"35
+"57
 [v _dutyCycleSet dutyCycleSet `(v  1 e 1 0 ]
-"39
+"61
 [v _dutyCycleClear dutyCycleClear `(v  1 e 1 0 ]
-"44
+"66
 [v _moreLight moreLight `(v  1 e 1 0 ]
-"50
+"72
 [v _lessLight lessLight `(v  1 e 1 0 ]
-"56
+"78
 [v _lightSwitch lightSwitch `(v  1 e 1 0 ]
 "24 /home/cap/Documents/xc/system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
@@ -117,7 +117,7 @@ NO_GESTURE 255
 [v _ledOff_1 ledOff_1 `(v  1 e 1 0 ]
 "185 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S210 . 1 `uc 1 RC0 1 0 :1:0 
+[s S202 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -127,7 +127,7 @@ NO_GESTURE 255
 `uc 1 RC7 1 0 :1:7 
 ]
 "400
-[s S219 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S211 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -136,7 +136,7 @@ NO_GESTURE 255
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S228 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S220 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -145,14 +145,14 @@ NO_GESTURE 255
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S237 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S229 . 1 `uc 1 T1CKI 1 0 :1:0 
 ]
-[s S239 . 1 `uc 1 . 1 0 :1:0 
+[s S231 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S243 . 1 `S210 1 . 1 0 `S219 1 . 1 0 `S228 1 . 1 0 `S237 1 . 1 0 `S239 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES243  1 e 1 @3970 ]
+[u S235 . 1 `S202 1 . 1 0 `S211 1 . 1 0 `S220 1 . 1 0 `S229 1 . 1 0 `S231 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES235  1 e 1 @3970 ]
 "529
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
 "983
@@ -163,7 +163,7 @@ NO_GESTURE 255
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "1809
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S477 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S471 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -173,11 +173,11 @@ NO_GESTURE 255
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1841
-[u S495 . 1 `S477 1 . 1 0 `S210 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES495  1 e 1 @3988 ]
+[u S489 . 1 `S471 1 . 1 0 `S202 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES489  1 e 1 @3988 ]
 "2030
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S374 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S366 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -187,17 +187,17 @@ NO_GESTURE 255
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "2576
-[s S383 . 1 `uc 1 . 1 0 :4:0 
+[s S375 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S387 . 1 `S374 1 . 1 0 `S383 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES387  1 e 1 @3998 ]
+[u S379 . 1 `S366 1 . 1 0 `S375 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES379  1 e 1 @3998 ]
 "4110
 [v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
 "4194
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
-[s S347 . 1 `uc 1 SEN 1 0 :1:0 
+[s S339 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -207,32 +207,32 @@ NO_GESTURE 255
 `uc 1 GCEN 1 0 :1:7 
 ]
 "4627
-[u S356 . 1 `S347 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES356  1 e 1 @4037 ]
-[s S321 . 1 `uc 1 SSPM 1 0 :4:0 
+[u S348 . 1 `S339 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES348  1 e 1 @4037 ]
+[s S313 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4691
-[s S327 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S319 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S332 . 1 `S321 1 . 1 0 `S327 1 . 1 0 ]
-[v _SSPCON1bits SSPCON1bits `VES332  1 e 1 @4038 ]
+[u S324 . 1 `S313 1 . 1 0 `S319 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES324  1 e 1 @4038 ]
 "4966
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
 "4972
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
-[s S526 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S520 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "4993
-[s S530 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S524 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -240,8 +240,8 @@ NO_GESTURE 255
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S538 . 1 `S526 1 . 1 0 `S530 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES538  1 e 1 @4042 ]
+[u S532 . 1 `S520 1 . 1 0 `S524 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES532  1 e 1 @4042 ]
 "5042
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "5781
@@ -280,22 +280,22 @@ NO_GESTURE 255
 "17 /home/cap/Documents/xc/lpque.h
 [v _my_stack my_stack `[10]i  1 e 20 0 ]
 [v _iter iter `i  1 e 2 0 ]
-"30 /home/cap/Documents/xc/pwm.h
+"32 /home/cap/Documents/xc/pwm.h
 [v _rate rate `uc  1 e 1 0 ]
-"31
+"33
 [v _lightStatus lightStatus `uc  1 e 1 0 ]
 "44 /home/cap/Documents/xc/main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"102
+"96
 [v main@ges ges `E2865  1 a 1 17 ]
-"64
+"65
 [v main@str str `[15]uc  1 a 15 2 ]
-"67
+"71
 [v main@pos pos `uc  1 a 1 18 ]
-"63
+"64
 [v main@F2922 F2922 `[15]uc  1 s 15 F2922 ]
-"139
+"134
 } 0
 "117 /home/cap/Documents/xc/I2C.c
 [v _readZ readZ `(uc  1 e 1 0 ]
@@ -386,20 +386,20 @@ NO_GESTURE 255
 [v ___awmod@divisor divisor `i  1 p 2 35 ]
 "35
 } 0
-"44 /home/cap/Documents/xc/pwm.c
+"66 /home/cap/Documents/xc/pwm.c
 [v _moreLight moreLight `(v  1 e 1 0 ]
 {
-"48
+"70
 } 0
-"23
-[v _dutyCycleUp dutyCycleUp `(v  1 e 1 0 ]
+"49
+[v _dutyCycleDown dutyCycleDown `(v  1 e 1 0 ]
 {
-"27
+"55
 } 0
-"56
+"78
 [v _lightSwitch lightSwitch `(v  1 e 1 0 ]
 {
-"66
+"88
 } 0
 "3 /home/cap/Documents/xc/lpque.c
 [v _initQueue initQueue `(v  1 e 1 0 ]
@@ -408,43 +408,33 @@ NO_GESTURE 255
 [v initQueue@i i `i  1 a 2 33 ]
 "6
 } 0
-"35 /home/cap/Documents/xc/pwm.c
+"57 /home/cap/Documents/xc/pwm.c
 [v _dutyCycleSet dutyCycleSet `(v  1 e 1 0 ]
 {
-"37
+"59
 } 0
-"39
+"61
 [v _dutyCycleClear dutyCycleClear `(v  1 e 1 0 ]
 {
-"42
+"64
 } 0
-"50
+"72
 [v _lessLight lessLight `(v  1 e 1 0 ]
 {
-"54
+"76
 } 0
-"29
-[v _dutyCycleDown dutyCycleDown `(v  1 e 1 0 ]
+"41
+[v _dutyCycleUp dutyCycleUp `(v  1 e 1 0 ]
 {
-"33
+"47
 } 0
-"138 /home/cap/Documents/xc/user.c
-[v _ledOn_1 ledOn_1 `(v  1 e 1 0 ]
-{
-"140
-} 0
-"151
-[v _ledOff_1 ledOff_1 `(v  1 e 1 0 ]
-{
-"153
-} 0
-"95
+"95 /home/cap/Documents/xc/user.c
 [v _lcdWriteString lcdWriteString `(v  1 e 1 0 ]
 {
 "96
 [v lcdWriteString@i i `i  1 a 2 39 ]
 "95
-[v lcdWriteString@str str `*.25uc  1 p 2 35 ]
+[v lcdWriteString@str str `*.35uc  1 p 2 35 ]
 "99
 } 0
 "114
@@ -494,18 +484,18 @@ NO_GESTURE 255
 [v ___lwdiv@divisor divisor `ui  1 p 2 35 ]
 "31
 } 0
-"8 /home/cap/Documents/xc/pwm.c
+"26 /home/cap/Documents/xc/pwm.c
 [v _initPWM initPWM `(v  1 e 1 0 ]
 {
-"15
+"33
 } 0
-"16
+"34
 [v _setDutyCycle setDutyCycle `(v  1 e 1 0 ]
 {
 [v setDutyCycle@x x `uc  1 a 1 wreg ]
 [v setDutyCycle@x x `uc  1 a 1 wreg ]
 [v setDutyCycle@x x `uc  1 a 1 33 ]
-"21
+"39
 } 0
 "47 /home/cap/Documents/xc/user.c
 [v _initLCD initLCD `(v  1 e 1 0 ]

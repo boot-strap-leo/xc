@@ -15,7 +15,9 @@ extern "C" {
 #include "system.h"
 
 #define minx 8
+#define maxn 50
 //#define CCP2CON
+    
 void initPWM();
 void setDutyCycle(unsigned char x);
 void dutyCycleUp();

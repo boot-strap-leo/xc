@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v1.41/dat/en_msgs.txt -cs \
   -h+dist/C18_18F87K22/production/xc.production.sym \
   --cmf=dist/C18_18F87K22/production/xc.production.cmf -z -Q18LF4620 \
-  -o/tmp/xcX1Xs72o -Mdist/C18_18F87K22/production/xc.production.map -E1 \
+  -o/tmp/xcX0BJ07R -Mdist/C18_18F87K22/production/xc.production.map -E1 \
   -ver=XC8 -ASTACK=0A2h-0f7fh -pstack=STACK -ACODE=00h-0FFFFh \
   -ACONST=00h-0FFFFh -ASMALLCONST=01000h-010FFhx240 \
   -AMEDIUMCONST=01000h-0FFFFh -ACOMRAM=01h-07Fh -AABS1=00h-0F7Fh \
@@ -25,7 +25,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXO2dexR.obj dist/C18_18F87K22/production/xc.production.obj 
+  /tmp/xcXkkOhS4.obj dist/C18_18F87K22/production/xc.production.obj 
 
 Object code version is 3.11
 
@@ -37,7 +37,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXO2dexR.obj
+/tmp/xcXkkOhS4.obj
                 init                                 A6       A6        4        C       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -47,50 +47,48 @@ dist/C18_18F87K22/production/xc.production.obj
                 intcode                               8        8        6        4       0
                 temp                                 5E       5E        1        1       1
                 smallconst                         1000     1000       12      800       0
-                intcode_body                       1176     1176       98      809       0
-                text34                             1790     1790        2      B84       0
-                text33                             178E     178E        2      B84       0
-                text32                             1784     1784        8      B84       0
-                text31                             120E     120E       96      809       0
-                text30                             1748     1748        C      B84       0
-                text29                             16C2     16C2       16      809       0
-                text28                             1452     1452       52      809       0
-                text27                             1536     1536       42      809       0
-                text26                             14EE     14EE       48      809       0
-                text25                             12A4     12A4       7A      809       0
-                text24                             166C     166C       20      809       0
-                text23                             14A4     14A4       4A      809       0
-                text22                             177C     177C        8      B84       0
-                text21                             1774     1774        8      B84       0
-                text20                             1716     1716        E      B84       0
-                text19                             173C     173C        C      B84       0
-                text18                             176C     176C        8      B84       0
-                text17                             1764     1764        8      B84       0
-                text16                             15B4     15B4       3A      809       0
-                text15                             168C     168C       1E      809       0
-                text14                             1622     1622       28      809       0
-                text13                             1730     1730        C      B84       0
-                text12                             1390     1390       70      809       0
-                text11                             131E     131E       72      809       0
-                text10                             1578     1578       3C      809       0
-                text9                              175C     175C        8      B84       0
-                text8                              16E8     16E8       10      809       0
-                text7                              1724     1724        C      B84       0
-                text6                              1754     1754        8      B84       0
-                text5                              1708     1708        E      B84       0
-                text4                              16AA     16AA       18      809       0
-                text3                              164A     164A       22      809       0
-                text2                              15EE     15EE       34      809       0
-                text1                              16D8     16D8       10      809       0
-                text0                              1012     1012      164      809       0
+                intcode_body                       112A     112A       98      809       0
+                text32                             1796     1796        2      B96       0
+                text31                             1794     1794        2      B96       0
+                text30                             178A     178A        8      B96       0
+                text29                             11C2     11C2       96      809       0
+                text28                             175E     175E        C      B96       0
+                text27                             16E6     16E6       16      809       0
+                text26                             14D0     14D0       52      809       0
+                text25                             156A     156A       42      809       0
+                text24                             1522     1522       48      809       0
+                text23                             1258     1258       7A      809       0
+                text22                             1678     1678       20      809       0
+                text21                             12D2     12D2       76      809       0
+                text20                             16CE     16CE       18      809       0
+                text19                             1752     1752        C      B96       0
+                text18                             1782     1782        8      B96       0
+                text17                             177A     177A        8      B96       0
+                text16                             15E8     15E8       3A      809       0
+                text15                             1698     1698       1E      809       0
+                text14                             142A     142A       54      809       0
+                text13                             1746     1746        C      B96       0
+                text12                             13BA     13BA       70      809       0
+                text11                             1348     1348       72      809       0
+                text10                             15AC     15AC       3C      809       0
+                text9                              1772     1772        8      B96       0
+                text8                              170C     170C       10      809       0
+                text7                              173A     173A        C      B96       0
+                text6                              176A     176A        8      B96       0
+                text5                              172C     172C        E      B96       0
+                text4                              16B6     16B6       18      809       0
+                text3                              1656     1656       22      809       0
+                text2                              1622     1622       34      809       0
+                text1                              16FC     16FC       10      809       0
+                text0                              1012     1012      118      809       0
                 cstackCOMRAM                          1        1       42        1       1
                 cstackBANK0                          80       80       13       80       1
                 dataBANK0                            93       93        F       80       1
                 dataCOMRAM                           5C       5C        2        1       1
                 bssCOMRAM                            43       43       19        1       1
-                cinit                              1400     1400       52      809       0
-                idataBANK0                         16F8     16F8        F      809       0
-                idataCOMRAM                        178C     178C        2      B84       0
+                cinit                              147E     147E       52      809       0
+                idataBANK0                         171C     171C        F      809       0
+                idataCOMRAM                        1792     1792        2      B96       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -100,45 +98,43 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcode                               8        8        6         0
                 init                                 A6       A6        4         0
                 reset_vec                             0        0        4         0
-                intcode_body                       1176     1176       98         0
-                text34                             1790     1790        2         0
-                text33                             178E     178E        2         0
-                text32                             1784     1784        8         0
-                text31                             120E     120E       96         0
-                text30                             1748     1748        C         0
-                text29                             16C2     16C2       16         0
-                text28                             1452     1452       52         0
-                text27                             1536     1536       42         0
-                text26                             14EE     14EE       48         0
-                text25                             12A4     12A4       7A         0
-                text24                             166C     166C       20         0
-                text23                             14A4     14A4       4A         0
-                text22                             177C     177C        8         0
-                text21                             1774     1774        8         0
-                text20                             1716     1716        E         0
-                text19                             173C     173C        C         0
-                text18                             176C     176C        8         0
-                text17                             1764     1764        8         0
-                text16                             15B4     15B4       3A         0
-                text15                             168C     168C       1E         0
-                text14                             1622     1622       28         0
-                text13                             1730     1730        C         0
-                text12                             1390     1390       70         0
-                text11                             131E     131E       72         0
-                text10                             1578     1578       3C         0
-                text9                              175C     175C        8         0
-                text8                              16E8     16E8       10         0
-                text7                              1724     1724        C         0
-                text6                              1754     1754        8         0
-                text5                              1708     1708        E         0
-                text4                              16AA     16AA       18         0
-                text3                              164A     164A       22         0
-                text2                              15EE     15EE       34         0
-                text1                              16D8     16D8       10         0
-                text0                              1012     1012      164         0
-                cinit                              1400     1400       52         0
-                idataBANK0                         16F8     16F8        F         0
-                idataCOMRAM                        178C     178C        2         0
+                intcode_body                       112A     112A       98         0
+                text32                             1796     1796        2         0
+                text31                             1794     1794        2         0
+                text30                             178A     178A        8         0
+                text29                             11C2     11C2       96         0
+                text28                             175E     175E        C         0
+                text27                             16E6     16E6       16         0
+                text26                             14D0     14D0       52         0
+                text25                             156A     156A       42         0
+                text24                             1522     1522       48         0
+                text23                             1258     1258       7A         0
+                text22                             1678     1678       20         0
+                text21                             12D2     12D2       76         0
+                text20                             16CE     16CE       18         0
+                text19                             1752     1752        C         0
+                text18                             1782     1782        8         0
+                text17                             177A     177A        8         0
+                text16                             15E8     15E8       3A         0
+                text15                             1698     1698       1E         0
+                text14                             142A     142A       54         0
+                text13                             1746     1746        C         0
+                text12                             13BA     13BA       70         0
+                text11                             1348     1348       72         0
+                text10                             15AC     15AC       3C         0
+                text9                              1772     1772        8         0
+                text8                              170C     170C       10         0
+                text7                              173A     173A        C         0
+                text6                              176A     176A        8         0
+                text5                              172C     172C        E         0
+                text4                              16B6     16B6       18         0
+                text3                              1656     1656       22         0
+                text2                              1622     1622       34         0
+                text1                              16FC     16FC       10         0
+                text0                              1012     1012      118         0
+                cinit                              147E     147E       52         0
+                idataBANK0                         171C     171C        F         0
+                idataCOMRAM                        1792     1792        2         0
 
         CLASS   CONST          
 
@@ -215,8 +211,8 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 intcodelo                      000018  000092  0000AA         C       0  CODE    
                 cstackBANK0                    000080  000022  0000A2        80       1  BANK0   
                 smallconst                     001000  000012  001012       800       0  SMALLCON
-                text0                          001012  0006F5  001707       809       0  CODE    
-                text5                          001708  00008A  001792       B84       0  CODE    
+                text0                          001012  000719  00172B       809       0  CODE    
+                text5                          00172C  00006C  001798       B96       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -245,21 +241,21 @@ UNUSED ADDRESS RANGES
         CODE             000004-000007                4
                          00000E-000017                A
                          0000AA-000FFF              F56
-                         001707-001707                1
-                         001792-00FFFF             E86E
+                         00172B-00172B                1
+                         001798-00FFFF             E868
         COMRAM           00005F-00007F               21
         CONST            000004-000007                4
                          00000E-000017                A
                          0000AA-000FFF              F56
-                         001707-001707                1
-                         001792-00FFFF             E86E
+                         00172B-00172B                1
+                         001798-00FFFF             E868
         EEDATA           F00000-F003FF              400
-        MEDIUMCONST      001707-001707                1
-                         001792-00FFFF             E86E
+        MEDIUMCONST      00172B-00172B                1
+                         001798-00FFFF             E868
         RAM              0000A2-000F7F              100
         SFR              000F80-000FFF               80
-        SMALLCONST       001707-001707                1
-                         001792-00FFFF              100
+        SMALLCONST       00172B-00172B                1
+                         001798-00FFFF              100
         STACK            0000A2-000F7F              EDE
 
                                   Symbol Table
@@ -270,12 +266,12 @@ UNUSED ADDRESS RANGES
 ?_myQueueCheck                cstackCOMRAM 000028
 _CCP2CON                      (abs)        000FBA
 _CCPR2L                       (abs)        000FBB
-_ConfigureOscillator          text34       001790
-_I2CInit                      text7        001724
-_I2CRestart                   text9        00175C
-_I2CStart                     text6        001754
+_ConfigureOscillator          text32       001796
+_I2CInit                      text7        00173A
+_I2CRestart                   text9        001772
+_I2CStart                     text6        00176A
 _INTCONbits                   (abs)        000FF2
-_InitApp                      text33       00178E
+_InitApp                      text31       001794
 _LATB                         (abs)        000F8A
 _PIR1bits                     (abs)        000F9E
 _PORTB                        (abs)        000F81
@@ -425,8 +421,6 @@ __Htext3                      text3        000000
 __Htext30                     text30       000000
 __Htext31                     text31       000000
 __Htext32                     text32       000000
-__Htext33                     text33       000000
-__Htext34                     text34       000000
 __Htext4                      text4        000000
 __Htext5                      text5        000000
 __Htext6                      text6        000000
@@ -532,8 +526,6 @@ __Ltext3                      text3        000000
 __Ltext30                     text30       000000
 __Ltext31                     text31       000000
 __Ltext32                     text32       000000
-__Ltext33                     text33       000000
-__Ltext34                     text34       000000
 __Ltext4                      text4        000000
 __Ltext5                      text5        000000
 __Ltext6                      text6        000000
@@ -543,19 +535,19 @@ __Ltext9                      text9        000000
 __S0                          (abs)        30000E
 __S1                          (abs)        0000A2
 __S2                          (abs)        000000
-___awmod                      text12       001390
+___awmod                      text12       0013BA
 ___awmod@counter              cstackCOMRAM 000026
 ___awmod@dividend             cstackCOMRAM 000022
 ___awmod@divisor              cstackCOMRAM 000024
 ___awmod@sign                 cstackCOMRAM 000027
 ___inthi_sp                   stack        000000
 ___intlo_sp                   stack        000000
-___lwdiv                      text28       001452
+___lwdiv                      text26       0014D0
 ___lwdiv@counter              cstackCOMRAM 000026
 ___lwdiv@dividend             cstackCOMRAM 000022
 ___lwdiv@divisor              cstackCOMRAM 000024
 ___lwdiv@quotient             cstackCOMRAM 000027
-___lwmod                      text27       001536
+___lwmod                      text25       00156A
 ___lwmod@counter              cstackCOMRAM 000026
 ___lwmod@dividend             cstackCOMRAM 000022
 ___lwmod@divisor              cstackCOMRAM 000024
@@ -565,93 +557,89 @@ ___sp                         stack        000000
 __accesstop                   (abs)        000080
 __activetblptr                (abs)        000002
 __addr                        bssCOMRAM    000059
-__end_of_ConfigureOscillator  text34       001792
-__end_of_I2CInit              text7        001730
-__end_of_I2CRestart           text9        001764
-__end_of_I2CStart             text6        00175C
-__end_of_InitApp              text33       001790
-__end_of___awmod              text12       001400
-__end_of___lwdiv              text28       0014A4
-__end_of___lwmod              text27       001578
-__end_of__initialization      cinit        001444
-__end_of_dutyCycleClear       text18       001774
-__end_of_dutyCycleDown        text20       001724
-__end_of_dutyCycleSet         text17       00176C
-__end_of_dutyCycleUp          text14       00164A
-__end_of_high_isr             intcode_body 00120E
-__end_of_initLCD              text31       0012A4
-__end_of_initPWM              text29       0016D8
-__end_of_initQueue            text16       0015EE
-__end_of_lcdEnable            text32       00178C
-__end_of_lcdWriteChar         text26       001536
-__end_of_lcdWriteInt          text24       00168C
-__end_of_lcdWriteString       text23       0014EE
-__end_of_lcdWriteUI           text25       00131E
-__end_of_ledOff_1             text22       001784
-__end_of_ledOn_1              text21       00177C
-__end_of_lessLight            text19       001748
-__end_of_lightSwitch          text15       0016AA
+__end_of_ConfigureOscillator  text32       001798
+__end_of_I2CInit              text7        001746
+__end_of_I2CRestart           text9        00177A
+__end_of_I2CStart             text6        001772
+__end_of_InitApp              text31       001796
+__end_of___awmod              text12       00142A
+__end_of___lwdiv              text26       001522
+__end_of___lwmod              text25       0015AC
+__end_of__initialization      cinit        0014C2
+__end_of_dutyCycleClear       text18       00178A
+__end_of_dutyCycleDown        text14       00147E
+__end_of_dutyCycleSet         text17       001782
+__end_of_dutyCycleUp          text20       0016E6
+__end_of_high_isr             intcode_body 0011C2
+__end_of_initLCD              text29       001258
+__end_of_initPWM              text27       0016FC
+__end_of_initQueue            text16       001622
+__end_of_lcdEnable            text30       001792
+__end_of_lcdWriteChar         text24       00156A
+__end_of_lcdWriteInt          text22       001698
+__end_of_lcdWriteString       text21       001348
+__end_of_lcdWriteUI           text23       0012D2
+__end_of_lessLight            text19       00175E
+__end_of_lightSwitch          text15       0016B6
 __end_of_low_isr              intcodelo    0000A6
-__end_of_main                 text0        001176
-__end_of_moreLight            text13       00173C
-__end_of_myQueueCheck         text11       001390
-__end_of_myQueuePush          text10       0015B4
-__end_of_readDataByte         text3        00166C
-__end_of_readGesture          text2        001622
-__end_of_readZ                text1        0016E8
-__end_of_receiveByte          text8        0016F8
-__end_of_sendByte             text5        001716
-__end_of_setDutyCycle         text30       001754
-__end_of_writeDataByte        text4        0016C2
-__initialization              cinit        001400
+__end_of_main                 text0        00112A
+__end_of_moreLight            text13       001752
+__end_of_myQueueCheck         text11       0013BA
+__end_of_myQueuePush          text10       0015E8
+__end_of_readDataByte         text3        001678
+__end_of_readGesture          text2        001656
+__end_of_readZ                text1        00170C
+__end_of_receiveByte          text8        00171C
+__end_of_sendByte             text5        00173A
+__end_of_setDutyCycle         text28       00176A
+__end_of_writeDataByte        text4        0016CE
+__initialization              cinit        00147E
 __mediumconst                 mediumconst  000000
 __pbssCOMRAM                  bssCOMRAM    000043
-__pcinit                      cinit        001400
+__pcinit                      cinit        00147E
 __pcstackBANK0                cstackBANK0  000080
 __pcstackCOMRAM               cstackCOMRAM 000001
 __pdataBANK0                  dataBANK0    000093
 __pdataCOMRAM                 dataCOMRAM   00005C
-__pidataBANK0                 idataBANK0   0016F8
-__pidataCOMRAM                idataCOMRAM  00178C
+__pidataBANK0                 idataBANK0   00171C
+__pidataCOMRAM                idataCOMRAM  001792
 __pintcode                    intcode      000008
-__pintcode_body               intcode_body 001176
+__pintcode_body               intcode_body 00112A
 __pintcodelo                  intcodelo    000018
 __psmallconst                 smallconst   001000
 __ptext0                      text0        001012
-__ptext1                      text1        0016D8
-__ptext10                     text10       001578
-__ptext11                     text11       00131E
-__ptext12                     text12       001390
-__ptext13                     text13       001730
-__ptext14                     text14       001622
-__ptext15                     text15       00168C
-__ptext16                     text16       0015B4
-__ptext17                     text17       001764
-__ptext18                     text18       00176C
-__ptext19                     text19       00173C
-__ptext2                      text2        0015EE
-__ptext20                     text20       001716
-__ptext21                     text21       001774
-__ptext22                     text22       00177C
-__ptext23                     text23       0014A4
-__ptext24                     text24       00166C
-__ptext25                     text25       0012A4
-__ptext26                     text26       0014EE
-__ptext27                     text27       001536
-__ptext28                     text28       001452
-__ptext29                     text29       0016C2
-__ptext3                      text3        00164A
-__ptext30                     text30       001748
-__ptext31                     text31       00120E
-__ptext32                     text32       001784
-__ptext33                     text33       00178E
-__ptext34                     text34       001790
-__ptext4                      text4        0016AA
-__ptext5                      text5        001708
-__ptext6                      text6        001754
-__ptext7                      text7        001724
-__ptext8                      text8        0016E8
-__ptext9                      text9        00175C
+__ptext1                      text1        0016FC
+__ptext10                     text10       0015AC
+__ptext11                     text11       001348
+__ptext12                     text12       0013BA
+__ptext13                     text13       001746
+__ptext14                     text14       00142A
+__ptext15                     text15       001698
+__ptext16                     text16       0015E8
+__ptext17                     text17       00177A
+__ptext18                     text18       001782
+__ptext19                     text19       001752
+__ptext2                      text2        001622
+__ptext20                     text20       0016CE
+__ptext21                     text21       0012D2
+__ptext22                     text22       001678
+__ptext23                     text23       001258
+__ptext24                     text24       001522
+__ptext25                     text25       00156A
+__ptext26                     text26       0014D0
+__ptext27                     text27       0016E6
+__ptext28                     text28       00175E
+__ptext29                     text29       0011C2
+__ptext3                      text3        001656
+__ptext30                     text30       00178A
+__ptext31                     text31       001794
+__ptext32                     text32       001796
+__ptext4                      text4        0016B6
+__ptext5                      text5        00172C
+__ptext6                      text6        00176A
+__ptext7                      text7        00173A
+__ptext8                      text8        00170C
+__ptext9                      text9        001772
 __ramtop                      ramtop       001000
 __size_of_ConfigureOscillator (abs)        000000
 __size_of_I2CInit             (abs)        000000
@@ -674,8 +662,6 @@ __size_of_lcdWriteChar        (abs)        000000
 __size_of_lcdWriteInt         (abs)        000000
 __size_of_lcdWriteString      (abs)        000000
 __size_of_lcdWriteUI          (abs)        000000
-__size_of_ledOff_1            (abs)        000000
-__size_of_ledOn_1             (abs)        000000
 __size_of_lessLight           (abs)        000000
 __size_of_lightSwitch         (abs)        000000
 __size_of_low_isr             (abs)        000000
@@ -692,46 +678,44 @@ __size_of_setDutyCycle        (abs)        000000
 __size_of_writeDataByte       (abs)        000000
 __smallconst                  smallconst   001000
 _ack                          bssCOMRAM    00005A
-_dutyCycleClear               text18       00176C
-_dutyCycleDown                text20       001716
-_dutyCycleSet                 text17       001764
-_dutyCycleUp                  text14       001622
-_dutyCycleUp$589              cstackCOMRAM 000023
+_dutyCycleClear               text18       001782
+_dutyCycleDown                text14       00142A
+_dutyCycleDown$584            cstackCOMRAM 000027
+_dutyCycleSet                 text17       00177A
+_dutyCycleUp                  text20       0016CE
 _high_isr                     intcode      000008
-_initLCD                      text31       00120E
-_initPWM                      text29       0016C2
-_initQueue                    text16       0015B4
+_initLCD                      text29       0011C2
+_initPWM                      text27       0016E6
+_initQueue                    text16       0015E8
 _iter                         bssCOMRAM    000057
-_lcdEnable                    text32       001784
-_lcdWriteChar                 text26       0014EE
-_lcdWriteInt                  text24       00166C
-_lcdWriteString               text23       0014A4
-_lcdWriteUI                   text25       0012A4
-_ledOff_1                     text22       00177C
-_ledOn_1                      text21       001774
-_lessLight                    text19       00173C
+_lcdEnable                    text30       00178A
+_lcdWriteChar                 text24       001522
+_lcdWriteInt                  text22       001678
+_lcdWriteString               text21       0012D2
+_lcdWriteUI                   text23       001258
+_lessLight                    text19       001752
 _lightStatus                  dataCOMRAM   00005C
-_lightSwitch                  text15       00168C
+_lightSwitch                  text15       001698
 _low_isr                      intcodelo    000018
 _main                         text0        001012
-_moreLight                    text13       001730
-_myQueueCheck                 text11       00131E
-_myQueuePush                  text10       001578
+_moreLight                    text13       001746
+_myQueueCheck                 text11       001348
+_myQueuePush                  text10       0015AC
 _my_stack                     bssCOMRAM    000043
 _rate                         dataCOMRAM   00005D
-_readDataByte                 text3        00164A
-_readGesture                  text2        0015EE
-_readZ                        text1        0016D8
-_receiveByte                  text8        0016E8
-_sendByte                     text5        001708
-_setDutyCycle                 text30       001748
+_readDataByte                 text3        001656
+_readGesture                  text2        001622
+_readZ                        text1        0016FC
+_receiveByte                  text8        00170C
+_sendByte                     text5        00172C
+_setDutyCycle                 text28       00175E
 _valuePort                    bssCOMRAM    00005B
-_writeDataByte                text4        0016AA
+_writeDataByte                text4        0016B6
 btemp                         temp         00005E
-end_of_initialization         cinit        001444
+end_of_initialization         cinit        0014C2
 initQueue@i                   cstackCOMRAM 000022
 int$flags                     temp         00005E
-int_func                      intcode_body 001176
+int_func                      intcode_body 00112A
 intlevel0                     text         000000
 intlevel1                     text         000000
 intlevel2                     text         000000
@@ -760,7 +744,7 @@ setDutyCycle@x                cstackCOMRAM 000022
 stackhi                       (abs)        000F7F
 stacklo                       (abs)        0000A2
 start                         init         0000A6
-start_initialization          cinit        001400
+start_initialization          cinit        00147E
 writeDataByte@addr            cstackCOMRAM 000024
 writeDataByte@reg             cstackCOMRAM 000023
 
@@ -777,7 +761,7 @@ FUNCTION INFORMATION:
   str            15    2[BANK0 ] unsigned char [15]
   pos             1   18[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
-                  2   75[None  ] int 
+                  2   71[None  ] int 
  Registers used:
 		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
  Tracked objects:
@@ -799,8 +783,6 @@ Total ram usage:       19 bytes
 		_initQueue
 		_lcdWriteInt
 		_lcdWriteString
-		_ledOff_1
-		_ledOn_1
 		_lessLight
 		_lightSwitch
 		_moreLight
@@ -1192,7 +1174,7 @@ Total ram usage:        6 bytes
 
  *************** function _moreLight *****************
  Defined at:
-		line 44 in file "pwm.c"
+		line 66 in file "pwm.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1214,15 +1196,15 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_dutyCycleUp
+		_dutyCycleDown
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _dutyCycleUp *****************
+ *************** function _dutyCycleDown *****************
  Defined at:
-		line 23 in file "pwm.c"
+		line 49 in file "pwm.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1238,9 +1220,9 @@ Total ram usage:        0 bytes
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
       Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        2 bytes
+      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    3
  This function calls:
@@ -1252,7 +1234,7 @@ Total ram usage:        2 bytes
 
  *************** function _lightSwitch *****************
  Defined at:
-		line 56 in file "pwm.c"
+		line 78 in file "pwm.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1315,7 +1297,7 @@ Total ram usage:        2 bytes
 
  *************** function _dutyCycleSet *****************
  Defined at:
-		line 35 in file "pwm.c"
+		line 57 in file "pwm.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1345,7 +1327,7 @@ Total ram usage:        0 bytes
 
  *************** function _dutyCycleClear *****************
  Defined at:
-		line 39 in file "pwm.c"
+		line 61 in file "pwm.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1375,7 +1357,7 @@ Total ram usage:        0 bytes
 
  *************** function _lessLight *****************
  Defined at:
-		line 50 in file "pwm.c"
+		line 72 in file "pwm.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1397,15 +1379,15 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_dutyCycleDown
+		_dutyCycleUp
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _dutyCycleDown *****************
+ *************** function _dutyCycleUp *****************
  Defined at:
-		line 29 in file "pwm.c"
+		line 41 in file "pwm.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1433,80 +1415,18 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _ledOn_1 *****************
- Defined at:
-		line 138 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_main
-		_I2CReceiveError
- This function uses a non-reentrant model
-
-
- *************** function _ledOff_1 *****************
- Defined at:
-		line 151 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_main
-		_I2CReceiveError
- This function uses a non-reentrant model
-
-
  *************** function _lcdWriteString *****************
  Defined at:
 		line 95 in file "user.c"
  Parameters:    Size  Location     Type
   str             2   35[COMRAM] PTR unsigned char 
-		 -> STR_2(13), STR_1(2), 
+		 -> STR_2(13), STR_1(2), main@str(15), 
  Auto vars:     Size  Location     Type
   i               2   39[COMRAM] int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+		wreg, fsr1l, fsr1h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1687,7 +1607,7 @@ Total ram usage:        7 bytes
 
  *************** function _initPWM *****************
  Defined at:
-		line 8 in file "pwm.c"
+		line 26 in file "pwm.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1717,7 +1637,7 @@ Total ram usage:        0 bytes
 
  *************** function _setDutyCycle *****************
  Defined at:
-		line 16 in file "pwm.c"
+		line 34 in file "pwm.c"
  Parameters:    Size  Location     Type
   x               1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1935,14 +1855,14 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 /opt/microchip/xc8/v1.41/sources/common/lwdiv.c
-		___lwdiv       		CODE           	1452	0000	83
+		___lwdiv       		CODE           	14D0	0000	83
 
 /opt/microchip/xc8/v1.41/sources/common/lwdiv.c estimated size: 83
 
 lpque.c
-		_myQueuePush   		CODE           	1578	0000	61
-		_myQueueCheck  		CODE           	131E	0000	115
-		_initQueue     		CODE           	15B4	0000	59
+		_myQueuePush   		CODE           	15AC	0000	61
+		_myQueueCheck  		CODE           	1348	0000	115
+		_initQueue     		CODE           	15E8	0000	59
 
 lpque.c estimated size: 235
 
@@ -1953,66 +1873,64 @@ interrupts.c
 interrupts.c estimated size: 302
 
 I2C.c
-		_readDataByte  		CODE           	164A	0000	35
-		_readGesture   		CODE           	15EE	0000	53
-		_receiveByte   		CODE           	16E8	0000	17
-		_sendByte      		CODE           	1708	0000	15
-		_I2CRestart    		CODE           	175C	0000	9
-		_I2CStart      		CODE           	1754	0000	9
-		_readZ         		CODE           	16D8	0000	17
-		_writeDataByte 		CODE           	16AA	0000	25
-		_I2CInit       		CODE           	1724	0000	13
+		_readDataByte  		CODE           	1656	0000	35
+		_readGesture   		CODE           	1622	0000	53
+		_receiveByte   		CODE           	170C	0000	17
+		_sendByte      		CODE           	172C	0000	15
+		_I2CRestart    		CODE           	1772	0000	9
+		_I2CStart      		CODE           	176A	0000	9
+		_readZ         		CODE           	16FC	0000	17
+		_writeDataByte 		CODE           	16B6	0000	25
+		_I2CInit       		CODE           	173A	0000	13
 
 I2C.c estimated size: 193
 
 pwm.c
-		_lightSwitch   		CODE           	168C	0000	31
-		_moreLight     		CODE           	1730	0000	13
-		_lessLight     		CODE           	173C	0000	13
-		_dutyCycleUp   		CODE           	1622	0000	41
-		_dutyCycleSet  		CODE           	1764	0000	9
-		_dutyCycleDown 		CODE           	1716	0000	15
-		_dutyCycleClear		CODE           	176C	0000	9
-		_setDutyCycle  		CODE           	1748	0000	13
-		_initPWM       		CODE           	16C2	0000	23
+		_lightSwitch   		CODE           	1698	0000	31
+		_moreLight     		CODE           	1746	0000	13
+		_lessLight     		CODE           	1752	0000	13
+		_dutyCycleUp   		CODE           	16CE	0000	25
+		_dutyCycleSet  		CODE           	177A	0000	9
+		_dutyCycleDown 		CODE           	142A	0000	85
+		_dutyCycleClear		CODE           	1782	0000	9
+		_setDutyCycle  		CODE           	175E	0000	13
+		_initPWM       		CODE           	16E6	0000	23
 
-pwm.c estimated size: 167
+pwm.c estimated size: 221
 
 shared
-		__initialization		CODE           	1400	0000	69
+		__initialization		CODE           	147E	0000	69
 
 shared estimated size: 69
 
 /opt/microchip/xc8/v1.41/sources/common/lwmod.c
-		___lwmod       		CODE           	1536	0000	67
+		___lwmod       		CODE           	156A	0000	67
 
 /opt/microchip/xc8/v1.41/sources/common/lwmod.c estimated size: 67
 
 /opt/microchip/xc8/v1.41/sources/common/awmod.c
-		___awmod       		CODE           	1390	0000	113
+		___awmod       		CODE           	13BA	0000	113
 
 /opt/microchip/xc8/v1.41/sources/common/awmod.c estimated size: 113
 
 user.c
-		_lcdEnable     		CODE           	1784	0000	9
-		_InitApp       		CODE           	178E	0000	3
-		_ledOff_1      		CODE           	177C	0000	9
-		_lcdWriteUI    		CODE           	12A4	0000	123
-		_lcdWriteInt   		CODE           	166C	0000	33
-		_lcdWriteChar  		CODE           	14EE	0000	73
-		_ledOn_1       		CODE           	1774	0000	9
-		_lcdWriteString		CODE           	14A4	0000	75
-		_initLCD       		CODE           	120E	0000	151
+		_lcdEnable     		CODE           	178A	0000	9
+		_InitApp       		CODE           	1794	0000	3
+		_lcdWriteUI    		CODE           	1258	0000	123
+		_lcdWriteInt   		CODE           	1678	0000	33
+		_lcdWriteChar  		CODE           	1522	0000	73
+		_lcdWriteString		CODE           	12D2	0000	119
+		_initLCD       		CODE           	11C2	0000	151
 
-user.c estimated size: 485
+user.c estimated size: 511
 
 main.c
-		_main          		CODE           	1012	0000	357
+		_main          		CODE           	1012	0000	281
 
-main.c estimated size: 357
+main.c estimated size: 281
 
 system.c
-		_ConfigureOscillator		CODE           	1790	0000	3
+		_ConfigureOscillator		CODE           	1796	0000	3
 
 system.c estimated size: 3
 

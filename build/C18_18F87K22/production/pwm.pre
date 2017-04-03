@@ -3531,7 +3531,7 @@ extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 # 19 "system.h"
 void ConfigureOscillator(void);
 
-# 19 "pwm.h"
+# 21 "pwm.h"
 void initPWM();
 void setDutyCycle(unsigned char x);
 void dutyCycleUp();
@@ -3546,7 +3546,7 @@ void lightSwitch();
 unsigned char rate=20;
 unsigned char lightStatus = 1;
 
-# 8 "pwm.c"
+# 26 "pwm.c"
 void initPWM(){
 TRISCbits.RC1 = 0;
 CCP2CON = 0b00011111;
@@ -3563,14 +3563,18 @@ PIR1bits.CCP1IF = 0;
 }
 
 void dutyCycleUp(){
+if(50 - 8 > rate)
 rate = rate + 8;
-rate = (49<rate?49:rate);
+else
+rate = 50;
 setDutyCycle(rate);
 }
 
 void dutyCycleDown(){
-rate = rate - 8;
-rate = (0>rate?0:rate);
+if(rate > 8)
+rate = (rate - 8>8?rate - 8:8);
+else
+rate = 8;
 setDutyCycle(rate);
 }
 
@@ -3580,18 +3584,18 @@ setDutyCycle(rate);
 
 void dutyCycleClear(){
 
-setDutyCycle(0);
+setDutyCycle(53);
 }
 
 void moreLight(){
 if (lightStatus == 1){
-dutyCycleUp();
+dutyCycleDown();
 }
 }
 
 void lessLight(){
 if (lightStatus == 1){
-dutyCycleDown();
+dutyCycleUp();
 }
 }
 

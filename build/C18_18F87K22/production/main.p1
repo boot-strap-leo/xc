@@ -36,34 +36,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i __delay ]
 "15 user.h
 [v _initLCD `(v ~T0 @X0 0 ef ]
-"19 pwm.h
+"21
+[v _lcdWriteString `(v ~T0 @X0 0 ef1`*uc ]
+"21 pwm.h
 [v _initPWM `(v ~T0 @X0 0 ef ]
-"36 user.h
-[v _ledOn_1 `(v ~T0 @X0 0 ef ]
-"41
-[v _ledOff_1 `(v ~T0 @X0 0 ef ]
 "19 lpque.h
 [v _initQueue `(v ~T0 @X0 0 ef ]
 "94 I2C.h
 [v _readZ `(uc ~T0 @X0 0 ef ]
-"21 user.h
-[v _lcdWriteString `(v ~T0 @X0 0 ef1`*uc ]
-"18
+"18 user.h
 [v _lcdWriteInt `(v ~T0 @X0 0 ef1`i ]
 "20 lpque.h
 [v _myQueuePush `(v ~T0 @X0 0 ef1`i ]
 "21
 [v _myQueueCheck `(i ~T0 @X0 0 ef ]
-"28 pwm.h
+"30 pwm.h
 [v _lightSwitch `(v ~T0 @X0 0 ef ]
-"102 main.c
+"96 main.c
 [c E2865 1 2 3 255 .. ]
 [n E2865 GestureType RIGHT_SWIPE LEFT_SWIPE UP_SWIPE NO_GESTURE  ]
 "97 I2C.h
 [v _readGesture `(E2865 ~T0 @X0 0 ef ]
-"27 pwm.h
+"29 pwm.h
 [v _moreLight `(v ~T0 @X0 0 ef ]
-"26
+"28
 [v _lessLight `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2788,27 +2784,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __addr `uc ~T0 @X0 1 e ]
 [; ;I2C.h: 100: unsigned char _addr;
 [; ;system.h: 19: void ConfigureOscillator(void);
-[; ;pwm.h: 19: void initPWM();
-[; ;pwm.h: 20: void setDutyCycle(unsigned char x);
-[; ;pwm.h: 21: void dutyCycleUp();
-[; ;pwm.h: 22: void dutyCycleSet();
-[; ;pwm.h: 23: void dutyCycleClear();
-[; ;pwm.h: 24: void dutyCycleDown();
-[; ;pwm.h: 26: void lessLight();
-[; ;pwm.h: 27: void moreLight();
-[; ;pwm.h: 28: void lightSwitch();
-"30 pwm.h
+[; ;pwm.h: 21: void initPWM();
+[; ;pwm.h: 22: void setDutyCycle(unsigned char x);
+[; ;pwm.h: 23: void dutyCycleUp();
+[; ;pwm.h: 24: void dutyCycleSet();
+[; ;pwm.h: 25: void dutyCycleClear();
+[; ;pwm.h: 26: void dutyCycleDown();
+[; ;pwm.h: 28: void lessLight();
+[; ;pwm.h: 29: void moreLight();
+[; ;pwm.h: 30: void lightSwitch();
+"32 pwm.h
 [v _rate `uc ~T0 @X0 1 e ]
 [i _rate
 -> -> 20 `i `uc
 ]
-[; ;pwm.h: 30: unsigned char rate=20;
-"31
+[; ;pwm.h: 32: unsigned char rate=20;
+"33
 [v _lightStatus `uc ~T0 @X0 1 e ]
 [i _lightStatus
 -> -> 1 `i `uc
 ]
-[; ;pwm.h: 31: unsigned char lightStatus = 1;
+[; ;pwm.h: 33: unsigned char lightStatus = 1;
 [; ;system.h: 19: void ConfigureOscillator(void);
 "17 lpque.h
 [v _my_stack `i ~T0 @X0 -> 10 `i e ]
@@ -2854,11 +2850,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 59: INTCONbits.TMR0IE = 1;
 "59
 [e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 62: _delay((unsigned long)((70)*(8000000/4000.0)));
-"62
-[e ( __delay (1 -> * -> -> 70 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 63: initLCD();
+[; ;main.c: 63: _delay((unsigned long)((70)*(8000000/4000.0)));
 "63
+[e ( __delay (1 -> * -> -> 70 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 64: initLCD();
+"64
 [e ( _initLCD ..  ]
 [v F2922 `uc ~T0 @X0 -> 15 `i s ]
 [i F2922
@@ -2879,148 +2875,127 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"64
-[v _str `uc ~T0 @X0 -> 15 `i a ]
-[; ;main.c: 64: unsigned char str[15] = "PROGRAM BEGIN";
-[e = _str F2922 ]
-[; ;main.c: 65: _delay((unsigned long)((500)*(8000000/4000.0)));
 "65
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[v _str `uc ~T0 @X0 -> 15 `i a ]
+[; ;main.c: 65: unsigned char str[15] = "PROGRAM BEGIN";
+[e = _str F2922 ]
+[; ;main.c: 66: lcdWriteString(str);
+"66
+[e ( _lcdWriteString (1 &U _str ]
+[; ;main.c: 67: _delay((unsigned long)((500)*(8000000/4000.0)));
 "67
-[v _pos `uc ~T0 @X0 1 a ]
-[; ;main.c: 67: unsigned char pos;
-[; ;main.c: 68: _addr = 0x20;
-"68
-[e = __addr -> -> 32 `i `uc ]
-[; ;main.c: 71: initPWM();
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "71
-[e ( _initPWM ..  ]
-[; ;main.c: 72: ledOn_1();
+[v _pos `uc ~T0 @X0 1 a ]
+[; ;main.c: 71: unsigned char pos;
+[; ;main.c: 72: _addr = 0x20;
 "72
-[e ( _ledOn_1 ..  ]
-[; ;main.c: 73: _delay((unsigned long)((80)*(8000000/4000.0)));
+[e = __addr -> -> 32 `i `uc ]
+[; ;main.c: 73: initPWM();
 "73
-[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 74: ledOff_1();
+[e ( _initPWM ..  ]
+[; ;main.c: 74: initQueue();
 "74
-[e ( _ledOff_1 ..  ]
-[; ;main.c: 75: _delay((unsigned long)((80)*(8000000/4000.0)));
-"75
-[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 76: initQueue();
-"76
 [e ( _initQueue ..  ]
-[; ;main.c: 77: ledOn_1();
+[; ;main.c: 77: while(1){
 "77
-[e ( _ledOn_1 ..  ]
-[; ;main.c: 78: _delay((unsigned long)((80)*(8000000/4000.0)));
-"78
-[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 79: ledOff_1();
-"79
-[e ( _ledOff_1 ..  ]
-[; ;main.c: 80: _delay((unsigned long)((80)*(8000000/4000.0)));
-"80
-[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 83: while(1){
-"83
 [e :U 267 ]
 {
-[; ;main.c: 87: pos = readZ();
-"87
+[; ;main.c: 81: pos = readZ();
+"81
 [e = _pos ( _readZ ..  ]
-[; ;main.c: 88: lcdWriteString(" ");
-"88
+[; ;main.c: 82: lcdWriteString(" ");
+"82
 [e ( _lcdWriteString (1 -> :s 1C `*uc ]
-[; ;main.c: 89: lcdWriteInt(pos);
-"89
+[; ;main.c: 83: lcdWriteInt(pos);
+"83
 [e ( _lcdWriteInt (1 -> _pos `i ]
-[; ;main.c: 90: myQueuePush((int)pos);
-"90
+[; ;main.c: 84: myQueuePush((int)pos);
+"84
 [e ( _myQueuePush (1 -> _pos `i ]
-[; ;main.c: 93: if (myQueueCheck() == 1){
-"93
+[; ;main.c: 87: if (myQueueCheck() == 1){
+"87
 [e $ ! == ( _myQueueCheck ..  -> 1 `i 269  ]
 {
-[; ;main.c: 94: lightSwitch();
-"94
+[; ;main.c: 88: lightSwitch();
+"88
 [e ( _lightSwitch ..  ]
-[; ;main.c: 95: lcdWriteString("LIGHT_SWITCH");
-"95
+[; ;main.c: 89: lcdWriteString("LIGHT_SWITCH");
+"89
 [e ( _lcdWriteString (1 -> :s 2C `*uc ]
-[; ;main.c: 96: _delay((unsigned long)((500)*(8000000/4000.0)));
-"96
+[; ;main.c: 90: _delay((unsigned long)((500)*(8000000/4000.0)));
+"90
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"97
+"91
 }
 [e :U 269 ]
-"102
+"96
 [v _ges `E2865 ~T0 @X0 1 a ]
-[; ;main.c: 97: }
-[; ;main.c: 102: GestureType ges = readGesture();
+[; ;main.c: 91: }
+[; ;main.c: 96: GestureType ges = readGesture();
 [e = _ges ( _readGesture ..  ]
-[; ;main.c: 103: switch (ges){
-"103
+[; ;main.c: 97: switch (ges){
+"97
 [e $U 271  ]
 {
-[; ;main.c: 104: case RIGHT_SWIPE:
-"104
+[; ;main.c: 98: case RIGHT_SWIPE:
+"98
 [e :U 272 ]
-[; ;main.c: 106: moreLight();
-"106
+[; ;main.c: 100: moreLight();
+"100
 [e ( _moreLight ..  ]
-[; ;main.c: 107: break;
-"107
+[; ;main.c: 101: break;
+"101
 [e $U 270  ]
-[; ;main.c: 108: case LEFT_SWIPE:
-"108
+[; ;main.c: 102: case LEFT_SWIPE:
+"102
 [e :U 273 ]
-[; ;main.c: 110: lessLight();
-"110
+[; ;main.c: 104: lessLight();
+"104
 [e ( _lessLight ..  ]
-[; ;main.c: 111: break;
-"111
+[; ;main.c: 105: break;
+"105
 [e $U 270  ]
-[; ;main.c: 112: case UP_SWIPE:
-"112
+[; ;main.c: 106: case UP_SWIPE:
+"106
 [e :U 274 ]
-[; ;main.c: 115: break;
-"115
+[; ;main.c: 109: break;
+"109
 [e $U 270  ]
-[; ;main.c: 116: default:
-"116
+[; ;main.c: 110: default:
+"110
 [e :U 275 ]
-[; ;main.c: 118: break;
-"118
+[; ;main.c: 112: break;
+"112
 [e $U 270  ]
-"119
+"113
 }
-[; ;main.c: 119: }
+[; ;main.c: 113: }
 [e $U 270  ]
-"103
+"97
 [e :U 271 ]
 [e [\ _ges , $ . `E2865 0 272
  , $ . `E2865 1 273
  , $ . `E2865 2 274
  275 ]
-"119
+"113
 [e :U 270 ]
-[; ;main.c: 120: _delay((unsigned long)((10)*(8000000/4000.0)));
-"120
+[; ;main.c: 114: _delay((unsigned long)((10)*(8000000/4000.0)));
+"114
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"121
+"115
 }
 [e :U 266 ]
-"83
+"77
 [e $U 267  ]
 [e :U 268 ]
-[; ;main.c: 121: }
-[; ;main.c: 138: return 0;
-"138
+[; ;main.c: 115: }
+[; ;main.c: 133: return 0;
+"133
 [e ) -> 0 `i ]
 [e $UE 265  ]
-[; ;main.c: 139: }
-"139
+[; ;main.c: 134: }
+"134
 [e :UE 265 ]
 }
 [a 2C 76 73 71 72 84 95 83 87 73 84 67 72 0 ]

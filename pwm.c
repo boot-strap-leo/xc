@@ -5,6 +5,24 @@
 #define max(a,b) (a>b?a:b)
 #define min(a,b) (a<b?a:b)
 
+/*
+void initPWM(){
+    TRISCbits.RC0 = 0;
+    CCP1CON = 0b00011111;
+    T1CON = 0x00;
+    PR2 = 0b00110011;
+    setDutyCycle(25);
+    //dutyCycleClear();
+}
+void setDutyCycle(unsigned char x){
+    CCPR1L = x;
+    T1CONbits.TMR1ON = 1;
+    PIR1bits.CCP1IF = 0;
+    //while(PIR1bits.CCP1IF == 0);
+}
+//*/
+
+//*/
 void initPWM(){
     TRISCbits.RC1 = 0;
     CCP2CON = 0b00011111;
@@ -19,16 +37,20 @@ void setDutyCycle(unsigned char x){
     PIR1bits.CCP1IF = 0;
     //while(PIR1bits.CCP1IF == 0);
 }
-
+//*/
 void dutyCycleUp(){
-    rate = rate + minx;
-    rate  = min(49, rate);
+    if(maxn - minx > rate)
+        rate = rate + minx;
+    else
+        rate  = maxn;
     setDutyCycle(rate);
 }
 
 void dutyCycleDown(){
-    rate = rate - minx;
-    rate  = max(0, rate);
+    if(rate > minx)
+        rate = max(rate - minx, minx);
+    else
+        rate  = minx;
     setDutyCycle(rate);
 }
 
@@ -38,18 +60,18 @@ void dutyCycleSet(){
 
 void dutyCycleClear(){
     //rate = 0;
-    setDutyCycle(0);
+    setDutyCycle(53);
 }
 
 void moreLight(){
     if (lightStatus == 1){
-        dutyCycleUp();
+        dutyCycleDown();
     }
 }
 
 void lessLight(){
     if (lightStatus == 1){
-        dutyCycleDown();
+        dutyCycleUp();
     }
 }
 
