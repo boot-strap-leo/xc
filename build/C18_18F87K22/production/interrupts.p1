@@ -13,10 +13,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S257 . . . . ]
 "6298
 [v _INTCONbits `VS257 ~T0 @X0 0 e@4082 ]
-[v F2802 `(v ~T0 @X0 1 tf1`ul ]
-"161 /opt/microchip/xc8/v1.41/include/pic18.h
-[v __delay `JF2802 ~T0 @X0 0 e ]
-[p i __delay ]
+"29 servo.h
+[v _servoInteruptions `(v ~T0 @X0 0 ef ]
+"5869 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
+[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"5863
+[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+[; ;system.h: 19: void ConfigureOscillator(void);
+"23 servo.h
+[v _servo_direction `ui ~T0 @X0 1 e ]
+[; ;servo.h: 23: unsigned servo_direction;
+"25
+[v _onCounter `ui ~T0 @X0 1 e ]
+[; ;servo.h: 25: unsigned onCounter;
+"26
+[v _offCounter `ui ~T0 @X0 1 e ]
+[; ;servo.h: 26: unsigned offCounter;
+"27
+[v _servo_counter `ui ~T0 @X0 1 e ]
+[; ;servo.h: 27: unsigned servo_counter;
+[; ;servo.h: 29: void servoInteruptions();
+[; ;servo.h: 30: void startTurning(unsigned dirct);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2689,52 +2706,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-"27 interrupts.c
+"28 interrupts.c
 [v _valuePort `uc ~T0 @X0 1 e ]
 [i _valuePort
 -> -> 0 `i `uc
 ]
-[; ;interrupts.c: 27: unsigned char valuePort = 0;
-[v F2841 `(v ~T0 @X0 1 tf ]
-"30
-[v _high_isr `IF2841 ~T0 @X0 1 e ]
-"39
+[; ;interrupts.c: 28: unsigned char valuePort = 0;
+[v F2850 `(v ~T0 @X0 1 tf ]
+"31
+[v _high_isr `IF2850 ~T0 @X0 1 e ]
+"40
 {
-[; ;interrupts.c: 30: void interrupt high_isr(void)
-[; ;interrupts.c: 39: {
+[; ;interrupts.c: 31: void interrupt high_isr(void)
+[; ;interrupts.c: 40: {
 [e :U _high_isr ]
 [f ]
-[; ;interrupts.c: 66: if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
-"66
+[; ;interrupts.c: 67: if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
+"67
 [e $ ! && != -> . . _INTCONbits 0 5 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 266  ]
 {
-[; ;interrupts.c: 67: valuePort = valuePort + 1;
-"67
-[e = _valuePort -> + -> _valuePort `i -> 1 `i `uc ]
-[; ;interrupts.c: 68: _delay(200000);
+[; ;interrupts.c: 68: servoInteruptions();
 "68
-[e ( __delay (1 -> -> 200000 `l `ul ]
+[e ( _servoInteruptions ..  ]
 [; ;interrupts.c: 69: INTCONbits.TMR0IF = 0;
 "69
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;interrupts.c: 70: TMR0H = 0xFF;
 "70
+[e = _TMR0H -> -> 255 `i `uc ]
+[; ;interrupts.c: 71: TMR0L = 0x80;
+"71
+[e = _TMR0L -> -> 128 `i `uc ]
+"72
 }
 [e :U 266 ]
-[; ;interrupts.c: 70: }
-[; ;interrupts.c: 71: }
-"71
+[; ;interrupts.c: 72: }
+[; ;interrupts.c: 73: }
+"73
 [e :UE 265 ]
 }
-[v F2844 `(v ~T0 @X0 1 tf ]
-"75
-[v _low_isr `ILF2844 ~T0 @X0 1 e ]
-"83
+[v F2853 `(v ~T0 @X0 1 tf ]
+"77
+[v _low_isr `ILF2853 ~T0 @X0 1 e ]
+"85
 {
-[; ;interrupts.c: 75: void low_priority interrupt low_isr(void)
-[; ;interrupts.c: 83: {
+[; ;interrupts.c: 77: void low_priority interrupt low_isr(void)
+[; ;interrupts.c: 85: {
 [e :U _low_isr ]
 [f ]
-[; ;interrupts.c: 110: }
-"110
+[; ;interrupts.c: 112: }
+"112
 [e :UE 267 ]
 }

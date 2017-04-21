@@ -1,6 +1,19 @@
 
 # 1 "interrupts.c"
 
+# 19 "system.h"
+void ConfigureOscillator(void);
+
+# 23 "servo.h"
+unsigned servo_direction;
+
+unsigned onCounter;
+unsigned offCounter;
+unsigned servo_counter;
+
+void servoInteruptions();
+void startTurning(unsigned dirct);
+
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
@@ -3654,20 +3667,21 @@ typedef uint16_t uintptr_t;
 # 12 "/opt/microchip/xc8/v1.41/include/stdbool.h"
 typedef unsigned char bool;
 
-# 27 "interrupts.c"
+# 28 "interrupts.c"
 unsigned char valuePort = 0;
 
 
 void interrupt high_isr(void)
 
-# 39
+# 40
 {
 
-# 66
+# 67
 if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
-valuePort = valuePort + 1;
-_delay(200000);
+servoInteruptions();
 INTCONbits.TMR0IF = 0;
+TMR0H = 0xFF;
+TMR0L = 0x80;
 }
 }
 
@@ -3675,8 +3689,8 @@ INTCONbits.TMR0IF = 0;
 
 void low_priority interrupt low_isr(void)
 
-# 83
+# 85
 {
 
-# 110
+# 112
 }

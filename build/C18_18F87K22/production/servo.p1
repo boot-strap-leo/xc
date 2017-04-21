@@ -1,82 +1,55 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"19 system.h
-[v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"13 user.h
-[v _InitApp `(v ~T0 @X0 0 ef ]
-"1588 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"1367
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"2030
-[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"1809
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"185
-[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
-"1820
-[s S65 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S65 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1830
-[s S66 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S66 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"1819
-[u S64 `S65 1 `S66 1 ]
-[n S64 . . . ]
-"1841
-[v _TRISCbits `VS64 ~T0 @X0 0 e@3988 ]
-"5781
-[v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
-"6272
-[s S258 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S258 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"6282
-[s S259 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S259 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"6292
-[s S260 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S260 . . GIEL GIEH ]
-"6271
-[u S257 `S258 1 `S259 1 `S260 1 ]
-[n S257 . . . . ]
-"6298
-[v _INTCONbits `VS257 ~T0 @X0 0 e@4082 ]
-[v F2802 `(v ~T0 @X0 1 tf1`ul ]
-"161 /opt/microchip/xc8/v1.41/include/pic18.h
-[v __delay `JF2802 ~T0 @X0 0 e ]
-[p i __delay ]
-"15 user.h
-[v _initLCD `(v ~T0 @X0 0 ef ]
-"21
-[v _lcdWriteString `(v ~T0 @X0 0 ef1`*uc ]
-"21 pwm.h
-[v _initPWM `(v ~T0 @X0 0 ef ]
-"19 lpque.h
-[v _initQueue `(v ~T0 @X0 0 ef ]
-"94 I2C.h
-[v _readZ `(uc ~T0 @X0 0 ef ]
-"18 user.h
-[v _lcdWriteInt `(v ~T0 @X0 0 ef1`i ]
-"20 lpque.h
-[v _myQueuePush `(v ~T0 @X0 0 ef1`i ]
-"21
-[v _myQueueCheck `(i ~T0 @X0 0 ef ]
-"31 pwm.h
-[v _lightSwitch `(v ~T0 @X0 0 ef ]
-"100 main.c
-[c E2865 1 2 3 255 .. ]
-[n E2865 GestureType RIGHT_SWIPE LEFT_SWIPE UP_SWIPE NO_GESTURE  ]
-"97 I2C.h
-[v _readGesture `(E2865 ~T0 @X0 0 ef ]
-"30 pwm.h
-[v _moreLight `(v ~T0 @X0 0 ef ]
-"29
-[v _lessLight `(v ~T0 @X0 0 ef ]
-"30 servo.h
-[v _startTurning `(v ~T0 @X0 0 ef1`ui ]
-[; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
-[; ;htc.h: 28: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+"361 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"371
+[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S17 . T1OSO T1OSI CCP1 SCK SDI SDO TX RX ]
+"381
+[s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S18 . T13CKI CCP2 . SCL SDA . CK DT ]
+"391
+[s S19 :1 `uc 1 ]
+[n S19 . T1CKI ]
+"394
+[s S20 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . . PA2 PA1 ]
+"360
+[u S15 `S16 1 `S17 1 `S18 1 `S19 1 `S20 1 ]
+[n S15 . . . . . . ]
+"400
+[v _PORTCbits `VS15 ~T0 @X0 0 e@3970 ]
+[; ;system.h: 19: void ConfigureOscillator(void);
+"23 servo.h
+[v _servo_direction `ui ~T0 @X0 1 e ]
+[; ;servo.h: 23: unsigned servo_direction;
+"25
+[v _onCounter `ui ~T0 @X0 1 e ]
+[; ;servo.h: 25: unsigned onCounter;
+"26
+[v _offCounter `ui ~T0 @X0 1 e ]
+[; ;servo.h: 26: unsigned offCounter;
+"27
+[v _servo_counter `ui ~T0 @X0 1 e ]
+[; ;servo.h: 27: unsigned servo_counter;
+[; ;servo.h: 29: void servoInteruptions();
+[; ;servo.h: 30: void startTurning(unsigned dirct);
+[; ;user.h: 13: void InitApp(void);
+[; ;user.h: 15: void initLCD(void);
+[; ;user.h: 16: void lcdEnable(void);
+[; ;user.h: 18: void lcdWriteInt(int num);
+[; ;user.h: 19: void lcdWriteUI(unsigned int num);
+[; ;user.h: 20: void lcdWriteChar(unsigned char leter);
+[; ;user.h: 21: void lcdWriteString(unsigned char str[]);
+[; ;user.h: 22: void clearDisplay();
+[; ;user.h: 35: void ledOn_0();
+[; ;user.h: 36: void ledOn_1();
+[; ;user.h: 37: void ledOn_2();
+[; ;user.h: 38: void ledOn_3();
+[; ;user.h: 40: void ledOff_0();
+[; ;user.h: 41: void ledOff_1();
+[; ;user.h: 42: void ledOff_2();
+[; ;user.h: 43: void ledOff_3();
 [; ;pic18lf4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
 "51 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [; ;pic18lf4620.h: 51: asm("PORTA equ 0F80h");
@@ -2708,365 +2681,124 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18lf4620.h: 7710: extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;pic18lf4620.h: 7712: extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 [; ;pic18lf4620.h: 7714: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
-[; ;pic18.h: 18: __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-[; ;pic18.h: 19: __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
-[; ;pic18.h: 43: extern void __nop(void);
-[; ;pic18.h: 135: __attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
-[; ;pic18.h: 136: __attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
-[; ;pic18.h: 137: __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
-[; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
-[; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 19: void ConfigureOscillator(void);
-[; ;user.h: 13: void InitApp(void);
-[; ;user.h: 15: void initLCD(void);
-[; ;user.h: 16: void lcdEnable(void);
-[; ;user.h: 18: void lcdWriteInt(int num);
-[; ;user.h: 19: void lcdWriteUI(unsigned int num);
-[; ;user.h: 20: void lcdWriteChar(unsigned char leter);
-[; ;user.h: 21: void lcdWriteString(unsigned char str[]);
-[; ;user.h: 22: void clearDisplay();
-[; ;user.h: 35: void ledOn_0();
-[; ;user.h: 36: void ledOn_1();
-[; ;user.h: 37: void ledOn_2();
-[; ;user.h: 38: void ledOn_3();
-[; ;user.h: 40: void ledOff_0();
-[; ;user.h: 41: void ledOff_1();
-[; ;user.h: 42: void ledOff_2();
-[; ;user.h: 43: void ledOff_3();
-[; ;system.h: 19: void ConfigureOscillator(void);
-"18 I2C.h
-[v _ack `uc ~T0 @X0 1 e ]
-[; ;I2C.h: 18: unsigned char ack;
-[; ;I2C.h: 70: typedef enum GestureType {
-[; ;I2C.h: 71: RIGHT_SWIPE = 0x01,
-[; ;I2C.h: 72: LEFT_SWIPE = 0x02,
-[; ;I2C.h: 73: UP_SWIPE = 0x03,
-[; ;I2C.h: 74: NO_GESTURE = 0xFF
-[; ;I2C.h: 75: } GestureType;
-[; ;I2C.h: 78: typedef enum InterruptType {
-[; ;I2C.h: 79: NO_INTERRUPTS = 0x00,
-[; ;I2C.h: 80: POSITION_INTERRUPTS = 0x01,
-[; ;I2C.h: 81: GESTURE_INTERRUPTS = 0x02,
-[; ;I2C.h: 82: ALL_INTERRUPTS = 0x03
-[; ;I2C.h: 83: } InterruptType;
-[; ;I2C.h: 85: void I2CStop();
-[; ;I2C.h: 86: void I2CStart();
-[; ;I2C.h: 87: void I2CShowError();
-[; ;I2C.h: 88: void sendByte(unsigned char c);
-[; ;I2C.h: 89: unsigned char receiveByte();
-[; ;I2C.h: 90: unsigned char readX();
-[; ;I2C.h: 91: void writeDataByte(unsigned char addr, unsigned char reg);
-[; ;I2C.h: 92: unsigned char readDataByte(unsigned char addr, unsigned char reg);
-[; ;I2C.h: 93: unsigned char readX();
-[; ;I2C.h: 94: unsigned char readZ();
-[; ;I2C.h: 95: bool positionAvailable();
-[; ;I2C.h: 96: bool gestureAvailable();
-[; ;I2C.h: 97: GestureType readGesture();
-[; ;I2C.h: 98: unsigned char readGestureSpeed();
-"100
-[v __addr `uc ~T0 @X0 1 e ]
-[; ;I2C.h: 100: unsigned char _addr;
-[; ;system.h: 19: void ConfigureOscillator(void);
-[; ;pwm.h: 21: void initPWM();
-[; ;pwm.h: 22: void setDutyCycle1(unsigned char x);
-[; ;pwm.h: 23: void setDutyCycle2(unsigned char x);
-[; ;pwm.h: 24: void dutyCycleUp();
-[; ;pwm.h: 25: void dutyCycleSet();
-[; ;pwm.h: 26: void dutyCycleClear();
-[; ;pwm.h: 27: void dutyCycleDown();
-[; ;pwm.h: 29: void lessLight();
-[; ;pwm.h: 30: void moreLight();
-[; ;pwm.h: 31: void lightSwitch();
-"34 pwm.h
-[v _rate `uc ~T0 @X0 1 e ]
-[i _rate
--> -> 45 `i `uc
-]
-[; ;pwm.h: 34: unsigned char rate=45;
-"35
-[v _lightStatus `uc ~T0 @X0 1 e ]
-[i _lightStatus
--> -> 1 `i `uc
-]
-[; ;pwm.h: 35: unsigned char lightStatus = 1;
-[; ;system.h: 19: void ConfigureOscillator(void);
-"17 lpque.h
-[v _my_stack `i ~T0 @X0 -> 10 `i e ]
-[v _iter `i ~T0 @X0 1 e ]
-[; ;lpque.h: 17: int my_stack[10], iter;
-[; ;lpque.h: 19: void initQueue();
-[; ;lpque.h: 20: void myQueuePush(int x);
-[; ;lpque.h: 21: int myQueueCheck();
-[; ;system.h: 19: void ConfigureOscillator(void);
-"23 servo.h
-[v _servo_direction `ui ~T0 @X0 1 e ]
-[; ;servo.h: 23: unsigned servo_direction;
-"25
-[v _onCounter `ui ~T0 @X0 1 e ]
-[; ;servo.h: 25: unsigned onCounter;
-"26
-[v _offCounter `ui ~T0 @X0 1 e ]
-[; ;servo.h: 26: unsigned offCounter;
-"27
-[v _servo_counter `ui ~T0 @X0 1 e ]
-[; ;servo.h: 27: unsigned servo_counter;
-[; ;servo.h: 29: void servoInteruptions();
-[; ;servo.h: 30: void startTurning(unsigned dirct);
-[; ;main.c: 39: extern unsigned char valuePort;
-[; ;main.c: 40: extern unsigned int myCount;
-"45 main.c
-[v _main `(i ~T0 @X0 1 ef ]
-"46
+"5 servo.c
+[v _startTurning `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;main.c: 45: int main(void)
-[; ;main.c: 46: {
-[e :U _main ]
+[; ;servo.c: 5: void startTurning(unsigned dirct){
+[e :U _startTurning ]
+[v _dirct `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 48: ConfigureOscillator();
-"48
-[e ( _ConfigureOscillator ..  ]
-[; ;main.c: 51: InitApp();
-"51
-[e ( _InitApp ..  ]
-[; ;main.c: 53: TRISB=0X00;
-"53
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 54: TRISA=0XFF;
-"54
-[e = _TRISA -> -> 255 `i `uc ]
-[; ;main.c: 55: TRISD = 0x00;
-"55
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;main.c: 56: TRISC = 0b00011000;
-"56
-[e = _TRISC -> -> 24 `i `uc ]
-[; ;main.c: 57: PORTB=0X00;
-"57
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 59: TRISCbits.RC2 = 0;
-"59
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-[; ;main.c: 60: T0CON = 0b10001000;
-"60
-[e = _T0CON -> -> 136 `i `uc ]
-[; ;main.c: 61: INTCONbits.TMR0IE = 1;
-"61
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 62: (INTCONbits.GIE = 1);
-"62
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 65: _delay((unsigned long)((70)*(4000000/4000.0)));
-"65
-[e ( __delay (1 -> * -> -> 70 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 66: initLCD();
-"66
-[e ( _initLCD ..  ]
-[v F2932 `uc ~T0 @X0 -> 15 `i s ]
-[i F2932
-:U ..
--> 80 `c
--> 82 `c
--> 79 `c
--> 71 `c
--> 82 `c
--> 65 `c
--> 77 `c
--> 32 `c
--> 66 `c
--> 69 `c
--> 71 `c
--> 73 `c
--> 78 `c
--> 0 `c
-..
-]
-"67
-[v _str `uc ~T0 @X0 -> 15 `i a ]
-[; ;main.c: 67: unsigned char str[15] = "PROGRAM BEGIN";
-[e = _str F2932 ]
-[; ;main.c: 68: lcdWriteString(str);
-"68
-[e ( _lcdWriteString (1 &U _str ]
-[; ;main.c: 69: _delay((unsigned long)((500)*(4000000/4000.0)));
-"69
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"73
-[v _pos `uc ~T0 @X0 1 a ]
-[; ;main.c: 73: unsigned char pos;
-[; ;main.c: 74: _addr = 0x20;
-"74
-[e = __addr -> -> 32 `i `uc ]
-[; ;main.c: 75: initPWM();
-"75
-[e ( _initPWM ..  ]
-[; ;main.c: 76: initQueue();
-"76
-[e ( _initQueue ..  ]
-[; ;main.c: 81: while(1){
-"81
-[e :U 267 ]
-{
-[; ;main.c: 85: pos = readZ();
-"85
-[e = _pos ( _readZ ..  ]
-[; ;main.c: 86: lcdWriteString(" ");
-"86
-[e ( _lcdWriteString (1 -> :s 1C `*uc ]
-[; ;main.c: 87: lcdWriteInt(rate);
-"87
-[e ( _lcdWriteInt (1 -> _rate `i ]
-[; ;main.c: 88: myQueuePush((int)pos);
-"88
-[e ( _myQueuePush (1 -> _pos `i ]
-[; ;main.c: 91: if (myQueueCheck() == 1){
-"91
-[e $ ! == ( _myQueueCheck ..  -> 1 `i 269  ]
-{
-[; ;main.c: 92: lightSwitch();
-"92
-[e ( _lightSwitch ..  ]
-[; ;main.c: 93: lcdWriteString("LIGHT_SWITCH");
-"93
-[e ( _lcdWriteString (1 -> :s 2C `*uc ]
-[; ;main.c: 94: _delay((unsigned long)((500)*(4000000/4000.0)));
-"94
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"95
-}
-[e :U 269 ]
-"100
-[v _ges `E2865 ~T0 @X0 1 a ]
-[; ;main.c: 95: }
-[; ;main.c: 100: GestureType ges = readGesture();
-[e = _ges ( _readGesture ..  ]
-[; ;main.c: 101: switch (ges){
-"101
-[e $U 271  ]
-{
-[; ;main.c: 102: case RIGHT_SWIPE:
-"102
-[e :U 272 ]
-[; ;main.c: 104: moreLight();
-"104
-[e ( _moreLight ..  ]
-[; ;main.c: 105: break;
-"105
-[e $U 270  ]
-[; ;main.c: 106: case LEFT_SWIPE:
-"106
-[e :U 273 ]
-[; ;main.c: 108: lessLight();
-"108
-[e ( _lessLight ..  ]
-[; ;main.c: 109: break;
-"109
-[e $U 270  ]
-[; ;main.c: 110: case UP_SWIPE:
-"110
-[e :U 274 ]
-[; ;main.c: 113: break;
-"113
-[e $U 270  ]
-[; ;main.c: 114: default:
-"114
-[e :U 275 ]
-[; ;main.c: 116: break;
-"116
-[e $U 270  ]
-"117
-}
-[; ;main.c: 117: }
-[e $U 270  ]
-"101
-[e :U 271 ]
-[e [\ _ges , $ . `E2865 0 272
- , $ . `E2865 1 273
- , $ . `E2865 2 274
- 275 ]
-"117
-[e :U 270 ]
-[; ;main.c: 118: _delay((unsigned long)((80)*(4000000/4000.0)));
-"118
-[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"119
-}
-[e :U 266 ]
-"81
-[e $U 267  ]
-[e :U 268 ]
-[; ;main.c: 119: }
-[; ;main.c: 138: while(1){
-"138
-[e :U 277 ]
-{
-[; ;main.c: 139: startTurning(3);
-"139
-[e ( _startTurning (1 -> -> 3 `i `ui ]
-[; ;main.c: 140: _delay((unsigned long)((600)*(4000000/4000.0)));
-"140
-[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 141: startTurning(2);
-"141
-[e ( _startTurning (1 -> -> 2 `i `ui ]
-[; ;main.c: 142: _delay((unsigned long)((600)*(4000000/4000.0)));
-"142
-[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 143: startTurning(1);
-"143
-[e ( _startTurning (1 -> -> 1 `i `ui ]
-[; ;main.c: 144: _delay((unsigned long)((600)*(4000000/4000.0)));
-"144
-[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 145: startTurning(2);
-"145
-[e ( _startTurning (1 -> -> 2 `i `ui ]
-[; ;main.c: 146: _delay((unsigned long)((600)*(4000000/4000.0)));
-"146
-[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"147
-}
-[e :U 276 ]
-"138
-[e $U 277  ]
-[e :U 278 ]
-[; ;main.c: 147: }
-[; ;main.c: 149: return 0;
-"149
-[e ) -> 0 `i ]
-[e $UE 265  ]
-[; ;main.c: 150: }
-"150
+[; ;servo.c: 6: servo_direction = dirct;
+"6
+[e = _servo_direction _dirct ]
+[; ;servo.c: 7: servo_counter = 0;
+"7
+[e = _servo_counter -> -> 0 `i `ui ]
+[; ;servo.c: 8: }
+"8
 [e :UE 265 ]
 }
-[a 2C 76 73 71 72 84 95 83 87 73 84 67 72 0 ]
-[a 1C 32 0 ]
+"10
+[v _servoInteruptions `(v ~T0 @X0 1 ef ]
+{
+[; ;servo.c: 10: void servoInteruptions(){
+[e :U _servoInteruptions ]
+[f ]
+[; ;servo.c: 12: if(onCounter != 0 || offCounter != 0){
+"12
+[e $ ! || != _onCounter -> -> 0 `i `ui != _offCounter -> -> 0 `i `ui 267  ]
+{
+[; ;servo.c: 13: if(onCounter != 0){
+"13
+[e $ ! != _onCounter -> -> 0 `i `ui 268  ]
+{
+[; ;servo.c: 14: onCounter--;
+"14
+[e -- _onCounter -> -> 1 `i `ui ]
+[; ;servo.c: 15: PORTCbits.RC2 = 1;
+"15
+[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
+"16
+}
+[; ;servo.c: 16: }
+[e $U 269  ]
+"17
+[e :U 268 ]
+[; ;servo.c: 17: else{
+{
+[; ;servo.c: 18: offCounter--;
+"18
+[e -- _offCounter -> -> 1 `i `ui ]
+[; ;servo.c: 19: PORTCbits.RC2 = 0;
+"19
+[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
+"20
+}
+[e :U 269 ]
+[; ;servo.c: 20: }
+[; ;servo.c: 21: return;
+"21
+[e $UE 266  ]
+"22
+}
+[e :U 267 ]
+[; ;servo.c: 22: }
+[; ;servo.c: 23: if(servo_counter < 30){
+"23
+[e $ ! < _servo_counter -> -> 30 `i `ui 270  ]
+{
+[; ;servo.c: 24: servo_counter++;
+"24
+[e ++ _servo_counter -> -> 1 `i `ui ]
+[; ;servo.c: 25: if(servo_direction == 3){
+"25
+[e $ ! == _servo_direction -> -> 3 `i `ui 271  ]
+{
+[; ;servo.c: 26: onCounter = 5;
+"26
+[e = _onCounter -> -> 5 `i `ui ]
+[; ;servo.c: 27: offCounter = 15;
+"27
+[e = _offCounter -> -> 15 `i `ui ]
+"28
+}
+[; ;servo.c: 28: }
+[e $U 272  ]
+"29
+[e :U 271 ]
+[; ;servo.c: 29: else if(servo_direction == 1){
+[e $ ! == _servo_direction -> -> 1 `i `ui 273  ]
+{
+[; ;servo.c: 30: onCounter = 11;
+"30
+[e = _onCounter -> -> 11 `i `ui ]
+[; ;servo.c: 31: offCounter = 9;
+"31
+[e = _offCounter -> -> 9 `i `ui ]
+"32
+}
+[; ;servo.c: 32: }
+[e $U 274  ]
+"33
+[e :U 273 ]
+[; ;servo.c: 33: else{
+{
+[; ;servo.c: 34: onCounter = 8;
+"34
+[e = _onCounter -> -> 8 `i `ui ]
+[; ;servo.c: 35: offCounter = 12;
+"35
+[e = _offCounter -> -> 12 `i `ui ]
+"36
+}
+[e :U 274 ]
+[e :U 272 ]
+"37
+}
+[e :U 270 ]
+[; ;servo.c: 36: }
+[; ;servo.c: 37: }
+[; ;servo.c: 44: }
+"44
+[e :UE 266 ]
+}

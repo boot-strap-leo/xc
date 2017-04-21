@@ -3686,14 +3686,14 @@ void InitApp(void)
 
 void lcdEnable(void){
 PORTCbits.RC5 = 1;
-_delay((unsigned long)((1)*(8000000/4000000.0)));
+_delay((unsigned long)((1)*(4000000/4000000.0)));
 PORTCbits.RC5 = 0;
 }
 
 void initLCD(void){
 PORTCbits.RC5 = 0;
 PORTCbits.RC2 = 0;
-_delay((unsigned long)((100)*(8000000/4000.0)));
+_delay((unsigned long)((100)*(4000000/4000.0)));
 
 PORTD = 0b00000010;
 lcdEnable();
@@ -3701,40 +3701,40 @@ PORTD = 0b00000010;
 lcdEnable();
 PORTD = 0b00001111;
 lcdEnable();
-_delay((unsigned long)((70)*(8000000/4000000.0)));
+_delay((unsigned long)((70)*(4000000/4000000.0)));
 
 PORTD = 0b00000000;
 lcdEnable();
 PORTD = 0b00001111;
 lcdEnable();
-_delay((unsigned long)((70)*(8000000/4000000.0)));
+_delay((unsigned long)((70)*(4000000/4000000.0)));
 
 PORTD = 0b00000000;
 lcdEnable();
 PORTD = 0b00000001;
 lcdEnable();
-_delay((unsigned long)((10)*(8000000/4000.0)));
+_delay((unsigned long)((10)*(4000000/4000.0)));
 
 PORTD = 0b00000000;
 lcdEnable();
 PORTD = 0b00000011;
 lcdEnable();
-_delay((unsigned long)((30)*(8000000/4000.0)));
+_delay((unsigned long)((30)*(4000000/4000.0)));
 
 }
 
 void lcdWriteChar(unsigned char leter){
 PORTCbits.RC2 = 1;
-_delay((unsigned long)((10)*(8000000/4000.0)));
+_delay((unsigned long)((10)*(4000000/4000.0)));
 
 
 PORTD = (leter >> 4) & 0b00001111;
 lcdEnable();
-_delay((unsigned long)((1)*(8000000/4000.0)));
+_delay((unsigned long)((1)*(4000000/4000.0)));
 
 PORTD = leter & 0b00001111;
 lcdEnable();
-_delay((unsigned long)((1)*(8000000/4000.0)));
+_delay((unsigned long)((1)*(4000000/4000.0)));
 
 }
 
@@ -3771,11 +3771,11 @@ void clearDisplay(){
 PORTCbits.RC2 = 0;
 PORTD = 0b00000000;
 lcdEnable();
-_delay((unsigned long)((10)*(8000000/4000.0)));
+_delay((unsigned long)((10)*(4000000/4000.0)));
 
 PORTD = 0b00000001;
 lcdEnable();
-_delay((unsigned long)((10)*(8000000/4000.0)));
+_delay((unsigned long)((10)*(4000000/4000.0)));
 }
 
 void ledOn_0(){

@@ -2831,15 +2831,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.c: 38: ledOn_0();
 "38
 [e ( _ledOn_0 ..  ]
-[; ;I2C.c: 39: _delay((unsigned long)((60)*(8000000/4000.0)));
+[; ;I2C.c: 39: _delay((unsigned long)((60)*(4000000/4000.0)));
 "39
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 [; ;I2C.c: 40: ledOff_0();
 "40
 [e ( _ledOff_0 ..  ]
-[; ;I2C.c: 41: _delay((unsigned long)((60)*(8000000/4000.0)));
+[; ;I2C.c: 41: _delay((unsigned long)((60)*(4000000/4000.0)));
 "41
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "42
 }
 "36
@@ -2877,15 +2877,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.c: 50: ledOn_1();
 "50
 [e ( _ledOn_1 ..  ]
-[; ;I2C.c: 51: _delay((unsigned long)((60)*(8000000/4000.0)));
+[; ;I2C.c: 51: _delay((unsigned long)((60)*(4000000/4000.0)));
 "51
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 [; ;I2C.c: 52: ledOff_1();
 "52
 [e ( _ledOff_1 ..  ]
-[; ;I2C.c: 53: _delay((unsigned long)((60)*(8000000/4000.0)));
+[; ;I2C.c: 53: _delay((unsigned long)((60)*(4000000/4000.0)));
 "53
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "54
 }
 "48

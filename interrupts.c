@@ -1,6 +1,7 @@
 /******************************************************************************/
 /*Files to Include                                                            */
 /******************************************************************************/
+#include"servo.h"
 
 #if defined(__XC)
     #include <xc.h>         /* XC8 General Include File */
@@ -63,10 +64,11 @@ void high_isr(void)
 
 #endif
     
-    if(INTCONbits.TMR0IE &&  INTCONbits.TMR0IF){
-        valuePort = valuePort + 1;
-        _delay(200000);
+    if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
+        servoInteruptions();
         INTCONbits.TMR0IF = 0;
+        TMR0H = 0xFF;
+        TMR0L = 0x80;
     }
 }
 

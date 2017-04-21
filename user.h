@@ -29,7 +29,7 @@ void clearDisplay();                                /* Clear display string on L
 #define lcd_E   PORTCbits.RC5
 #define lcd_DB  PORTD
 
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 4000000
 
 
 void ledOn_0();

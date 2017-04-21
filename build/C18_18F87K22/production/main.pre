@@ -3724,7 +3724,8 @@ void ConfigureOscillator(void);
 
 # 21 "pwm.h"
 void initPWM();
-void setDutyCycle(unsigned char x);
+void setDutyCycle1(unsigned char x);
+void setDutyCycle2(unsigned char x);
 void dutyCycleUp();
 void dutyCycleSet();
 void dutyCycleClear();
@@ -3734,7 +3735,8 @@ void lessLight();
 void moreLight();
 void lightSwitch();
 
-unsigned char rate=20;
+
+unsigned char rate=45;
 unsigned char lightStatus = 1;
 
 # 19 "system.h"
@@ -3747,7 +3749,20 @@ void initQueue();
 void myQueuePush(int x);
 int myQueueCheck();
 
-# 38 "main.c"
+# 19 "system.h"
+void ConfigureOscillator(void);
+
+# 23 "servo.h"
+unsigned servo_direction;
+
+unsigned onCounter;
+unsigned offCounter;
+unsigned servo_counter;
+
+void servoInteruptions();
+void startTurning(unsigned dirct);
+
+# 39 "main.c"
 extern unsigned char valuePort;
 extern unsigned int myCount;
 
@@ -3768,16 +3783,17 @@ TRISD = 0x00;
 TRISC = 0b00011000;
 PORTB=0X00;
 
+TRISCbits.RC2 = 0;
 T0CON = 0b10001000;
 INTCONbits.TMR0IE = 1;
+(INTCONbits.GIE = 1);
 
 
-
-_delay((unsigned long)((70)*(8000000/4000.0)));
+_delay((unsigned long)((70)*(4000000/4000.0)));
 initLCD();
 unsigned char str[15] = "PROGRAM BEGIN";
 lcdWriteString(str);
-_delay((unsigned long)((500)*(8000000/4000.0)));
+_delay((unsigned long)((500)*(4000000/4000.0)));
 
 
 
@@ -3787,20 +3803,22 @@ initPWM();
 initQueue();
 
 
+
+
 while(1){
 
 
 
 pos = readZ();
 lcdWriteString(" ");
-lcdWriteInt(pos);
+lcdWriteInt(rate);
 myQueuePush((int)pos);
 
 
 if (myQueueCheck() == 1){
 lightSwitch();
 lcdWriteString("LIGHT_SWITCH");
-_delay((unsigned long)((500)*(8000000/4000.0)));
+_delay((unsigned long)((500)*(4000000/4000.0)));
 }
 
 
@@ -3824,10 +3842,21 @@ default:
 
 break;
 }
-_delay((unsigned long)((10)*(8000000/4000.0)));
+_delay((unsigned long)((80)*(4000000/4000.0)));
 }
 
-# 133
+# 138
+while(1){
+startTurning(3);
+_delay((unsigned long)((600)*(4000000/4000.0)));
+startTurning(2);
+_delay((unsigned long)((600)*(4000000/4000.0)));
+startTurning(1);
+_delay((unsigned long)((600)*(4000000/4000.0)));
+startTurning(2);
+_delay((unsigned long)((600)*(4000000/4000.0)));
+}
+
 return 0;
 }
 

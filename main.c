@@ -23,6 +23,7 @@
 #include "I2C.h"
 #include "pwm.h"
 #include "lpque.h"
+#include "servo.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -55,9 +56,10 @@ int main(void)
     TRISC = 0b00011000;
     PORTB=0X00;
     
+    TRISCbits.RC2 = 0;
     T0CON = 0b10001000;
     INTCONbits.TMR0IE = 1;
-    //ei();
+    ei();
     
     
     __delay_ms(70);
@@ -73,11 +75,13 @@ int main(void)
     initPWM();
     initQueue();
         
+    //setDutyCycle1(15);
         
+    //*
     while(1){
         //clearDisplay();
         //initLCD();
-        //*
+        //*/
         pos = readZ();
         lcdWriteString(" ");
         lcdWriteInt(pos);
@@ -90,9 +94,6 @@ int main(void)
             __delay_ms(500);
         }
         
-        //lcdWriteString(" X: ");
-        //lcdWriteInt(pos);
-        //* /
         GestureType ges = readGesture();
         switch (ges){
             case RIGHT_SWIPE:
@@ -111,25 +112,20 @@ int main(void)
                 //lcdWriteString("NO_GESTURE");
                 break;
         }
-        __delay_ms(10);
+        __delay_ms(80);
     }
     /*/
-    initPWM();
     while(1){
-        for (int i = 10; i <= 55; i+=5 ){
-                   initPWM();
-                   setDutyCycle(i);
-                   //moreLight();
-                   ledOn_1();
-                   //PORTCbits.RC1 = 1;
-                   //for (int j = 1; j <= 5; j++)
-                   __delay_ms(100);
-                   //PORTCbits.RC1 = 0;
-                   ledOff_1();
-                   __delay_ms(500);
-                 }
-            }
-        //*/
+        startTurning(CLOCKWISE);
+        __delay_ms(600);
+        startTurning(GOMIDDLE);
+        __delay_ms(600);
+        startTurning(EASTERN);
+        __delay_ms(600);
+        startTurning(GOMIDDLE);
+        __delay_ms(600);
+    }
+    //*/
     return 0;
 }
 

@@ -1,5 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1820 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
+"5042 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
+[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
+"4194
+[v _CCPR2L `Vuc ~T0 @X0 0 e@4027 ]
+"4110
+[v _CCP2CON `Vuc ~T0 @X0 0 e@4026 ]
+"1820
 [s S65 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S65 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
 "1830
@@ -10,16 +16,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S64 . . . ]
 "1841
 [v _TRISCbits `VS64 ~T0 @X0 0 e@3988 ]
-"4110
-[v _CCP2CON `Vuc ~T0 @X0 0 e@4026 ]
 "4972
 [v _T2CON `Vuc ~T0 @X0 0 e@4042 ]
-"5042
-[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
-"22 pwm.h
-[v _setDutyCycle `(v ~T0 @X0 0 ef1`uc ]
-"4194 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
-[v _CCPR2L `Vuc ~T0 @X0 0 e@4027 ]
 "4978
 [s S201 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
 [n S201 . T2CKPS TMR2ON TOUTPS ]
@@ -42,7 +40,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S88 . . . ]
 "2576
 [v _PIR1bits `VS88 ~T0 @X0 0 e@3998 ]
-"87 pwm.c
+"82 pwm.c
 [v _initQueue `(i ~T0 @X0 0 ef ]
 [; ;pic18lf4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
 "51 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
@@ -2677,231 +2675,235 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18lf4620.h: 7714: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;system.h: 19: void ConfigureOscillator(void);
 [; ;pwm.h: 21: void initPWM();
-[; ;pwm.h: 22: void setDutyCycle(unsigned char x);
-[; ;pwm.h: 23: void dutyCycleUp();
-[; ;pwm.h: 24: void dutyCycleSet();
-[; ;pwm.h: 25: void dutyCycleClear();
-[; ;pwm.h: 26: void dutyCycleDown();
-[; ;pwm.h: 28: void lessLight();
-[; ;pwm.h: 29: void moreLight();
-[; ;pwm.h: 30: void lightSwitch();
-"32 pwm.h
+[; ;pwm.h: 22: void setDutyCycle1(unsigned char x);
+[; ;pwm.h: 23: void setDutyCycle2(unsigned char x);
+[; ;pwm.h: 24: void dutyCycleUp();
+[; ;pwm.h: 25: void dutyCycleSet();
+[; ;pwm.h: 26: void dutyCycleClear();
+[; ;pwm.h: 27: void dutyCycleDown();
+[; ;pwm.h: 29: void lessLight();
+[; ;pwm.h: 30: void moreLight();
+[; ;pwm.h: 31: void lightSwitch();
+"34 pwm.h
 [v _rate `uc ~T0 @X0 1 e ]
 [i _rate
--> -> 20 `i `uc
+-> -> 45 `i `uc
 ]
-[; ;pwm.h: 32: unsigned char rate=20;
-"33
+[; ;pwm.h: 34: unsigned char rate=45;
+"35
 [v _lightStatus `uc ~T0 @X0 1 e ]
 [i _lightStatus
 -> -> 1 `i `uc
 ]
-[; ;pwm.h: 33: unsigned char lightStatus = 1;
-"26 pwm.c
+[; ;pwm.h: 35: unsigned char lightStatus = 1;
+"8 pwm.c
 [v _initPWM `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 26: void initPWM(){
+[; ;pwm.c: 8: void initPWM(){
 [e :U _initPWM ]
 [f ]
-[; ;pwm.c: 27: TRISCbits.RC1 = 0;
-"27
+[; ;pwm.c: 9: PR2 = 0x4F;
+"9
+[e = _PR2 -> -> 79 `i `uc ]
+[; ;pwm.c: 10: CCPR2L = 40;
+"10
+[e = _CCPR2L -> -> 40 `i `uc ]
+[; ;pwm.c: 11: CCP2CON = 0b00011110;
+"11
+[e = _CCP2CON -> -> 30 `i `uc ]
+[; ;pwm.c: 12: TRISCbits.RC1 = 0;
+"12
 [e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-[; ;pwm.c: 28: CCP2CON = 0b00011111;
-"28
-[e = _CCP2CON -> -> 31 `i `uc ]
-[; ;pwm.c: 29: T2CON = 0x00;
-"29
-[e = _T2CON -> -> 0 `i `uc ]
-[; ;pwm.c: 30: PR2 = 0b00110011;
-"30
-[e = _PR2 -> -> 51 `i `uc ]
-[; ;pwm.c: 31: setDutyCycle(25);
-"31
-[e ( _setDutyCycle (1 -> -> 25 `i `uc ]
-[; ;pwm.c: 33: }
-"33
+[; ;pwm.c: 13: T2CON = 0x03;
+"13
+[e = _T2CON -> -> 3 `i `uc ]
+[; ;pwm.c: 14: T2CONbits.TMR2ON = 1;
+"14
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;pwm.c: 15: }
+"15
 [e :UE 265 ]
 }
-"34
+"28
 [v _setDutyCycle `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;pwm.c: 34: void setDutyCycle(unsigned char x){
+[; ;pwm.c: 28: void setDutyCycle(unsigned char x){
 [e :U _setDutyCycle ]
 [v _x `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;pwm.c: 35: CCPR2L = x;
-"35
+[; ;pwm.c: 29: CCPR2L = x;
+"29
 [e = _CCPR2L _x ]
-[; ;pwm.c: 36: T2CONbits.TMR2ON = 1;
-"36
+[; ;pwm.c: 30: T2CONbits.TMR2ON = 1;
+"30
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;pwm.c: 37: PIR1bits.CCP1IF = 0;
-"37
+[; ;pwm.c: 31: PIR1bits.CCP1IF = 0;
+"31
 [e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
-[; ;pwm.c: 39: }
-"39
+[; ;pwm.c: 34: }
+"34
 [e :UE 266 ]
 }
-"41
+"36
 [v _dutyCycleUp `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 41: void dutyCycleUp(){
+[; ;pwm.c: 36: void dutyCycleUp(){
 [e :U _dutyCycleUp ]
 [f ]
-[; ;pwm.c: 42: if(50 - 8 > rate)
-"42
-[e $ ! > - -> 50 `i -> 8 `i -> _rate `i 268  ]
-[; ;pwm.c: 43: rate = rate + 8;
-"43
-[e = _rate -> + -> _rate `i -> 8 `i `uc ]
+[; ;pwm.c: 37: if(77 - 20 > rate)
+"37
+[e $ ! > - -> 77 `i -> 20 `i -> _rate `i 268  ]
+[; ;pwm.c: 38: rate = rate + 20;
+"38
+[e = _rate -> + -> _rate `i -> 20 `i `uc ]
 [e $U 269  ]
-"44
+"39
 [e :U 268 ]
-[; ;pwm.c: 44: else
-[; ;pwm.c: 45: rate = 50;
-"45
-[e = _rate -> -> 50 `i `uc ]
+[; ;pwm.c: 39: else
+[; ;pwm.c: 40: rate = 77;
+"40
+[e = _rate -> -> 77 `i `uc ]
 [e :U 269 ]
-[; ;pwm.c: 46: setDutyCycle(rate);
-"46
+[; ;pwm.c: 41: setDutyCycle(rate);
+"41
 [e ( _setDutyCycle (1 _rate ]
-[; ;pwm.c: 47: }
-"47
+[; ;pwm.c: 42: }
+"42
 [e :UE 267 ]
 }
-"49
+"44
 [v _dutyCycleDown `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 49: void dutyCycleDown(){
+[; ;pwm.c: 44: void dutyCycleDown(){
 [e :U _dutyCycleDown ]
 [f ]
-[; ;pwm.c: 50: if(rate > 8)
-"50
-[e $ ! > -> _rate `i -> 8 `i 271  ]
-[; ;pwm.c: 51: rate = (rate - 8>8?rate - 8:8);
-"51
-[e = _rate -> ? > - -> _rate `i -> 8 `i -> 8 `i : - -> _rate `i -> 8 `i -> 8 `i `uc ]
+[; ;pwm.c: 45: if(rate > 20)
+"45
+[e $ ! > -> _rate `i -> 20 `i 271  ]
+[; ;pwm.c: 46: rate = (rate - 20>20?rate - 20:20);
+"46
+[e = _rate -> ? > - -> _rate `i -> 20 `i -> 20 `i : - -> _rate `i -> 20 `i -> 20 `i `uc ]
 [e $U 272  ]
-"52
+"47
 [e :U 271 ]
-[; ;pwm.c: 52: else
-[; ;pwm.c: 53: rate = 8;
-"53
-[e = _rate -> -> 8 `i `uc ]
+[; ;pwm.c: 47: else
+[; ;pwm.c: 48: rate = 20;
+"48
+[e = _rate -> -> 20 `i `uc ]
 [e :U 272 ]
-[; ;pwm.c: 54: setDutyCycle(rate);
-"54
+[; ;pwm.c: 49: setDutyCycle(rate);
+"49
 [e ( _setDutyCycle (1 _rate ]
-[; ;pwm.c: 55: }
-"55
+[; ;pwm.c: 50: }
+"50
 [e :UE 270 ]
 }
-"57
+"52
 [v _dutyCycleSet `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 57: void dutyCycleSet(){
+[; ;pwm.c: 52: void dutyCycleSet(){
 [e :U _dutyCycleSet ]
 [f ]
-[; ;pwm.c: 58: setDutyCycle(rate);
-"58
+[; ;pwm.c: 53: setDutyCycle(rate);
+"53
 [e ( _setDutyCycle (1 _rate ]
-[; ;pwm.c: 59: }
-"59
+[; ;pwm.c: 54: }
+"54
 [e :UE 273 ]
 }
-"61
+"56
 [v _dutyCycleClear `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 61: void dutyCycleClear(){
+[; ;pwm.c: 56: void dutyCycleClear(){
 [e :U _dutyCycleClear ]
 [f ]
-[; ;pwm.c: 63: setDutyCycle(53);
-"63
-[e ( _setDutyCycle (1 -> -> 53 `i `uc ]
-[; ;pwm.c: 64: }
-"64
+[; ;pwm.c: 58: setDutyCycle(77 + 20);
+"58
+[e ( _setDutyCycle (1 -> + -> 77 `i -> 20 `i `uc ]
+[; ;pwm.c: 59: }
+"59
 [e :UE 274 ]
 }
-"66
+"61
 [v _moreLight `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 66: void moreLight(){
+[; ;pwm.c: 61: void moreLight(){
 [e :U _moreLight ]
 [f ]
-[; ;pwm.c: 67: if (lightStatus == 1){
-"67
+[; ;pwm.c: 62: if (lightStatus == 1){
+"62
 [e $ ! == -> _lightStatus `i -> 1 `i 276  ]
 {
-[; ;pwm.c: 68: dutyCycleDown();
-"68
+[; ;pwm.c: 63: dutyCycleDown();
+"63
 [e ( _dutyCycleDown ..  ]
-"69
+"64
 }
 [e :U 276 ]
-[; ;pwm.c: 69: }
-[; ;pwm.c: 70: }
-"70
+[; ;pwm.c: 64: }
+[; ;pwm.c: 65: }
+"65
 [e :UE 275 ]
 }
-"72
+"67
 [v _lessLight `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 72: void lessLight(){
+[; ;pwm.c: 67: void lessLight(){
 [e :U _lessLight ]
 [f ]
-[; ;pwm.c: 73: if (lightStatus == 1){
-"73
+[; ;pwm.c: 68: if (lightStatus == 1){
+"68
 [e $ ! == -> _lightStatus `i -> 1 `i 278  ]
 {
-[; ;pwm.c: 74: dutyCycleUp();
-"74
+[; ;pwm.c: 69: dutyCycleUp();
+"69
 [e ( _dutyCycleUp ..  ]
-"75
+"70
 }
 [e :U 278 ]
-[; ;pwm.c: 75: }
-[; ;pwm.c: 76: }
-"76
+[; ;pwm.c: 70: }
+[; ;pwm.c: 71: }
+"71
 [e :UE 277 ]
 }
-"78
+"73
 [v _lightSwitch `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 78: void lightSwitch(){
+[; ;pwm.c: 73: void lightSwitch(){
 [e :U _lightSwitch ]
 [f ]
-[; ;pwm.c: 79: if (lightStatus == 0){
-"79
+[; ;pwm.c: 74: if (lightStatus == 0){
+"74
 [e $ ! == -> _lightStatus `i -> 0 `i 280  ]
 {
-[; ;pwm.c: 80: lightStatus = 1;
-"80
+[; ;pwm.c: 75: lightStatus = 1;
+"75
 [e = _lightStatus -> -> 1 `i `uc ]
-[; ;pwm.c: 81: dutyCycleSet();
-"81
+[; ;pwm.c: 76: dutyCycleSet();
+"76
 [e ( _dutyCycleSet ..  ]
-"82
+"77
 }
-[; ;pwm.c: 82: }
+[; ;pwm.c: 77: }
 [e $U 281  ]
-"83
+"78
 [e :U 280 ]
-[; ;pwm.c: 83: else{
+[; ;pwm.c: 78: else{
 {
-[; ;pwm.c: 84: lightStatus = 0;
-"84
+[; ;pwm.c: 79: lightStatus = 0;
+"79
 [e = _lightStatus -> -> 0 `i `uc ]
-[; ;pwm.c: 85: dutyCycleClear();
-"85
+[; ;pwm.c: 80: dutyCycleClear();
+"80
 [e ( _dutyCycleClear ..  ]
-"86
+"81
 }
 [e :U 281 ]
-[; ;pwm.c: 86: }
-[; ;pwm.c: 87: initQueue();
-"87
+[; ;pwm.c: 81: }
+[; ;pwm.c: 82: initQueue();
+"82
 [e ( _initQueue ..  ]
-[; ;pwm.c: 88: }
-"88
+[; ;pwm.c: 83: }
+"83
 [e :UE 279 ]
 }

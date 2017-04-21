@@ -14,12 +14,13 @@ extern "C" {
 
 #include "system.h"
 
-#define minx 8
-#define maxn 50
+#define minx 20
+#define maxn 77
 //#define CCP2CON
     
 void initPWM();
-void setDutyCycle(unsigned char x);
+void setDutyCycle1(unsigned char x);
+void setDutyCycle2(unsigned char x);
 void dutyCycleUp();
 void dutyCycleSet();
 void dutyCycleClear();
@@ -29,7 +30,8 @@ void lessLight();
 void moreLight();
 void lightSwitch();
 
-unsigned char rate=20;
+
+unsigned char rate=45;
 unsigned char lightStatus = 1;
 
 

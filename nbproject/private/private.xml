@@ -5,6 +5,7 @@
         <group>
             <file>file:/home/cap/Documents/xc/pwm.c</file>
             <file>file:/home/cap/Documents/xc/user.h</file>
+            <file>file:/home/cap/Documents/xc/servo.c</file>
             <file>file:/home/cap/Documents/xc/user.c</file>
             <file>file:/home/cap/Documents/xc/pwm.h</file>
             <file>file:/home/cap/Documents/xc/nbproject/Makefile-C18_18F87K22.mk</file>
@@ -16,6 +17,8 @@
             <file>file:/home/cap/Documents/xc/interrupts.c</file>
             <file>file:/home/cap/Documents/xc/system.h</file>
             <file>file:/home/cap/Documents/xc/I2C.c</file>
+            <file>file:/home/cap/Documents/xc/servo.h</file>
+            <file>file:/home/cap/Documents/xc/system.c</file>
         </group>
     </open-files>
 </project-private>
