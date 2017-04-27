@@ -1,14 +1,61 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"7292 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
-[v _RCIE `Vb ~T0 @X0 0 e@31981 ]
-"7294
-[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"3465
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"20 eusart.h
-[v _uartTX `(v ~T0 @X0 0 ef1`uc ]
-"6968 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
-[v _LATA2 `Vb ~T0 @X0 0 e@31818 ]
+"1820 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
+[s S65 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S65 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1830
+[s S66 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S66 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"1819
+[u S64 `S65 1 `S66 1 ]
+[n S64 . . . ]
+"1841
+[v _TRISCbits `VS64 ~T0 @X0 0 e@3988 ]
+"3210
+[s S121 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S121 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"3220
+[s S122 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S122 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
+"3230
+[s S123 :6 `uc 1 :1 `uc 1 ]
+[n S123 . . TX8_9 ]
+"3234
+[s S124 :1 `uc 1 ]
+[n S124 . TXD8 ]
+"3209
+[u S120 `S121 1 `S122 1 `S123 1 `S124 1 ]
+[n S120 . . . . . ]
+"3238
+[v _TXSTAbits `VS120 ~T0 @X0 0 e@4012 ]
+"3950
+[s S151 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S151 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
+"3960
+[s S152 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S152 . . SCKP RXCKP RCMT ]
+"3966
+[s S153 :1 `uc 1 :1 `uc 1 ]
+[n S153 . . W4E ]
+"3949
+[u S150 `S151 1 `S152 1 `S153 1 ]
+[n S150 . . . . ]
+"3971
+[v _BAUDCONbits `VS150 ~T0 @X0 0 e@4024 ]
+"3487
+[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
+"3476
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"2484
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
+"2494
+[s S87 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S87 . . TX1IE RC1IE ]
+"2483
+[u S85 `S86 1 `S87 1 ]
+[n S85 . . . ]
+"2500
+[v _PIE1bits `VS85 ~T0 @X0 0 e@3997 ]
 "6272
 [s S258 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S258 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -23,27 +70,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S257 . . . . ]
 "6298
 [v _INTCONbits `VS257 ~T0 @X0 0 e@4082 ]
-"29 servo.h
-[v _servoInteruptions `(v ~T0 @X0 0 ef ]
-"5869 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
-[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
-"5863
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
-[; ;system.h: 19: void ConfigureOscillator(void);
-"23 servo.h
-[v _servo_direction `ui ~T0 @X0 1 e ]
-[; ;servo.h: 23: unsigned servo_direction;
-"25
-[v _onCounter `ui ~T0 @X0 1 e ]
-[; ;servo.h: 25: unsigned onCounter;
-"26
-[v _offCounter `ui ~T0 @X0 1 e ]
-[; ;servo.h: 26: unsigned offCounter;
-"27
-[v _servo_counter `ui ~T0 @X0 1 e ]
-[; ;servo.h: 27: unsigned servo_counter;
-[; ;servo.h: 29: void servoInteruptions();
-[; ;servo.h: 30: void startTurning(unsigned char dirct);
+"3001
+[s S107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S107 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"3011
+[s S108 :3 `uc 1 :1 `uc 1 ]
+[n S108 . . ADEN ]
+"3015
+[s S109 :5 `uc 1 :1 `uc 1 ]
+[n S109 . . SRENA ]
+"3019
+[s S110 :6 `uc 1 :1 `uc 1 ]
+[n S110 . . RC8_9 ]
+"3023
+[s S111 :6 `uc 1 :1 `uc 1 ]
+[n S111 . . RC9 ]
+"3027
+[s S112 :1 `uc 1 ]
+[n S112 . RCD8 ]
+"3000
+[u S106 `S107 1 `S108 1 `S109 1 `S110 1 `S111 1 `S112 1 ]
+[n S106 . . . . . . . ]
+"3031
+[v _RCSTAbits `VS106 ~T0 @X0 0 e@4011 ]
+"3454
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+"7596
+[v _TRMT `Vb ~T0 @X0 0 e@32097 ]
 "15 eusart.h
 [v _RC_DATA `uc ~T0 @X0 1 e ]
 [; ;eusart.h: 15: unsigned char RC_DATA;
@@ -64,9 +117,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.h: 19: void initUART();
 [; ;eusart.h: 20: void uartTX(unsigned char data);
 [; ;eusart.h: 22: void interrupt isr();
-[; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
-[; ;htc.h: 28: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18lf4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
 "51 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [; ;pic18lf4620.h: 51: asm("PORTA equ 0F80h");
@@ -2698,119 +2748,73 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18lf4620.h: 7710: extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;pic18lf4620.h: 7712: extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 [; ;pic18lf4620.h: 7714: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
-[; ;pic18.h: 18: __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-[; ;pic18.h: 19: __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
-[; ;pic18.h: 43: extern void __nop(void);
-[; ;pic18.h: 135: __attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
-[; ;pic18.h: 136: __attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
-[; ;pic18.h: 137: __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
-[; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
-[; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
-"29 interrupts.c
-[v _valuePort `uc ~T0 @X0 1 e ]
-[i _valuePort
--> -> 0 `i `uc
-]
-[; ;interrupts.c: 29: unsigned char valuePort = 0;
-[v F2860 `(v ~T0 @X0 1 tf ]
-"32
-[v _high_isr `IF2860 ~T0 @X0 1 e ]
-"41
+"4 eusart.c
+[v _initUART `(v ~T0 @X0 1 ef ]
 {
-[; ;interrupts.c: 32: void interrupt high_isr(void)
-[; ;interrupts.c: 41: {
-[e :U _high_isr ]
+[; ;eusart.c: 4: void initUART(){
+[e :U _initUART ]
 [f ]
-[; ;interrupts.c: 67: if (RCIE && RCIF) {
-"67
-[e $ ! && _RCIE _RCIF 266  ]
-{
-[; ;interrupts.c: 68: uart_buffer[uart_tail] = RCREG;
-"68
-[e = *U + &U _uart_buffer * -> _uart_tail `ux -> -> # *U &U _uart_buffer `ui `ux _RCREG ]
-[; ;interrupts.c: 69: uartTX(uart_buffer[uart_tail]);
-"69
-[e ( _uartTX (1 *U + &U _uart_buffer * -> _uart_tail `ux -> -> # *U &U _uart_buffer `ui `ux ]
-[; ;interrupts.c: 70: uart_tail = (1 + uart_tail) % 100;
-"70
-[e = _uart_tail -> % + -> 1 `i -> _uart_tail `i -> 100 `i `uc ]
-[; ;interrupts.c: 71: RC_FLAG = 1;
-"71
-[e = _RC_FLAG -> -> 1 `i `uc ]
-[; ;interrupts.c: 72: LATA2 = 1;
-"72
-[e = _LATA2 -> -> 1 `i `b ]
-[; ;interrupts.c: 73: RCIF = 0;
-"73
-[e = _RCIF -> -> 0 `i `b ]
-"74
-}
-[e :U 266 ]
-[; ;interrupts.c: 74: }
-[; ;interrupts.c: 75: if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
-"75
-[e $ ! && != -> . . _INTCONbits 0 5 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 267  ]
-{
-[; ;interrupts.c: 76: servoInteruptions();
-"76
-[e ( _servoInteruptions ..  ]
-[; ;interrupts.c: 77: INTCONbits.TMR0IF = 0;
-"77
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;interrupts.c: 78: TMR0H = 0xFF;
-"78
-[e = _TMR0H -> -> 255 `i `uc ]
-[; ;interrupts.c: 79: TMR0L = 0x80;
-"79
-[e = _TMR0L -> -> 128 `i `uc ]
-"80
-}
-[e :U 267 ]
-[; ;interrupts.c: 80: }
-[; ;interrupts.c: 81: }
-"81
+[; ;eusart.c: 5: TRISCbits.RC7 = 1;
+"5
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[; ;eusart.c: 6: TRISCbits.RC6 = 1;
+"6
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
+[; ;eusart.c: 8: TXSTAbits.BRGH = 1;
+"8
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+[; ;eusart.c: 9: BAUDCONbits.BRG16 = 1;
+"9
+[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+[; ;eusart.c: 10: TXSTAbits.SYNC =0;
+"10
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;eusart.c: 14: SPBRGH = 0x00;
+"14
+[e = _SPBRGH -> -> 0 `i `uc ]
+[; ;eusart.c: 15: SPBRG = 0x07;
+"15
+[e = _SPBRG -> -> 7 `i `uc ]
+[; ;eusart.c: 18: PIE1bits.RCIE = 1;
+"18
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;eusart.c: 19: INTCONbits.PEIE = 1;
+"19
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;eusart.c: 20: INTCONbits.GIE = 1;
+"20
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;eusart.c: 23: RCSTAbits.CREN = 1;
+"23
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;eusart.c: 24: TXSTAbits.TXEN = 1;
+"24
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;eusart.c: 25: RCSTAbits.SPEN = 1;
+"25
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;eusart.c: 27: }
+"27
 [e :UE 265 ]
 }
-[v F2863 `(v ~T0 @X0 1 tf ]
-"85
-[v _low_isr `ILF2863 ~T0 @X0 1 e ]
-"93
+"29
+[v _uartTX `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;interrupts.c: 85: void low_priority interrupt low_isr(void)
-[; ;interrupts.c: 93: {
-[e :U _low_isr ]
+[; ;eusart.c: 29: void uartTX(unsigned char data){
+[e :U _uartTX ]
+[v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;interrupts.c: 119: }
-"119
-[e :UE 268 ]
+[; ;eusart.c: 30: TXREG = data;
+"30
+[e = _TXREG _data ]
+[; ;eusart.c: 31: while(TRMT==0);
+"31
+[e $U 267  ]
+[e :U 268 ]
+[e :U 267 ]
+[e $ == -> _TRMT `i -> 0 `i 268  ]
+[e :U 269 ]
+[; ;eusart.c: 32: }
+"32
+[e :UE 266 ]
 }

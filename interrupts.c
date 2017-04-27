@@ -1,7 +1,8 @@
 /******************************************************************************/
 /*Files to Include                                                            */
 /******************************************************************************/
-#include"servo.h"
+#include "servo.h"
+#include "eusart.h"
 
 #if defined(__XC)
     #include <xc.h>         /* XC8 General Include File */
@@ -63,7 +64,14 @@ void high_isr(void)
       }
 
 #endif
-    
+    if (RCIE && RCIF) {
+        uart_buffer[uart_tail] = RCREG;
+        uartTX(uart_buffer[uart_tail]);
+        uart_tail = (1 + uart_tail) % 100;
+        RC_FLAG = 1;
+        LATA2 = 1;
+        RCIF = 0;
+    }
     if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
         servoInteruptions();
         INTCONbits.TMR0IF = 0;
@@ -83,7 +91,6 @@ void low_isr(void)
 #error "Invalid compiler selection for implemented ISR routines"
 #endif
 {
-
       /* This code stub shows general interrupt handling.  Note that these
       conditional statements are not handled within 3 seperate if blocks.
       Do not use a seperate if block for each interrupt flag to avoid run

@@ -24,6 +24,7 @@
 #include "pwm.h"
 #include "lpque.h"
 #include "servo.h"
+#include "eusart.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -36,8 +37,8 @@
 /******************************************************************************/
 
 
-extern unsigned char valuePort;
-extern unsigned int myCount;
+unsigned char valuePort;
+unsigned int myCount;
 
 //void interrupt myIsr(void){
 //}
@@ -64,24 +65,31 @@ int main(void)
     
     __delay_ms(70);
     initLCD();
-    unsigned char str[15] = "PROGRAM BEGIN";
-    lcdWriteString(str);
+    //unsigned char str[15] = "PROGRAM BEGIN";
+    //lcdWriteString(str);
     __delay_ms(500);
     
+    initPWM();
+    initUART();
     
-    //*
     unsigned char pos;
     _addr = 0x20;
-    initPWM();
     initQueue();
         
     //setDutyCycle1(15);
         
-    //*
+    //*/
     while(1){
         //clearDisplay();
         //initLCD();
-        //*/
+        //
+        if(RC_FLAG == 1){
+            while(uart_head != uart_tail){
+                lcdWriteChar(uart_buffer[uart_head]);
+                uart_head = (1 + uart_head) % 100;
+            }
+            RC_FLAG = 0;
+        }
         pos = readZ();
         lcdWriteString(" ");
         lcdWriteInt(pos);
@@ -94,6 +102,7 @@ int main(void)
             __delay_ms(500);
         }
         
+        // gesture sensor
         GestureType ges = readGesture();
         switch (ges){
             case RIGHT_SWIPE:
@@ -112,9 +121,20 @@ int main(void)
                 //lcdWriteString("NO_GESTURE");
                 break;
         }
+        
+        // receive some data from uart
+        if(RC_FLAG == 1){
+            while(uart_head != uart_tail){
+                lcdWriteChar(uart_buffer[uart_head]);
+                uart_head = (1 + uart_head) % 100;
+            }
+            RC_FLAG = 0;
+        }
         __delay_ms(80);
     }
     /*/
+    /*
+    // check the servo 
     while(1){
         startTurning(CLOCKWISE);
         __delay_ms(600);

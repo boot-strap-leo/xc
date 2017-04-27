@@ -27,7 +27,7 @@ unsigned offCounter;
 unsigned servo_counter;
 
 void servoInteruptions();
-void startTurning(unsigned dirct);
+void startTurning(unsigned char dirct);
 
 #ifdef	__cplusplus
 }

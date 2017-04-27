@@ -6,4 +6,5 @@ I2C.h  \
 user.h  \
 system.h  \
 servo.h  \
+eusart.h  \
 lpque.h 

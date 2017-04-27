@@ -1,41 +1,15 @@
 
-# 1 "servo.c"
+# 1 "eusart.c"
 
-# 19 "system.h"
-void ConfigureOscillator(void);
+# 15 "eusart.h"
+unsigned char RC_DATA;
+unsigned char RC_FLAG;
+unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
 
-# 23 "servo.h"
-unsigned servo_direction;
+void initUART();
+void uartTX(unsigned char data);
 
-unsigned onCounter;
-unsigned offCounter;
-unsigned servo_counter;
-
-void servoInteruptions();
-void startTurning(unsigned char dirct);
-
-# 13 "user.h"
-void InitApp(void);
-
-void initLCD(void);
-void lcdEnable(void);
-
-void lcdWriteInt(int num);
-void lcdWriteUI(unsigned int num);
-void lcdWriteChar(unsigned char leter);
-void lcdWriteString(unsigned char str[]);
-void clearDisplay();
-
-# 35
-void ledOn_0();
-void ledOn_1();
-void ledOn_2();
-void ledOn_3();
-
-void ledOff_0();
-void ledOff_1();
-void ledOff_2();
-void ledOff_3();
+void interrupt isr();
 
 # 49 "/opt/microchip/xc8/v1.41/include/pic18lf4620.h"
 extern volatile unsigned char PORTA @ 0xF80;
@@ -3564,40 +3538,34 @@ extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
-# 5 "servo.c"
-void startTurning(unsigned char dirct){
-servo_direction = dirct;
-servo_counter = 0;
+# 4 "eusart.c"
+void initUART(){
+TRISCbits.RC7 = 1;
+TRISCbits.RC6 = 1;
+
+TXSTAbits.BRGH = 1;
+BAUDCONbits.BRG16 = 1;
+TXSTAbits.SYNC =0;
+
+
+
+SPBRGH = 0x00;
+SPBRG = 0x07;
+
+
+PIE1bits.RCIE = 1;
+INTCONbits.PEIE = 1;
+INTCONbits.GIE = 1;
+
+
+RCSTAbits.CREN = 1;
+TXSTAbits.TXEN = 1;
+RCSTAbits.SPEN = 1;
+
 }
 
-void servoInteruptions(){
-
-if(onCounter != 0 || offCounter != 0){
-if(onCounter != 0){
-onCounter--;
-PORTCbits.RC2 = 1;
-}
-else{
-offCounter--;
-PORTCbits.RC2 = 0;
-}
-return;
-}
-if(servo_counter < 30){
-servo_counter++;
-if(servo_direction == 3){
-onCounter = 5;
-offCounter = 15;
-}
-else if(servo_direction == 1){
-onCounter = 11;
-offCounter = 9;
-}
-else{
-onCounter = 8;
-offCounter = 12;
-}
+void uartTX(unsigned char data){
+TXREG = data;
+while(TRMT==0);
 }
 
-# 44
-}

@@ -2,7 +2,7 @@
 #include "user.h"
 #include <pic18lf4620.h>
 
-void startTurning(unsigned dirct){
+void startTurning(unsigned char dirct){
     servo_direction = dirct;
     servo_counter = 0;
 }

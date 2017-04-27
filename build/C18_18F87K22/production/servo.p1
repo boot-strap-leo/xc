@@ -33,7 +33,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _servo_counter `ui ~T0 @X0 1 e ]
 [; ;servo.h: 27: unsigned servo_counter;
 [; ;servo.h: 29: void servoInteruptions();
-[; ;servo.h: 30: void startTurning(unsigned dirct);
+[; ;servo.h: 30: void startTurning(unsigned char dirct);
 [; ;user.h: 13: void InitApp(void);
 [; ;user.h: 15: void initLCD(void);
 [; ;user.h: 16: void lcdEnable(void);
@@ -2682,15 +2682,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18lf4620.h: 7712: extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 [; ;pic18lf4620.h: 7714: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 "5 servo.c
-[v _startTurning `(v ~T0 @X0 1 ef1`ui ]
+[v _startTurning `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;servo.c: 5: void startTurning(unsigned dirct){
+[; ;servo.c: 5: void startTurning(unsigned char dirct){
 [e :U _startTurning ]
-[v _dirct `ui ~T0 @X0 1 r1 ]
+[v _dirct `uc ~T0 @X0 1 r1 ]
 [f ]
 [; ;servo.c: 6: servo_direction = dirct;
 "6
-[e = _servo_direction _dirct ]
+[e = _servo_direction -> _dirct `ui ]
 [; ;servo.c: 7: servo_counter = 0;
 "7
 [e = _servo_counter -> -> 0 `i `ui ]

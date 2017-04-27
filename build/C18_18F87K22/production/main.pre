@@ -3760,11 +3760,21 @@ unsigned offCounter;
 unsigned servo_counter;
 
 void servoInteruptions();
-void startTurning(unsigned dirct);
+void startTurning(unsigned char dirct);
 
-# 39 "main.c"
-extern unsigned char valuePort;
-extern unsigned int myCount;
+# 15 "eusart.h"
+unsigned char RC_DATA;
+unsigned char RC_FLAG;
+unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
+
+void initUART();
+void uartTX(unsigned char data);
+
+void interrupt isr();
+
+# 40 "main.c"
+unsigned char valuePort;
+unsigned int myCount;
 
 
 
@@ -3791,72 +3801,28 @@ INTCONbits.TMR0IE = 1;
 
 _delay((unsigned long)((70)*(4000000/4000.0)));
 initLCD();
-unsigned char str[15] = "PROGRAM BEGIN";
-lcdWriteString(str);
+
+
 _delay((unsigned long)((500)*(4000000/4000.0)));
 
-
-
-unsigned char pos;
-_addr = 0x20;
-initPWM();
-initQueue();
-
-
-
+initUART();
 
 while(1){
+_delay((unsigned long)((1000)*(4000000/4000.0)));
 
-
-
-pos = readZ();
-lcdWriteString(" ");
-lcdWriteInt(rate);
-myQueuePush((int)pos);
-
-
-if (myQueueCheck() == 1){
-lightSwitch();
-lcdWriteString("LIGHT_SWITCH");
-_delay((unsigned long)((500)*(4000000/4000.0)));
+# 81
+_delay((unsigned long)((10)*(4000000/4000.0)));
+if(RC_FLAG == 1){
+while(uart_head != uart_tail){
+lcdWriteChar(uart_buffer[uart_head]);
+uart_head = (1 + uart_head) % 100;
+}
+RC_FLAG = 0;
 }
 
-
-
-
-GestureType ges = readGesture();
-switch (ges){
-case RIGHT_SWIPE:
-
-moreLight();
-break;
-case LEFT_SWIPE:
-
-lessLight();
-break;
-case UP_SWIPE:
-
-
-break;
-default:
-
-break;
-}
-_delay((unsigned long)((80)*(4000000/4000.0)));
 }
 
-# 138
-while(1){
-startTurning(3);
-_delay((unsigned long)((600)*(4000000/4000.0)));
-startTurning(2);
-_delay((unsigned long)((600)*(4000000/4000.0)));
-startTurning(1);
-_delay((unsigned long)((600)*(4000000/4000.0)));
-startTurning(2);
-_delay((unsigned long)((600)*(4000000/4000.0)));
-}
-
+# 149
 return 0;
 }
 

@@ -10,6 +10,7 @@
       <itemPath>pwm.h</itemPath>
       <itemPath>lpque.h</itemPath>
       <itemPath>servo.h</itemPath>
+      <itemPath>eusart.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -27,6 +28,7 @@
       <itemPath>pwm.c</itemPath>
       <itemPath>lpque.c</itemPath>
       <itemPath>servo.c</itemPath>
+      <itemPath>eusart.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

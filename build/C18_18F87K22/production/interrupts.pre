@@ -12,7 +12,17 @@ unsigned offCounter;
 unsigned servo_counter;
 
 void servoInteruptions();
-void startTurning(unsigned dirct);
+void startTurning(unsigned char dirct);
+
+# 15 "eusart.h"
+unsigned char RC_DATA;
+unsigned char RC_FLAG;
+unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
+
+void initUART();
+void uartTX(unsigned char data);
+
+void interrupt isr();
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3667,16 +3677,24 @@ typedef uint16_t uintptr_t;
 # 12 "/opt/microchip/xc8/v1.41/include/stdbool.h"
 typedef unsigned char bool;
 
-# 28 "interrupts.c"
+# 29 "interrupts.c"
 unsigned char valuePort = 0;
 
 
 void interrupt high_isr(void)
 
-# 40
+# 41
 {
 
 # 67
+if (RCIE && RCIF) {
+uart_buffer[uart_tail] = RCREG;
+uartTX(uart_buffer[uart_tail]);
+uart_tail = (1 + uart_tail) % 100;
+RC_FLAG = 1;
+LATA2 = 1;
+RCIF = 0;
+}
 if(INTCONbits.TMR0IE && INTCONbits.TMR0IF){
 servoInteruptions();
 INTCONbits.TMR0IF = 0;
@@ -3689,8 +3707,8 @@ TMR0L = 0x80;
 
 void low_priority interrupt low_isr(void)
 
-# 85
+# 93
 {
 
-# 112
+# 119
 }
