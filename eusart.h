@@ -11,6 +11,14 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+    
+#define NO_COMMAND              0x00
+#define OPEN_DOOR               0x01
+#define CLOSE_DOOR              0x02
+#define MORE_LIGHT              0x03
+#define LESS_LIGHT              0x04
+#define OPEN_AIRCONDITION       0x05
+#define CLOSE_AIRCONDITION      0x06
 
 unsigned char RC_DATA;
 unsigned char RC_FLAG;
@@ -20,7 +28,10 @@ void initUART();
 void uartTX(unsigned char data);
 
 void interrupt isr();
+void openAirCondition();
+void closeAirCondition();
 
+unsigned char getCommand();
 
 #ifdef	__cplusplus
 }

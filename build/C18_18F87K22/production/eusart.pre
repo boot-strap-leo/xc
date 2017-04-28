@@ -1,7 +1,7 @@
 
 # 1 "eusart.c"
 
-# 15 "eusart.h"
+# 23 "eusart.h"
 unsigned char RC_DATA;
 unsigned char RC_FLAG;
 unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
@@ -10,6 +10,10 @@ void initUART();
 void uartTX(unsigned char data);
 
 void interrupt isr();
+void openAirCondition();
+void closeAirCondition();
+
+unsigned char getCommand();
 
 # 49 "/opt/microchip/xc8/v1.41/include/pic18lf4620.h"
 extern volatile unsigned char PORTA @ 0xF80;
@@ -3567,5 +3571,43 @@ RCSTAbits.SPEN = 1;
 void uartTX(unsigned char data){
 TXREG = data;
 while(TRMT==0);
+}
+
+unsigned char getCommand(){
+unsigned char ret = 0x00;
+if (uart_buffer[uart_head] == 'o' || uart_buffer[uart_head] == 'O'){
+uart_head = (uart_head + 1) % 100;
+if (uart_buffer[uart_head] == 'd' || uart_buffer[uart_head] == 'D')
+ret = 0x01;
+if (uart_buffer[uart_head] == 'a' || uart_buffer[uart_head] == 'A')
+ret = 0x05;
+}
+else if (uart_buffer[uart_head] == 'c' || uart_buffer[uart_head] == 'C'){
+uart_head = (uart_head + 1) % 100;
+if (uart_buffer[uart_head] == 'd' || uart_buffer[uart_head] == 'D')
+ret = 0x02;
+if (uart_buffer[uart_head] == 'a' || uart_buffer[uart_head] == 'A')
+ret = 0x06;
+}
+else{
+if (uart_buffer[uart_head] == 'm' || uart_buffer[uart_head] == 'M')
+ret = 0x03;
+if (uart_buffer[uart_head] == 'l' || uart_buffer[uart_head] == 'L')
+ret = 0x04;
+uart_head = (uart_head + 1) % 100;
+if (uart_buffer[uart_head] != 'l' && uart_buffer[uart_head] == 'L')
+ret = 0x00;
+}
+uart_head = (uart_head + 1) % 100;
+return ret;
+}
+
+
+void openAirCondition(){
+PORTBbits.RB7 = 1;
+}
+
+void closeAirCondition(){
+PORTBbits.RB7 = 0;
 }
 

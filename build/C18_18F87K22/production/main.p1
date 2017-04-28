@@ -47,10 +47,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i __delay ]
 "15 user.h
 [v _initLCD `(v ~T0 @X0 0 ef ]
-"19 eusart.h
+"21 pwm.h
+[v _initPWM `(v ~T0 @X0 0 ef ]
+"27 eusart.h
 [v _initUART `(v ~T0 @X0 0 ef ]
+"19 lpque.h
+[v _initQueue `(v ~T0 @X0 0 ef ]
 "20 user.h
 [v _lcdWriteChar `(v ~T0 @X0 0 ef1`uc ]
+"94 I2C.h
+[v _readZ `(uc ~T0 @X0 0 ef ]
+"21 user.h
+[v _lcdWriteString `(v ~T0 @X0 0 ef1`*uc ]
+"18
+[v _lcdWriteInt `(v ~T0 @X0 0 ef1`i ]
+"20 lpque.h
+[v _myQueuePush `(v ~T0 @X0 0 ef1`i ]
+"21
+[v _myQueueCheck `(i ~T0 @X0 0 ef ]
+"31 pwm.h
+[v _lightSwitch `(v ~T0 @X0 0 ef ]
+"106 main.c
+[c E2865 1 2 3 255 .. ]
+[n E2865 GestureType RIGHT_SWIPE LEFT_SWIPE UP_SWIPE NO_GESTURE  ]
+"97 I2C.h
+[v _readGesture `(E2865 ~T0 @X0 0 ef ]
+"30 pwm.h
+[v _moreLight `(v ~T0 @X0 0 ef ]
+"29
+[v _lessLight `(v ~T0 @X0 0 ef ]
+"34 eusart.h
+[v _getCommand `(uc ~T0 @X0 0 ef ]
+"32 servo.h
+[v _openDoor `(v ~T0 @X0 0 ef ]
+"33
+[v _closeDoor `(v ~T0 @X0 0 ef ]
+"31 eusart.h
+[v _openAirCondition `(v ~T0 @X0 0 ef ]
+"32
+[v _closeAirCondition `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2819,13 +2854,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;servo.h: 27: unsigned servo_counter;
 [; ;servo.h: 29: void servoInteruptions();
 [; ;servo.h: 30: void startTurning(unsigned char dirct);
-"15 eusart.h
+[; ;servo.h: 32: void openDoor();
+[; ;servo.h: 33: void closeDoor();
+"23 eusart.h
 [v _RC_DATA `uc ~T0 @X0 1 e ]
-[; ;eusart.h: 15: unsigned char RC_DATA;
-"16
+[; ;eusart.h: 23: unsigned char RC_DATA;
+"24
 [v _RC_FLAG `uc ~T0 @X0 1 e ]
-[; ;eusart.h: 16: unsigned char RC_FLAG;
-"17
+[; ;eusart.h: 24: unsigned char RC_FLAG;
+"25
 [v _uart_buffer `uc ~T0 @X0 -> 105 `i e ]
 [v _uart_head `uc ~T0 @X0 1 e ]
 [i _uart_head
@@ -2835,10 +2872,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _uart_tail
 -> -> 0 `i `uc
 ]
-[; ;eusart.h: 17: unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
-[; ;eusart.h: 19: void initUART();
-[; ;eusart.h: 20: void uartTX(unsigned char data);
-[; ;eusart.h: 22: void interrupt isr();
+[; ;eusart.h: 25: unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
+[; ;eusart.h: 27: void initUART();
+[; ;eusart.h: 28: void uartTX(unsigned char data);
+[; ;eusart.h: 30: void interrupt isr();
+[; ;eusart.h: 31: void openAirCondition();
+[; ;eusart.h: 32: void closeAirCondition();
+[; ;eusart.h: 34: unsigned char getCommand();
 "40 main.c
 [v _valuePort `uc ~T0 @X0 1 e ]
 [; ;main.c: 40: unsigned char valuePort;
@@ -2895,60 +2935,248 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 70: _delay((unsigned long)((500)*(4000000/4000.0)));
 "70
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 72: initUART();
+[; ;main.c: 72: initPWM();
 "72
+[e ( _initPWM ..  ]
+[; ;main.c: 73: initUART();
+"73
 [e ( _initUART ..  ]
-[; ;main.c: 74: while(1){
-"74
+"75
+[v _pos `uc ~T0 @X0 1 a ]
+[; ;main.c: 75: unsigned char pos;
+[; ;main.c: 76: _addr = 0x20;
+"76
+[e = __addr -> -> 32 `i `uc ]
+[; ;main.c: 77: initQueue();
+"77
+[e ( _initQueue ..  ]
+[; ;main.c: 82: while(1){
+"82
 [e :U 267 ]
 {
-[; ;main.c: 75: _delay((unsigned long)((1000)*(4000000/4000.0)));
-"75
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 81: _delay((unsigned long)((10)*(4000000/4000.0)));
-"81
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 82: if(RC_FLAG == 1){
-"82
+[; ;main.c: 86: if(RC_FLAG == 1){
+"86
 [e $ ! == -> _RC_FLAG `i -> 1 `i 269  ]
 {
-[; ;main.c: 83: while(uart_head != uart_tail){
-"83
+[; ;main.c: 87: while(uart_head != uart_tail){
+"87
 [e $U 270  ]
 [e :U 271 ]
 {
-[; ;main.c: 84: lcdWriteChar(uart_buffer[uart_head]);
-"84
-[e ( _lcdWriteChar (1 *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux ]
-[; ;main.c: 85: uart_head = (1 + uart_head) % 100;
-"85
-[e = _uart_head -> % + -> 1 `i -> _uart_head `i -> 100 `i `uc ]
-"86
-}
-[e :U 270 ]
-"83
-[e $ != -> _uart_head `i -> _uart_tail `i 271  ]
-[e :U 272 ]
-[; ;main.c: 86: }
-[; ;main.c: 87: RC_FLAG = 0;
-"87
-[e = _RC_FLAG -> -> 0 `i `uc ]
+[; ;main.c: 88: lcdWriteChar(uart_buffer[uart_head]);
 "88
-}
-[e :U 269 ]
+[e ( _lcdWriteChar (1 *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux ]
+[; ;main.c: 89: uart_head = (1 + uart_head) % 100;
+"89
+[e = _uart_head -> % + -> 1 `i -> _uart_head `i -> 100 `i `uc ]
 "90
 }
+[e :U 270 ]
+"87
+[e $ != -> _uart_head `i -> _uart_tail `i 271  ]
+[e :U 272 ]
+[; ;main.c: 90: }
+[; ;main.c: 91: RC_FLAG = 0;
+"91
+[e = _RC_FLAG -> -> 0 `i `uc ]
+"92
+}
+[e :U 269 ]
+[; ;main.c: 92: }
+[; ;main.c: 93: pos = readZ();
+"93
+[e = _pos ( _readZ ..  ]
+[; ;main.c: 94: lcdWriteString(" ");
+"94
+[e ( _lcdWriteString (1 -> :s 1C `*uc ]
+[; ;main.c: 95: lcdWriteInt(pos);
+"95
+[e ( _lcdWriteInt (1 -> _pos `i ]
+[; ;main.c: 96: myQueuePush((int)pos);
+"96
+[e ( _myQueuePush (1 -> _pos `i ]
+[; ;main.c: 99: if (myQueueCheck() == 1){
+"99
+[e $ ! == ( _myQueueCheck ..  -> 1 `i 273  ]
+{
+[; ;main.c: 100: lightSwitch();
+"100
+[e ( _lightSwitch ..  ]
+[; ;main.c: 101: lcdWriteString("LIGHT_SWITCH");
+"101
+[e ( _lcdWriteString (1 -> :s 2C `*uc ]
+[; ;main.c: 102: _delay((unsigned long)((500)*(4000000/4000.0)));
+"102
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"103
+}
+[e :U 273 ]
+"106
+[v _ges `E2865 ~T0 @X0 1 a ]
+[; ;main.c: 103: }
+[; ;main.c: 106: GestureType ges = readGesture();
+[e = _ges ( _readGesture ..  ]
+[; ;main.c: 107: switch (ges){
+"107
+[e $U 275  ]
+{
+[; ;main.c: 108: case RIGHT_SWIPE:
+"108
+[e :U 276 ]
+[; ;main.c: 110: moreLight();
+"110
+[e ( _moreLight ..  ]
+[; ;main.c: 111: break;
+"111
+[e $U 274  ]
+[; ;main.c: 112: case LEFT_SWIPE:
+"112
+[e :U 277 ]
+[; ;main.c: 114: lessLight();
+"114
+[e ( _lessLight ..  ]
+[; ;main.c: 115: break;
+"115
+[e $U 274  ]
+[; ;main.c: 116: case UP_SWIPE:
+"116
+[e :U 278 ]
+[; ;main.c: 119: break;
+"119
+[e $U 274  ]
+[; ;main.c: 120: default:
+"120
+[e :U 279 ]
+[; ;main.c: 122: break;
+"122
+[e $U 274  ]
+"123
+}
+[; ;main.c: 123: }
+[e $U 274  ]
+"107
+[e :U 275 ]
+[e [\ _ges , $ . `E2865 0 276
+ , $ . `E2865 1 277
+ , $ . `E2865 2 278
+ 279 ]
+"123
+[e :U 274 ]
+[; ;main.c: 126: if(RC_FLAG == 1){
+"126
+[e $ ! == -> _RC_FLAG `i -> 1 `i 280  ]
+{
+[; ;main.c: 127: _delay((unsigned long)((2)*(4000000/4000.0)));
+"127
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"128
+[v _command `uc ~T0 @X0 1 a ]
+[; ;main.c: 128: unsigned char command = getCommand();
+[e = _command ( _getCommand ..  ]
+[; ;main.c: 129: switch (command){
+"129
+[e $U 282  ]
+{
+[; ;main.c: 130: case 0x00:
+"130
+[e :U 283 ]
+[; ;main.c: 131: break;
+"131
+[e $U 281  ]
+[; ;main.c: 132: case 0x01:
+"132
+[e :U 284 ]
+[; ;main.c: 133: openDoor();
+"133
+[e ( _openDoor ..  ]
+[; ;main.c: 134: break;
+"134
+[e $U 281  ]
+[; ;main.c: 135: case 0x02:
+"135
+[e :U 285 ]
+[; ;main.c: 136: closeDoor();
+"136
+[e ( _closeDoor ..  ]
+[; ;main.c: 137: break;
+"137
+[e $U 281  ]
+[; ;main.c: 138: case 0x03:
+"138
+[e :U 286 ]
+[; ;main.c: 139: moreLight();
+"139
+[e ( _moreLight ..  ]
+[; ;main.c: 140: break;
+"140
+[e $U 281  ]
+[; ;main.c: 141: case 0x04:
+"141
+[e :U 287 ]
+[; ;main.c: 142: lessLight();
+"142
+[e ( _lessLight ..  ]
+[; ;main.c: 143: break;
+"143
+[e $U 281  ]
+[; ;main.c: 144: case 0x05:
+"144
+[e :U 288 ]
+[; ;main.c: 145: openAirCondition();
+"145
+[e ( _openAirCondition ..  ]
+[; ;main.c: 146: break;
+"146
+[e $U 281  ]
+[; ;main.c: 147: case 0x06:
+"147
+[e :U 289 ]
+[; ;main.c: 148: closeAirCondition();
+"148
+[e ( _closeAirCondition ..  ]
+[; ;main.c: 149: break;
+"149
+[e $U 281  ]
+"150
+}
+[; ;main.c: 150: }
+[e $U 281  ]
+"129
+[e :U 282 ]
+[e [\ _command , $ -> -> 0 `i `uc 283
+ , $ -> -> 1 `i `uc 284
+ , $ -> -> 2 `i `uc 285
+ , $ -> -> 3 `i `uc 286
+ , $ -> -> 4 `i `uc 287
+ , $ -> -> 5 `i `uc 288
+ , $ -> -> 6 `i `uc 289
+ 281 ]
+"150
+[e :U 281 ]
+[; ;main.c: 151: RC_FLAG = 0;
+"151
+[e = _RC_FLAG -> -> 0 `i `uc ]
+"152
+}
+[e :U 280 ]
+[; ;main.c: 152: }
+[; ;main.c: 153: _delay((unsigned long)((10)*(4000000/4000.0)));
+"153
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"154
+}
 [e :U 266 ]
-"74
+"82
 [e $U 267  ]
 [e :U 268 ]
-[; ;main.c: 88: }
-[; ;main.c: 90: }
-[; ;main.c: 149: return 0;
-"149
+[; ;main.c: 154: }
+[; ;main.c: 169: return 0;
+"169
 [e ) -> 0 `i ]
 [e $UE 265  ]
-[; ;main.c: 150: }
-"150
+[; ;main.c: 170: }
+"170
 [e :UE 265 ]
 }
+[a 2C 76 73 71 72 84 95 83 87 73 84 67 72 0 ]
+[a 1C 32 0 ]

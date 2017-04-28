@@ -42,3 +42,12 @@ void servoInteruptions(){
     }
     //*/
 }
+
+
+void openDoor(){
+    startTurning(CLOCKWISE);
+}
+
+void closeDoor(){
+    startTurning(EASTERN);
+}

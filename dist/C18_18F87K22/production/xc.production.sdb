@@ -3,6 +3,13 @@
 [d edition pro ]
 [d chip 18LF4620 ]
 [d frameptr 4065 ]
+"106 /home/cap/Documents/xc/main.c
+[e E2865 GestureType `uc
+RIGHT_SWIPE 1
+LEFT_SWIPE 2
+UP_SWIPE 3
+NO_GESTURE 255
+]
 "154 /home/cap/Documents/xc/I2C.c
 [e E2841 GestureType `uc
 RIGHT_SWIPE 1
@@ -41,6 +48,12 @@ NO_GESTURE 255
 [v _initUART initUART `(v  1 e 1 0 ]
 "29
 [v _uartTX uartTX `(v  1 e 1 0 ]
+"34
+[v _getCommand getCommand `(uc  1 e 1 0 ]
+"64
+[v _openAirCondition openAirCondition `(v  1 e 1 0 ]
+"68
+[v _closeAirCondition closeAirCondition `(v  1 e 1 0 ]
 "19 /home/cap/Documents/xc/I2C.c
 [v _I2CInit I2CInit `(v  1 e 1 0 ]
 "58
@@ -55,15 +68,25 @@ NO_GESTURE 255
 [v _writeDataByte writeDataByte `(v  1 e 1 0 ]
 "92
 [v _readDataByte readDataByte `(uc  1 e 1 0 ]
+"117
+[v _readZ readZ `(uc  1 e 1 0 ]
+"154
+[v _readGesture readGesture `(E2865  1 e 1 0 ]
 "32 /home/cap/Documents/xc/interrupts.c
 [v _high_isr high_isr `II(v  1 e 1 0 ]
 "85
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
 "3 /home/cap/Documents/xc/lpque.c
-[v _initQueue initQueue `(i  1 e 2 0 ]
+[v _initQueue initQueue `(v  1 e 1 0 ]
+"8
+[v _myQueuePush myQueuePush `(v  1 e 1 0 ]
+"12
+[v _myQueueCheck myQueueCheck `(i  1 e 2 0 ]
 "46 /home/cap/Documents/xc/main.c
 [v _main main `(i  1 e 2 0 ]
-"28 /home/cap/Documents/xc/pwm.c
+"8 /home/cap/Documents/xc/pwm.c
+[v _initPWM initPWM `(v  1 e 1 0 ]
+"28
 [v _setDutyCycle setDutyCycle `(v  1 e 1 0 ]
 "36
 [v _dutyCycleUp dutyCycleUp `(v  1 e 1 0 ]
@@ -73,8 +96,20 @@ NO_GESTURE 255
 [v _dutyCycleSet dutyCycleSet `(v  1 e 1 0 ]
 "56
 [v _dutyCycleClear dutyCycleClear `(v  1 e 1 0 ]
-"10 /home/cap/Documents/xc/servo.c
+"61
+[v _moreLight moreLight `(v  1 e 1 0 ]
+"67
+[v _lessLight lessLight `(v  1 e 1 0 ]
+"73
+[v _lightSwitch lightSwitch `(v  1 e 1 0 ]
+"5 /home/cap/Documents/xc/servo.c
+[v _startTurning startTurning `(v  1 e 1 0 ]
+"10
 [v _servoInteruptions servoInteruptions `(v  1 e 1 0 ]
+"47
+[v _openDoor openDoor `(v  1 e 1 0 ]
+"51
+[v _closeDoor closeDoor `(v  1 e 1 0 ]
 "24 /home/cap/Documents/xc/system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 "28 /home/cap/Documents/xc/user.c
@@ -85,8 +120,12 @@ NO_GESTURE 255
 [v _initLCD initLCD `(v  1 e 1 0 ]
 "80
 [v _lcdWriteChar lcdWriteChar `(v  1 e 1 0 ]
+"95
+[v _lcdWriteString lcdWriteString `(v  1 e 1 0 ]
 "101
 [v _lcdWriteUI lcdWriteUI `(v  1 e 1 0 ]
+"114
+[v _lcdWriteInt lcdWriteInt `(v  1 e 1 0 ]
 "135
 [v _ledOn_0 ledOn_0 `(v  1 e 1 0 ]
 "138
@@ -97,6 +136,39 @@ NO_GESTURE 255
 [v _ledOff_1 ledOff_1 `(v  1 e 1 0 ]
 "185 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S966 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"226
+[s S975 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S984 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S993 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S996 . 1 `S966 1 . 1 0 `S975 1 . 1 0 `S984 1 . 1 0 `S993 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES996  1 e 1 @3969 ]
 [s S129 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
@@ -107,7 +179,7 @@ NO_GESTURE 255
 `uc 1 RC7 1 0 :1:7 
 ]
 "400
-[s S251 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S328 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -116,7 +188,7 @@ NO_GESTURE 255
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S260 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S337 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -125,14 +197,14 @@ NO_GESTURE 255
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S269 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S346 . 1 `uc 1 T1CKI 1 0 :1:0 
 ]
-[s S271 . 1 `uc 1 . 1 0 :1:0 
+[s S348 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S275 . 1 `S129 1 . 1 0 `S251 1 . 1 0 `S260 1 . 1 0 `S269 1 . 1 0 `S271 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES275  1 e 1 @3970 ]
+[u S352 . 1 `S129 1 . 1 0 `S328 1 . 1 0 `S337 1 . 1 0 `S346 1 . 1 0 `S348 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES352  1 e 1 @3970 ]
 "529
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
 "983
@@ -157,7 +229,7 @@ NO_GESTURE 255
 [v _TRISCbits TRISCbits `VES138  1 e 1 @3988 ]
 "2030
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S776 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S853 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -167,13 +239,13 @@ NO_GESTURE 255
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "2500
-[s S785 . 1 `uc 1 . 1 0 :4:0 
+[s S862 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S789 . 1 `S776 1 . 1 0 `S785 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES789  1 e 1 @3997 ]
-[s S405 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S866 . 1 `S853 1 . 1 0 `S862 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES866  1 e 1 @3997 ]
+[s S482 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -183,13 +255,13 @@ NO_GESTURE 255
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "2576
-[s S414 . 1 `uc 1 . 1 0 :4:0 
+[s S491 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S418 . 1 `S405 1 . 1 0 `S414 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES418  1 e 1 @3998 ]
-[s S833 . 1 `uc 1 RX9D 1 0 :1:0 
+[u S495 . 1 `S482 1 . 1 0 `S491 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES495  1 e 1 @3998 ]
+[s S910 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -199,23 +271,23 @@ NO_GESTURE 255
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3031
-[s S842 . 1 `uc 1 . 1 0 :3:0 
+[s S919 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S845 . 1 `uc 1 . 1 0 :5:0 
+[s S922 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S848 . 1 `uc 1 . 1 0 :6:0 
+[s S925 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S851 . 1 `uc 1 . 1 0 :6:0 
+[s S928 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S854 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S931 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S856 . 1 `S833 1 . 1 0 `S842 1 . 1 0 `S845 1 . 1 0 `S848 1 . 1 0 `S851 1 . 1 0 `S854 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES856  1 e 1 @4011 ]
-[s S683 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S933 . 1 `S910 1 . 1 0 `S919 1 . 1 0 `S922 1 . 1 0 `S925 1 . 1 0 `S928 1 . 1 0 `S931 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES933  1 e 1 @4011 ]
+[s S760 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -225,7 +297,7 @@ NO_GESTURE 255
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3238
-[s S692 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S769 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -234,13 +306,13 @@ NO_GESTURE 255
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S701 . 1 `uc 1 . 1 0 :6:0 
+[s S778 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S704 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S781 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S706 . 1 `S683 1 . 1 0 `S692 1 . 1 0 `S701 1 . 1 0 `S704 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES706  1 e 1 @4012 ]
+[u S783 . 1 `S760 1 . 1 0 `S769 1 . 1 0 `S778 1 . 1 0 `S781 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES783  1 e 1 @4012 ]
 "3454
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3465
@@ -249,7 +321,7 @@ NO_GESTURE 255
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "3487
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S735 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S812 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -259,21 +331,21 @@ NO_GESTURE 255
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "3971
-[s S744 . 1 `uc 1 . 1 0 :4:0 
+[s S821 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 RXCKP 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S749 . 1 `uc 1 . 1 0 :1:0 
+[s S826 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S752 . 1 `S735 1 . 1 0 `S744 1 . 1 0 `S749 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES752  1 e 1 @4024 ]
+[u S829 . 1 `S812 1 . 1 0 `S821 1 . 1 0 `S826 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES829  1 e 1 @4024 ]
 "4110
 [v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
 "4194
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
-[s S378 . 1 `uc 1 SEN 1 0 :1:0 
+[s S455 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -283,32 +355,32 @@ NO_GESTURE 255
 `uc 1 GCEN 1 0 :1:7 
 ]
 "4627
-[u S387 . 1 `S378 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES387  1 e 1 @4037 ]
-[s S352 . 1 `uc 1 SSPM 1 0 :4:0 
+[u S464 . 1 `S455 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES464  1 e 1 @4037 ]
+[s S429 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4691
-[s S358 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S435 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S363 . 1 `S352 1 . 1 0 `S358 1 . 1 0 ]
-[v _SSPCON1bits SSPCON1bits `VES363  1 e 1 @4038 ]
+[u S440 . 1 `S429 1 . 1 0 `S435 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES440  1 e 1 @4038 ]
 "4966
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
 "4972
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
-[s S536 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S613 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "4993
-[s S540 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S617 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -316,8 +388,8 @@ NO_GESTURE 255
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S548 . 1 `S536 1 . 1 0 `S540 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES548  1 e 1 @4042 ]
+[u S625 . 1 `S613 1 . 1 0 `S617 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES625  1 e 1 @4042 ]
 "5042
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "5781
@@ -359,9 +431,9 @@ NO_GESTURE 255
 [v _RCIF RCIF `VEb  1 e 0 @31989 ]
 "7596
 [v _TRMT TRMT `VEb  1 e 0 @32097 ]
-"16 /home/cap/Documents/xc/eusart.h
+"24 /home/cap/Documents/xc/eusart.h
 [v _RC_FLAG RC_FLAG `uc  1 e 1 0 ]
-"17
+"25
 [v _uart_buffer uart_buffer `[105]uc  1 e 105 0 ]
 [v _uart_head uart_head `uc  1 e 1 0 ]
 [v _uart_tail uart_tail `uc  1 e 1 0 ]
@@ -387,9 +459,179 @@ NO_GESTURE 255
 "46 /home/cap/Documents/xc/main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"150
+"128
+[v main@command command `uc  1 a 1 3 ]
+"106
+[v main@ges ges `E2865  1 a 1 2 ]
+"75
+[v main@pos pos `uc  1 a 1 4 ]
+"170
 } 0
-"80 /home/cap/Documents/xc/user.c
+"117 /home/cap/Documents/xc/I2C.c
+[v _readZ readZ `(uc  1 e 1 0 ]
+{
+"118
+[v readZ@z_pos z_pos `uc  1 a 1 43 ]
+"130
+} 0
+"154
+[v _readGesture readGesture `(E2865  1 e 1 0 ]
+{
+"155
+[v readGesture@gesture gesture `uc  1 a 1 43 ]
+"172
+} 0
+"92
+[v _readDataByte readDataByte `(uc  1 e 1 0 ]
+{
+[v readDataByte@addr addr `uc  1 a 1 wreg ]
+"96
+[v readDataByte@retc retc `uc  1 a 1 41 ]
+"92
+[v readDataByte@addr addr `uc  1 a 1 wreg ]
+[v readDataByte@reg reg `uc  1 p 1 40 ]
+[v readDataByte@addr addr `uc  1 a 1 42 ]
+"98
+} 0
+"85
+[v _writeDataByte writeDataByte `(v  1 e 1 0 ]
+{
+[v writeDataByte@addr addr `uc  1 a 1 wreg ]
+[v writeDataByte@addr addr `uc  1 a 1 wreg ]
+[v writeDataByte@reg reg `uc  1 p 1 38 ]
+[v writeDataByte@addr addr `uc  1 a 1 39 ]
+"90
+} 0
+"69
+[v _sendByte sendByte `(v  1 e 1 0 ]
+{
+[v sendByte@c c `uc  1 a 1 wreg ]
+[v sendByte@c c `uc  1 a 1 wreg ]
+[v sendByte@c c `uc  1 a 1 37 ]
+"73
+} 0
+"58
+[v _I2CStart I2CStart `(v  1 e 1 0 ]
+{
+"62
+} 0
+"19
+[v _I2CInit I2CInit `(v  1 e 1 0 ]
+{
+"26
+} 0
+"75
+[v _receiveByte receiveByte `(uc  1 e 1 0 ]
+{
+"79
+[v receiveByte@retc retc `uc  1 a 1 37 ]
+"81
+} 0
+"64
+[v _I2CRestart I2CRestart `(v  1 e 1 0 ]
+{
+"67
+} 0
+"47 /home/cap/Documents/xc/servo.c
+[v _openDoor openDoor `(v  1 e 1 0 ]
+{
+"49
+} 0
+"64 /home/cap/Documents/xc/eusart.c
+[v _openAirCondition openAirCondition `(v  1 e 1 0 ]
+{
+"66
+} 0
+"8 /home/cap/Documents/xc/lpque.c
+[v _myQueuePush myQueuePush `(v  1 e 1 0 ]
+{
+[v myQueuePush@x x `i  1 p 2 43 ]
+"11
+} 0
+"12
+[v _myQueueCheck myQueueCheck `(i  1 e 2 0 ]
+{
+"13
+[v myQueueCheck@i i `i  1 a 2 0 ]
+"20
+} 0
+"61 /home/cap/Documents/xc/pwm.c
+[v _moreLight moreLight `(v  1 e 1 0 ]
+{
+"65
+} 0
+"44
+[v _dutyCycleDown dutyCycleDown `(v  1 e 1 0 ]
+{
+"50
+} 0
+"73
+[v _lightSwitch lightSwitch `(v  1 e 1 0 ]
+{
+"83
+} 0
+"3 /home/cap/Documents/xc/lpque.c
+[v _initQueue initQueue `(v  1 e 1 0 ]
+{
+"4
+[v initQueue@i i `i  1 a 2 37 ]
+"6
+} 0
+"52 /home/cap/Documents/xc/pwm.c
+[v _dutyCycleSet dutyCycleSet `(v  1 e 1 0 ]
+{
+"54
+} 0
+"56
+[v _dutyCycleClear dutyCycleClear `(v  1 e 1 0 ]
+{
+"59
+} 0
+"67
+[v _lessLight lessLight `(v  1 e 1 0 ]
+{
+"71
+} 0
+"36
+[v _dutyCycleUp dutyCycleUp `(v  1 e 1 0 ]
+{
+"42
+} 0
+"28
+[v _setDutyCycle setDutyCycle `(v  1 e 1 0 ]
+{
+[v setDutyCycle@x x `uc  1 a 1 wreg ]
+[v setDutyCycle@x x `uc  1 a 1 wreg ]
+[v setDutyCycle@x x `uc  1 a 1 37 ]
+"34
+} 0
+"95 /home/cap/Documents/xc/user.c
+[v _lcdWriteString lcdWriteString `(v  1 e 1 0 ]
+{
+"96
+[v lcdWriteString@i i `i  1 a 2 43 ]
+"95
+[v lcdWriteString@str str `*.25uc  1 p 2 39 ]
+"99
+} 0
+"114
+[v _lcdWriteInt lcdWriteInt `(v  1 e 1 0 ]
+{
+[v lcdWriteInt@num num `i  1 p 2 46 ]
+"120
+} 0
+"101
+[v _lcdWriteUI lcdWriteUI `(v  1 e 1 0 ]
+{
+"102
+[v lcdWriteUI@stack stack `[20]uc  1 a 20 0 ]
+"103
+[v lcdWriteUI@i i `i  1 a 2 20 ]
+"101
+[v lcdWriteUI@num num `ui  1 p 2 44 ]
+"112
+} 0
+"80
 [v _lcdWriteChar lcdWriteChar `(v  1 e 1 0 ]
 {
 [v lcdWriteChar@leter leter `uc  1 a 1 wreg ]
@@ -397,10 +639,37 @@ NO_GESTURE 255
 [v lcdWriteChar@leter leter `uc  1 a 1 38 ]
 "93
 } 0
+"8 /opt/microchip/xc8/v1.41/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 41 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 37 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 39 ]
+"26
+} 0
+"8 /opt/microchip/xc8/v1.41/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 42 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 41 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 37 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 39 ]
+"31
+} 0
 "4 /home/cap/Documents/xc/eusart.c
 [v _initUART initUART `(v  1 e 1 0 ]
 {
 "27
+} 0
+"8 /home/cap/Documents/xc/pwm.c
+[v _initPWM initPWM `(v  1 e 1 0 ]
+{
+"15
 } 0
 "47 /home/cap/Documents/xc/user.c
 [v _initLCD initLCD `(v  1 e 1 0 ]
@@ -412,6 +681,13 @@ NO_GESTURE 255
 {
 "45
 } 0
+"34 /home/cap/Documents/xc/eusart.c
+[v _getCommand getCommand `(uc  1 e 1 0 ]
+{
+"35
+[v getCommand@ret ret `uc  1 a 1 44 ]
+"61
+} 0
 "8 /opt/microchip/xc8/v1.41/sources/common/awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
@@ -422,6 +698,24 @@ NO_GESTURE 255
 [v ___awmod@dividend dividend `i  1 p 2 37 ]
 [v ___awmod@divisor divisor `i  1 p 2 39 ]
 "35
+} 0
+"51 /home/cap/Documents/xc/servo.c
+[v _closeDoor closeDoor `(v  1 e 1 0 ]
+{
+"53
+} 0
+"5
+[v _startTurning startTurning `(v  1 e 1 0 ]
+{
+[v startTurning@dirct dirct `uc  1 a 1 wreg ]
+[v startTurning@dirct dirct `uc  1 a 1 wreg ]
+[v startTurning@dirct dirct `uc  1 a 1 37 ]
+"8
+} 0
+"68 /home/cap/Documents/xc/eusart.c
+[v _closeAirCondition closeAirCondition `(v  1 e 1 0 ]
+{
+"70
 } 0
 "28 /home/cap/Documents/xc/user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]

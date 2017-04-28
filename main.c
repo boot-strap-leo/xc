@@ -124,13 +124,33 @@ int main(void)
         
         // receive some data from uart
         if(RC_FLAG == 1){
-            while(uart_head != uart_tail){
-                lcdWriteChar(uart_buffer[uart_head]);
-                uart_head = (1 + uart_head) % 100;
+            __delay_ms(2);
+            unsigned char command = getCommand();
+            switch (command){
+                case NO_COMMAND:
+                    break;
+                case OPEN_DOOR:
+                    openDoor();
+                    break;
+                case CLOSE_DOOR:
+                    closeDoor();
+                    break;
+                case MORE_LIGHT:
+                    moreLight();
+                    break;
+                case LESS_LIGHT:
+                    lessLight();
+                    break;
+                case OPEN_AIRCONDITION:
+                    openAirCondition();
+                    break;
+                case CLOSE_AIRCONDITION:
+                    closeAirCondition();
+                    break;
             }
             RC_FLAG = 0;
         }
-        __delay_ms(80);
+        __delay_ms(10);
     }
     /*/
     /*

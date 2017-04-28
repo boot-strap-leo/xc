@@ -3762,7 +3762,10 @@ unsigned servo_counter;
 void servoInteruptions();
 void startTurning(unsigned char dirct);
 
-# 15 "eusart.h"
+void openDoor();
+void closeDoor();
+
+# 23 "eusart.h"
 unsigned char RC_DATA;
 unsigned char RC_FLAG;
 unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
@@ -3771,6 +3774,10 @@ void initUART();
 void uartTX(unsigned char data);
 
 void interrupt isr();
+void openAirCondition();
+void closeAirCondition();
+
+unsigned char getCommand();
 
 # 40 "main.c"
 unsigned char valuePort;
@@ -3805,13 +3812,20 @@ initLCD();
 
 _delay((unsigned long)((500)*(4000000/4000.0)));
 
+initPWM();
 initUART();
 
-while(1){
-_delay((unsigned long)((1000)*(4000000/4000.0)));
+unsigned char pos;
+_addr = 0x20;
+initQueue();
 
-# 81
-_delay((unsigned long)((10)*(4000000/4000.0)));
+
+
+
+while(1){
+
+
+
 if(RC_FLAG == 1){
 while(uart_head != uart_tail){
 lcdWriteChar(uart_buffer[uart_head]);
@@ -3819,10 +3833,70 @@ uart_head = (1 + uart_head) % 100;
 }
 RC_FLAG = 0;
 }
+pos = readZ();
+lcdWriteString(" ");
+lcdWriteInt(pos);
+myQueuePush((int)pos);
 
+
+if (myQueueCheck() == 1){
+lightSwitch();
+lcdWriteString("LIGHT_SWITCH");
+_delay((unsigned long)((500)*(4000000/4000.0)));
 }
 
-# 149
+
+GestureType ges = readGesture();
+switch (ges){
+case RIGHT_SWIPE:
+
+moreLight();
+break;
+case LEFT_SWIPE:
+
+lessLight();
+break;
+case UP_SWIPE:
+
+
+break;
+default:
+
+break;
+}
+
+
+if(RC_FLAG == 1){
+_delay((unsigned long)((2)*(4000000/4000.0)));
+unsigned char command = getCommand();
+switch (command){
+case 0x00:
+break;
+case 0x01:
+openDoor();
+break;
+case 0x02:
+closeDoor();
+break;
+case 0x03:
+moreLight();
+break;
+case 0x04:
+lessLight();
+break;
+case 0x05:
+openAirCondition();
+break;
+case 0x06:
+closeAirCondition();
+break;
+}
+RC_FLAG = 0;
+}
+_delay((unsigned long)((10)*(4000000/4000.0)));
+}
+
+# 169
 return 0;
 }
 

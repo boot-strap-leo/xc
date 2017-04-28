@@ -18,7 +18,7 @@ extern "C" {
 #define GOMIDDLE 2
 #define CLOCKWISE 3
 #define NOTURNING 0
-#define COUNTLIMIT 30
+#define COUNTLIMIT 45
 
 unsigned servo_direction;
 
@@ -28,6 +28,9 @@ unsigned servo_counter;
 
 void servoInteruptions();
 void startTurning(unsigned char dirct);
+
+void openDoor();
+void closeDoor();
 
 #ifdef	__cplusplus
 }

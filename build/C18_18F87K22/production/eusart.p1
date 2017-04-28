@@ -97,13 +97,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
 "7596
 [v _TRMT `Vb ~T0 @X0 0 e@32097 ]
-"15 eusart.h
+"191
+[s S11 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S11 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"201
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . INT0 INT1 INT2 CCP2 KBI0 KBI1 KBI2 KBI3 ]
+"211
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . AN12 AN10 AN8 AN9 AN11 PGM PGC PGD ]
+"221
+[s S14 :3 `uc 1 :1 `uc 1 ]
+[n S14 . . CCP2_PA2 ]
+"190
+[u S10 `S11 1 `S12 1 `S13 1 `S14 1 ]
+[n S10 . . . . . ]
+"226
+[v _PORTBbits `VS10 ~T0 @X0 0 e@3969 ]
+"23 eusart.h
 [v _RC_DATA `uc ~T0 @X0 1 e ]
-[; ;eusart.h: 15: unsigned char RC_DATA;
-"16
+[; ;eusart.h: 23: unsigned char RC_DATA;
+"24
 [v _RC_FLAG `uc ~T0 @X0 1 e ]
-[; ;eusart.h: 16: unsigned char RC_FLAG;
-"17
+[; ;eusart.h: 24: unsigned char RC_FLAG;
+"25
 [v _uart_buffer `uc ~T0 @X0 -> 105 `i e ]
 [v _uart_head `uc ~T0 @X0 1 e ]
 [i _uart_head
@@ -113,10 +130,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _uart_tail
 -> -> 0 `i `uc
 ]
-[; ;eusart.h: 17: unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
-[; ;eusart.h: 19: void initUART();
-[; ;eusart.h: 20: void uartTX(unsigned char data);
-[; ;eusart.h: 22: void interrupt isr();
+[; ;eusart.h: 25: unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
+[; ;eusart.h: 27: void initUART();
+[; ;eusart.h: 28: void uartTX(unsigned char data);
+[; ;eusart.h: 30: void interrupt isr();
+[; ;eusart.h: 31: void openAirCondition();
+[; ;eusart.h: 32: void closeAirCondition();
+[; ;eusart.h: 34: unsigned char getCommand();
 [; ;pic18lf4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
 "51 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [; ;pic18lf4620.h: 51: asm("PORTA equ 0F80h");
@@ -2817,4 +2837,135 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 32: }
 "32
 [e :UE 266 ]
+}
+"34
+[v _getCommand `(uc ~T0 @X0 1 ef ]
+{
+[; ;eusart.c: 34: unsigned char getCommand(){
+[e :U _getCommand ]
+[f ]
+"35
+[v _ret `uc ~T0 @X0 1 a ]
+[; ;eusart.c: 35: unsigned char ret = 0x00;
+[e = _ret -> -> 0 `i `uc ]
+[; ;eusart.c: 36: if (uart_buffer[uart_head] == 'o' || uart_buffer[uart_head] == 'O'){
+"36
+[e $ ! || == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 111 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 79 `ui 271  ]
+{
+[; ;eusart.c: 37: uart_head = (uart_head + 1) % 100;
+"37
+[e = _uart_head -> % + -> _uart_head `i -> 1 `i -> 100 `i `uc ]
+[; ;eusart.c: 38: if (uart_buffer[uart_head] == 'd' || uart_buffer[uart_head] == 'D')
+"38
+[e $ ! || == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 100 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 68 `ui 272  ]
+[; ;eusart.c: 39: ret = 0x01;
+"39
+[e = _ret -> -> 1 `i `uc ]
+[e :U 272 ]
+[; ;eusart.c: 40: if (uart_buffer[uart_head] == 'a' || uart_buffer[uart_head] == 'A')
+"40
+[e $ ! || == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 97 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 65 `ui 273  ]
+[; ;eusart.c: 41: ret = 0x05;
+"41
+[e = _ret -> -> 5 `i `uc ]
+[e :U 273 ]
+"42
+}
+[; ;eusart.c: 42: }
+[e $U 274  ]
+"43
+[e :U 271 ]
+[; ;eusart.c: 43: else if (uart_buffer[uart_head] == 'c' || uart_buffer[uart_head] == 'C'){
+[e $ ! || == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 99 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 67 `ui 275  ]
+{
+[; ;eusart.c: 44: uart_head = (uart_head + 1) % 100;
+"44
+[e = _uart_head -> % + -> _uart_head `i -> 1 `i -> 100 `i `uc ]
+[; ;eusart.c: 45: if (uart_buffer[uart_head] == 'd' || uart_buffer[uart_head] == 'D')
+"45
+[e $ ! || == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 100 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 68 `ui 276  ]
+[; ;eusart.c: 46: ret = 0x02;
+"46
+[e = _ret -> -> 2 `i `uc ]
+[e :U 276 ]
+[; ;eusart.c: 47: if (uart_buffer[uart_head] == 'a' || uart_buffer[uart_head] == 'A')
+"47
+[e $ ! || == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 97 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 65 `ui 277  ]
+[; ;eusart.c: 48: ret = 0x06;
+"48
+[e = _ret -> -> 6 `i `uc ]
+[e :U 277 ]
+"49
+}
+[; ;eusart.c: 49: }
+[e $U 278  ]
+"50
+[e :U 275 ]
+[; ;eusart.c: 50: else{
+{
+[; ;eusart.c: 51: if (uart_buffer[uart_head] == 'm' || uart_buffer[uart_head] == 'M')
+"51
+[e $ ! || == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 109 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 77 `ui 279  ]
+[; ;eusart.c: 52: ret = 0x03;
+"52
+[e = _ret -> -> 3 `i `uc ]
+[e :U 279 ]
+[; ;eusart.c: 53: if (uart_buffer[uart_head] == 'l' || uart_buffer[uart_head] == 'L')
+"53
+[e $ ! || == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 108 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 76 `ui 280  ]
+[; ;eusart.c: 54: ret = 0x04;
+"54
+[e = _ret -> -> 4 `i `uc ]
+[e :U 280 ]
+[; ;eusart.c: 55: uart_head = (uart_head + 1) % 100;
+"55
+[e = _uart_head -> % + -> _uart_head `i -> 1 `i -> 100 `i `uc ]
+[; ;eusart.c: 56: if (uart_buffer[uart_head] != 'l' && uart_buffer[uart_head] == 'L')
+"56
+[e $ ! && != -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 108 `ui == -> *U + &U _uart_buffer * -> _uart_head `ux -> -> # *U &U _uart_buffer `ui `ux `ui -> 76 `ui 281  ]
+[; ;eusart.c: 57: ret = 0x00;
+"57
+[e = _ret -> -> 0 `i `uc ]
+[e :U 281 ]
+"58
+}
+[e :U 278 ]
+[e :U 274 ]
+[; ;eusart.c: 58: }
+[; ;eusart.c: 59: uart_head = (uart_head + 1) % 100;
+"59
+[e = _uart_head -> % + -> _uart_head `i -> 1 `i -> 100 `i `uc ]
+[; ;eusart.c: 60: return ret;
+"60
+[e ) _ret ]
+[e $UE 270  ]
+[; ;eusart.c: 61: }
+"61
+[e :UE 270 ]
+}
+"64
+[v _openAirCondition `(v ~T0 @X0 1 ef ]
+{
+[; ;eusart.c: 64: void openAirCondition(){
+[e :U _openAirCondition ]
+[f ]
+[; ;eusart.c: 65: PORTBbits.RB7 = 1;
+"65
+[e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
+[; ;eusart.c: 66: }
+"66
+[e :UE 282 ]
+}
+"68
+[v _closeAirCondition `(v ~T0 @X0 1 ef ]
+{
+[; ;eusart.c: 68: void closeAirCondition(){
+[e :U _closeAirCondition ]
+[f ]
+[; ;eusart.c: 69: PORTBbits.RB7 = 0;
+"69
+[e = . . _PORTBbits 0 7 -> -> 0 `i `uc ]
+[; ;eusart.c: 70: }
+"70
+[e :UE 283 ]
 }

@@ -5,7 +5,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
 "3465
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"20 eusart.h
+"28 eusart.h
 [v _uartTX `(v ~T0 @X0 0 ef1`uc ]
 "6968 /opt/microchip/xc8/v1.41/include/pic18lf4620.h
 [v _LATA2 `Vb ~T0 @X0 0 e@31818 ]
@@ -44,13 +44,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;servo.h: 27: unsigned servo_counter;
 [; ;servo.h: 29: void servoInteruptions();
 [; ;servo.h: 30: void startTurning(unsigned char dirct);
-"15 eusart.h
+[; ;servo.h: 32: void openDoor();
+[; ;servo.h: 33: void closeDoor();
+"23 eusart.h
 [v _RC_DATA `uc ~T0 @X0 1 e ]
-[; ;eusart.h: 15: unsigned char RC_DATA;
-"16
+[; ;eusart.h: 23: unsigned char RC_DATA;
+"24
 [v _RC_FLAG `uc ~T0 @X0 1 e ]
-[; ;eusart.h: 16: unsigned char RC_FLAG;
-"17
+[; ;eusart.h: 24: unsigned char RC_FLAG;
+"25
 [v _uart_buffer `uc ~T0 @X0 -> 105 `i e ]
 [v _uart_head `uc ~T0 @X0 1 e ]
 [i _uart_head
@@ -60,10 +62,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _uart_tail
 -> -> 0 `i `uc
 ]
-[; ;eusart.h: 17: unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
-[; ;eusart.h: 19: void initUART();
-[; ;eusart.h: 20: void uartTX(unsigned char data);
-[; ;eusart.h: 22: void interrupt isr();
+[; ;eusart.h: 25: unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
+[; ;eusart.h: 27: void initUART();
+[; ;eusart.h: 28: void uartTX(unsigned char data);
+[; ;eusart.h: 30: void interrupt isr();
+[; ;eusart.h: 31: void openAirCondition();
+[; ;eusart.h: 32: void closeAirCondition();
+[; ;eusart.h: 34: unsigned char getCommand();
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2742,9 +2747,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;interrupts.c: 29: unsigned char valuePort = 0;
-[v F2860 `(v ~T0 @X0 1 tf ]
+[v F2865 `(v ~T0 @X0 1 tf ]
 "32
-[v _high_isr `IF2860 ~T0 @X0 1 e ]
+[v _high_isr `IF2865 ~T0 @X0 1 e ]
 "41
 {
 [; ;interrupts.c: 32: void interrupt high_isr(void)
@@ -2801,9 +2806,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "81
 [e :UE 265 ]
 }
-[v F2863 `(v ~T0 @X0 1 tf ]
+[v F2868 `(v ~T0 @X0 1 tf ]
 "85
-[v _low_isr `ILF2863 ~T0 @X0 1 e ]
+[v _low_isr `ILF2868 ~T0 @X0 1 e ]
 "93
 {
 [; ;interrupts.c: 85: void low_priority interrupt low_isr(void)

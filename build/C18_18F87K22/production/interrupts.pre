@@ -14,7 +14,10 @@ unsigned servo_counter;
 void servoInteruptions();
 void startTurning(unsigned char dirct);
 
-# 15 "eusart.h"
+void openDoor();
+void closeDoor();
+
+# 23 "eusart.h"
 unsigned char RC_DATA;
 unsigned char RC_FLAG;
 unsigned char uart_buffer[105], uart_head = 0, uart_tail = 0;
@@ -23,6 +26,10 @@ void initUART();
 void uartTX(unsigned char data);
 
 void interrupt isr();
+void openAirCondition();
+void closeAirCondition();
+
+unsigned char getCommand();
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;

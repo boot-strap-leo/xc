@@ -34,6 +34,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;servo.h: 27: unsigned servo_counter;
 [; ;servo.h: 29: void servoInteruptions();
 [; ;servo.h: 30: void startTurning(unsigned char dirct);
+[; ;servo.h: 32: void openDoor();
+[; ;servo.h: 33: void closeDoor();
 [; ;user.h: 13: void InitApp(void);
 [; ;user.h: 15: void initLCD(void);
 [; ;user.h: 16: void lcdEnable(void);
@@ -2743,9 +2745,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 267 ]
 [; ;servo.c: 22: }
-[; ;servo.c: 23: if(servo_counter < 30){
+[; ;servo.c: 23: if(servo_counter < 45){
 "23
-[e $ ! < _servo_counter -> -> 30 `i `ui 270  ]
+[e $ ! < _servo_counter -> -> 45 `i `ui 270  ]
 {
 [; ;servo.c: 24: servo_counter++;
 "24
@@ -2801,4 +2803,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;servo.c: 44: }
 "44
 [e :UE 266 ]
+}
+"47
+[v _openDoor `(v ~T0 @X0 1 ef ]
+{
+[; ;servo.c: 47: void openDoor(){
+[e :U _openDoor ]
+[f ]
+[; ;servo.c: 48: startTurning(3);
+"48
+[e ( _startTurning (1 -> -> 3 `i `uc ]
+[; ;servo.c: 49: }
+"49
+[e :UE 275 ]
+}
+"51
+[v _closeDoor `(v ~T0 @X0 1 ef ]
+{
+[; ;servo.c: 51: void closeDoor(){
+[e :U _closeDoor ]
+[f ]
+[; ;servo.c: 52: startTurning(1);
+"52
+[e ( _startTurning (1 -> -> 1 `i `uc ]
+[; ;servo.c: 53: }
+"53
+[e :UE 276 ]
 }
